@@ -93,3 +93,7 @@ These will hopefully be merged by time the next merge window opens in January.
 ## Working USB OTG
 
 ![USB OTG](images/usb-otg.png?raw=1)
+
+## Contact
+
+Brian Masney: [Email](mailto:masneyb@onstation.org), [Linked In](https://www.linkedin.com/in/brian-masney/), [GitHub](https://github.com/masneyb)
