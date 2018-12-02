@@ -66,7 +66,7 @@ January.
 
 - Panel
 
-  - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/))
+  - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
 
 ## Patches accepted for next merge window
@@ -105,8 +105,7 @@ January.
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
   [Asahi Kasei ak8963 magnetometer](https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf), and
   [Bosch bmp280 temperature / humidity](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001-19.pdf)
-  sensors are all on the same physical i2c bus on the phone to form a 9-axis MotionTracking device.
-  Minimal changes were required in order to support these devices on the phone.
+  only required minimal changes in order to support these devices on the phone.
 
   - [de8df0b9c38d ("iio: imu: mpu6050: add support for 6515 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de8df0b9c38d8f232f0df03220ff540a54eaf73d)
   - [07c12b1c007c ("iio: imu: mpu6050: add support for regulator framework")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=07c12b1c007c5c1d9c434ec9a19373ce5d87fe04)
