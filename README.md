@@ -1,17 +1,17 @@
 This page describes the current development efforts to port the the
 [upstream Linux Kernel](https://www.kernel.org/) to the
 [LG Nexus 5 (hammerhead) phone](https://en.wikipedia.org/wiki/Nexus_5). The factory
-kernel image is based on the upstream Linux 3.4 kernel that was released in May 2012. The downstream
-kernel source for this phone adds almost 2 million lines of code on top of the upstream kernel, and
-no longer receives security updates.
+kernel image is based on the upstream Linux 3.4 kernel that was released in May 2012, and adds
+almost 2 million lines of code on top of the upstream kernel. This factory image is abandoned
+and no longer receives security updates.
 
 A large amount of this hardware is already either fully or partially supported in the latest
 version of the upstream kernel. The goal is to eventually get all of the major components
 working upstream, including the necessary
 [device tree bindings](https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf),
-so that the phone will work with the latest upstream kernel. These patches will eventually be
-merged into the [Android kernels](https://android.googlesource.com/kernel/common/) as they
-rebase their kernels onto newer upstream LTS kernel releases.
+so that the phone will work with the latest upstream kernel. These patches will eventually appear
+in the [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their
+kernels onto newer upstream LTS kernel releases.
 
 ## Device summary
 
@@ -23,8 +23,8 @@ patches waiting for a review. See below for further details.
 - temperature / pressure: `/sys/bus/iio/devices/iio:device4`
 - proximity / ambient light sensor (ALS): `/sys/bus/iio/devices/iio:device5`
 - vibrator: `/dev/input/event2`
-- USB
-- WiFi
+- USB: `usb0`
+- WiFi: `wlan0`
 - serial console: `/dev/ttyMSM0`
 - charger
 - Qualcomm 8841 / 8941 PMICs
@@ -54,12 +54,12 @@ January.
   - [power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator](https://lore.kernel.org/lkml/20181101001149.13453-4-masneyb@onstation.org/)
   - [power: supply: bq24190_charger: add extcon support for USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-5-masneyb@onstation.org/)
 
-- USB - requires the charger and gpio / pinctrl patches
+- USB - Requires the charger and gpio / pinctrl patches listed on this page.
 
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
 
-- WiFi - This phone has a [Broadcom 4339 (now Cypress)](http://www.cypress.com/file/298016/download)
+- WiFi - This phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
   for wireless.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
@@ -85,14 +85,18 @@ January.
   proximity / ambient light sensor (ALS), which is register compatible with the
   [TAOS TSL2772 sensor](https://ams.com/eng/content/download/291503/1066377/file/TSL2772_DS000181_2-00.pdf).
   The [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
-  is one of the staging cleanups that I did and it took ~60 patches to move the driver out of
+  is one of the staging cleanups that I did and it took ~70 patches to move the driver out of
   staging and into mainline. A few notable patches from that work:
 
   - [498efcd08114 ("staging: iio: tsl2x7x: correct integration time and lux equation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=498efcd08114905074a644bf81f82ce5c62eac43)
+  - [9861d2daaf28 ("staging: iio: tsl2x7x: correct IIO_EV_INFO_PERIOD values"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9861d2daaf28e7beaa0c655206c595094d47ccd8]
   - [2ab5b7245367 ("staging: iio: tsl2x7x: make proximity sensor function correctly")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2ab5b72453672ea18a176925becc40888df435ce)
+  - [19422bde046a ("staging: iio: tsl2x7x: use auto increment I2C protocol")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19422bde046a7fa549565300d0a4c4dc1e8d585a)
+  - [9e4701eaef02 ("staging: iio: tsl2x7x: correct interrupt handler trigger")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e4701eaef02e1192faca2d0b3529249522f6253)
+  - [77b69a0e679b ("staging: iio: tsl2x7x: convert to use read_avail")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=77b69a0e679b5ca67c5a2b925c195d22dadff12d)
+  - [95d22154d6bb ("staging: iio: tsl2x7x: don't setup event handlers if interrupts are not configured")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95d22154d6bb980a80d59e500e8350d9a0e03f92)
   - [deaecbef3664 ("staging: iio: tsl2x7x: migrate *_thresh_period sysfs attributes to iio_event_spec")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=deaecbef366497c3435b573fed7991d89af9f59c)
   - [4546813a7f6b ("staging: iio: tsl2x7x: migrate in_illuminance0_integration_time sysfs attribute to iio_chan_spec")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4546813a7f6b3dc67ac258666092b1952c4e2ea1)
-  - [9e4701eaef02 ("staging: iio: tsl2x7x: correct interrupt handler trigger")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e4701eaef02e1192faca2d0b3529249522f6253)
   - [c06c4d793584 ("staging: iio: tsl2x7x/tsl2772: move out of staging")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c06c4d793584b965bf5fa3fb107f6279643574e2)
 
   Once the staging cleanup was done, additional changes were required upstream in order to support

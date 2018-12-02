@@ -1,7 +1,7 @@
 # Nexus 5 UART Cable
 
 A serial console can be obtained from the phone through the headphone jack and requires building
-a custom cable that converts between the different voltage levels found between the PC and the
+a custom cable that converts between the different voltage levels found on the PC and the
 phone.
 
 ![Nexus 5 UART Cable](images/Nexus5-UART-Cable.jpg?raw=1)
@@ -15,7 +15,8 @@ phone.
 - 3 x 1K resistors to make a
   [voltage divider](https://learn.sparkfun.com/tutorials/voltage-dividers/all) to convert the
   3.3V TX output from the USB serial cable to 1.8V for the RX pin on the phone.
-- [3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92](https://www.adafruit.com/product/2166)
+- [3.3V 250mA Linear Voltage Regulator - L4931-3.3 TO-92](https://www.adafruit.com/product/2166) to
+  convert the 5-5.2V from the PC to a fixed 3.3V.
 - 2 x 10 uF capacitors for the input and output on the voltage regulator.
 
 ## Pin mapping and voltages
@@ -27,11 +28,10 @@ TX (3.3V)  | Voltage Divider   | Ring 1 (RX 1.8V)
 RX         |                   | Ring 2 (TX 1.8V)
 GND        |                   | Sleeve
 
-Version 1 of my cable also used a voltage divider for the 3.3V on the tip of the headphone jack,
-however I moved to the 3.3V voltage regulator because the USB-C on my laptop puts out 5.2V, and the
-USB-A puts out 5.0V. The phone expects close to 3.3V on the tip pin in order to enable the serial
-console on startup and this slight voltage difference was enough to cause the serial console to not
-work.
+Version 1 of my cable used a voltage divider for the 3.3V on the tip of the headphone jack, however
+I moved to the 3.3V voltage regulator because the USB-C on my laptop puts out 5.2V, and the USB-A
+puts out 5.0V. The phone expects close to 3.3V on the tip pin in order to enable the serial console
+on startup and this slight voltage difference was enough to cause the serial console to not work.
 
 ## Booting the phone
 
