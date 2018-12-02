@@ -9,8 +9,8 @@ A large amount of this hardware is already either fully or partially supported i
 version of the upstream kernel. The goal is to eventually get all of the major components
 working upstream, including the necessary
 [device tree bindings](https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf),
-so that the phone will work with the latest upstream kernel. These patches will eventually find
-their way into the [Android kernels](https://android.googlesource.com/kernel/common/) as they
+so that the phone will work with the latest upstream kernel. These patches will eventually be
+merged into the [Android kernels](https://android.googlesource.com/kernel/common/) as they
 rebase their kernels onto newer upstream LTS kernel releases.
 
 ## Device summary
@@ -32,16 +32,43 @@ cable and is described in [on this page](UART_CABLE.md).
 
 ## Patch series awaiting review
 
-These will hopefully be merged by time the next merge window opens in January.
+These will hopefully be merged into the respective trees by time the next merge window opens in
+January.
 
-- [Vibrator](https://lore.kernel.org/lkml/20181025012937.2154-1-masneyb@onstation.org/)
-- [USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-1-masneyb@onstation.org/)
-- [WiFi](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
-- [Panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
+- Vibrator
+
+  - [dt-bindings: Input: new bindings for MSM vibrator](https://lore.kernel.org/lkml/20181025012937.2154-2-masneyb@onstation.org/)
+  - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20181025012937.2154-3-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20181025012937.2154-4-masneyb@onstation.org/)
+
+- Charger - The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger
+  and for system power path management.
+
+  - [dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus](https://lore.kernel.org/lkml/20181101001149.13453-2-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add support for bq24192 variant](https://lore.kernel.org/lkml/20181101001149.13453-3-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator](https://lore.kernel.org/lkml/20181101001149.13453-4-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add extcon support for USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-5-masneyb@onstation.org/)
+
+- USB - requires the charger and gpio / pinctrl patches
+
+  - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
+
+- WiFi - This phone has a [Broadcom 4339 (now Cypress](http://www.cypress.com/file/298016/download)
+  for wireless.
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
+
+- Panel
+
+  - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/))
+  - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
 
 ## Patches accepted for next merge window
 
-- [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
+- gpio / pinctrl
+
+  - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
 
 ## Upstreamed Patches
 
