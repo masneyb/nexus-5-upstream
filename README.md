@@ -74,6 +74,7 @@ January.
 - gpio / pinctrl
 
   - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer](https://lore.kernel.org/lkml/20181128095335.5538-1-masneyb@onstation.org/)
 
 ## Patches accepted into upstream kernel
 
