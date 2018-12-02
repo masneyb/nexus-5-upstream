@@ -15,13 +15,18 @@ rebase their kernels onto newer upstream LTS kernel releases.
 
 ## Device summary
 
-This is a high-level summary of what currently works upstream.
+This is a high-level summary of what currently works upstream, or where there are outstanding
+patches waiting for a review. See below for further details.
 
 - gyroscope / accelerometer: `/sys/bus/iio/devices/iio:device2`
 - magnetometer: `/sys/bus/iio/devices/iio:device3`
 - temperature / pressure: `/sys/bus/iio/devices/iio:device4`
 - proximity / ambient light sensor (ALS): `/sys/bus/iio/devices/iio:device5`
+- vibrator: `/dev/input/event2`
+- USB
+- WiFi
 - serial console: `/dev/ttyMSM0`
+- charger
 - Qualcomm 8841 / 8941 PMICs
 - All (or most?) of the clocks
 
@@ -54,7 +59,7 @@ January.
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
 
-- WiFi - This phone has a [Broadcom 4339 (now Cypress](http://www.cypress.com/file/298016/download)
+- WiFi - This phone has a [Broadcom 4339 (now Cypress)](http://www.cypress.com/file/298016/download)
   for wireless.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
