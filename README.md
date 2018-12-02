@@ -89,7 +89,7 @@ January.
   staging and into mainline. A few notable patches from that work:
 
   - [498efcd08114 ("staging: iio: tsl2x7x: correct integration time and lux equation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=498efcd08114905074a644bf81f82ce5c62eac43)
-  - [9861d2daaf28 ("staging: iio: tsl2x7x: correct IIO_EV_INFO_PERIOD values"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9861d2daaf28e7beaa0c655206c595094d47ccd8]
+  - [9861d2daaf28 ("staging: iio: tsl2x7x: correct IIO_EV_INFO_PERIOD values"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9861d2daaf28e7beaa0c655206c595094d47ccd8)
   - [2ab5b7245367 ("staging: iio: tsl2x7x: make proximity sensor function correctly")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2ab5b72453672ea18a176925becc40888df435ce)
   - [19422bde046a ("staging: iio: tsl2x7x: use auto increment I2C protocol")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=19422bde046a7fa549565300d0a4c4dc1e8d585a)
   - [9e4701eaef02 ("staging: iio: tsl2x7x: correct interrupt handler trigger")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e4701eaef02e1192faca2d0b3529249522f6253)
