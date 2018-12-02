@@ -30,7 +30,7 @@ This is a high-level summary of what currently works upstream.
 A serial console can be obtained through the headphone jack. This requires building a custom
 cable and is described in [on this page](UART_CABLE.md).
 
-## Patch series awaiting review
+## Patches waiting for a review
 
 These will hopefully be merged into the respective trees by time the next merge window opens in
 January.
