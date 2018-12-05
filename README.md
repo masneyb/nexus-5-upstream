@@ -46,14 +46,6 @@ January.
   - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20181025012937.2154-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20181025012937.2154-4-masneyb@onstation.org/)
 
-- Charger - The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger
-  and for system power path management.
-
-  - [dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus](https://lore.kernel.org/lkml/20181101001149.13453-2-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add support for bq24192 variant](https://lore.kernel.org/lkml/20181101001149.13453-3-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator](https://lore.kernel.org/lkml/20181101001149.13453-4-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add extcon support for USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-5-masneyb@onstation.org/)
-
 - USB - Requires the charger and gpio / pinctrl patches listed on this page.
 
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
@@ -74,6 +66,14 @@ January.
 - gpio / pinctrl
 
   - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
+
+- Charger - The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger
+  and for system power path management.
+
+  - [dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus](https://lore.kernel.org/lkml/20181101001149.13453-2-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add support for bq24192 variant](https://lore.kernel.org/lkml/20181101001149.13453-3-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator](https://lore.kernel.org/lkml/20181101001149.13453-4-masneyb@onstation.org/)
+  - [power: supply: bq24190_charger: add extcon support for USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-5-masneyb@onstation.org/)
 
 - magnetometer
 
