@@ -5,9 +5,7 @@ kernel image is based on the upstream Linux 3.4 kernel that was released in May 
 almost 2 million lines of code on top of the upstream kernel. This factory image is abandoned
 and no longer receives security updates.
 
-A large amount of this hardware is already either fully or partially supported in the latest
-version of the upstream kernel. The goal is to eventually get all of the major components
-working upstream, including the necessary
+The goal is to eventually get all of the major components working upstream, including the necessary
 [device tree bindings](https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf),
 so that the phone will work with the latest upstream kernel. These patches will eventually appear
 in the [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their
@@ -15,8 +13,8 @@ kernels onto newer upstream LTS kernel releases.
 
 ## Device summary
 
-This is a high-level summary of what currently works upstream, or where there are outstanding
-patches waiting for a review. See below for further details.
+This is a high-level summary of the devices that currently work upstream, or where there are
+outstanding patches waiting for a review. See below for further details.
 
 - gyroscope / accelerometer: `/sys/bus/iio/devices/iio:device2`
 - magnetometer: `/sys/bus/iio/devices/iio:device3`
@@ -25,15 +23,11 @@ patches waiting for a review. See below for further details.
 - vibrator: `/dev/input/event2`
 - USB: `usb0`
 - WiFi: `wlan0`
-- serial console: `/dev/ttyMSM0`
 - charger
+- serial port: `/dev/ttyMSM0`. A serial console can be obtained through the headphone jack. This
+  requires building a custom cable and is described in [on this page](UART_CABLE.md).
 - Qualcomm 8841 / 8941 PMICs
-- All (or most?) of the clocks
-
-## Serial console
-
-A serial console can be obtained through the headphone jack. This requires building a custom
-cable and is described in [on this page](UART_CABLE.md).
+- all (or most?) of the clocks
 
 ## Patches waiting for a review
 
