@@ -24,8 +24,8 @@ outstanding patches waiting for a review. See below for further details.
 - USB: `usb0`
 - WiFi: `wlan0`
 - charger
-- serial port: `/dev/ttyMSM0`. A serial console can be obtained through the headphone jack. This
-  requires building a custom cable and is described in [on this page](UART_CABLE.md).
+- serial port: `/dev/ttyMSM0`. A serial console can be obtained through the headphone jack and
+  requires building a custom cable [as described on this page](UART_CABLE.md).
 - Qualcomm 8841 / 8941 PMICs
 - all (or most?) of the clocks
 
