@@ -29,9 +29,6 @@ outstanding patches waiting for a review. See below for further details.
 
 ## Patches waiting for a review
 
-These will hopefully be merged into the respective trees by time the next merge window opens in
-January.
-
 - Vibrator
 
   - [dt-bindings: Input: new bindings for MSM vibrator](https://lore.kernel.org/lkml/20181025012937.2154-2-masneyb@onstation.org/)
