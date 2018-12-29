@@ -56,14 +56,6 @@ outstanding patches waiting for a review. See below for further details.
 
   - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
 
-- Charger - The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger
-  and for system power path management.
-
-  - [dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus](https://lore.kernel.org/lkml/20181101001149.13453-2-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add support for bq24192 variant](https://lore.kernel.org/lkml/20181101001149.13453-3-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator](https://lore.kernel.org/lkml/20181101001149.13453-4-masneyb@onstation.org/)
-  - [power: supply: bq24190_charger: add extcon support for USB OTG](https://lore.kernel.org/lkml/20181101001149.13453-5-masneyb@onstation.org/)
-
 - magnetometer
 
   - [ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer](https://lore.kernel.org/lkml/20181128095335.5538-1-masneyb@onstation.org/)
@@ -98,6 +90,14 @@ outstanding patches waiting for a review. See below for further details.
   - [7c14947e4d3d ("iio: tsl2772: add support for regulator framework")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c14947e4d3d8585cc047b132cd1a4ac3167928c)
   - [bd9392507588 ("ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for ALS / proximity")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bd9392507588483da81337cb430531d1cb114845)
 
+- The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger and for
+  system power path management.
+
+  - [161a2135e082 ("power: supply: bq24190_charger: add extcon support for USB OTG")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=161a2135e08274a6fa9742e1c020d8138d0032a1)
+  - [8e49c0b4bbe9 ("dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e49c0b4bbe9482a26e8ad26a99ee99b806f6ac4)
+  - [5ea67bb0b090 ("power: supply: bq24190_charger: add support for bq24192 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ea67bb0b090033750a91325448dbee1d5b58b01)
+  - [74d09c927cb6 ("power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d09c927cb69bd10c63e0c6dd3d1c71709ee7ea)
+
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
   [Asahi Kasei ak8963 magnetometer](https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf), and
@@ -116,7 +116,8 @@ outstanding patches waiting for a review. See below for further details.
     memory.
   - [Bisected an issue in linux-next](https://lore.kernel.org/lkml/20181125093750.GA28055@basecamp/)
     related to a change in the regulator framework that caused the the phone to no longer boot. The
-    issue was quickly resolved in linux-next.
+    issue was resolved by commit
+    [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
 
 ## Working USB OTG
 
