@@ -27,7 +27,15 @@ outstanding patches waiting for a review. See below for further details.
 - serial port: `/dev/ttyMSM0`. A serial console can be obtained through the headphone jack and
   requires building a custom cable [as described on this page](UART_CABLE.md).
 
-## Patches waiting for a review
+## Outstanding patches
+
+- spmi / gpio / pinctrl
+
+  - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/) - Accepted for 4.21
+  - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
+  - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20181229114755.8711-2-masneyb@onstation.org/)
+  - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20181229114755.8711-3-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add interrupt properties](https://lore.kernel.org/lkml/20181229114755.8711-4-masneyb@onstation.org/)
 
 - Vibrator
 
@@ -35,9 +43,8 @@ outstanding patches waiting for a review. See below for further details.
   - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20181025012937.2154-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20181025012937.2154-4-masneyb@onstation.org/)
 
-- USB - Requires the charger and gpio / pinctrl patches listed on this page.
+- USB - Requires the charger and gpio / pinctrl hogging patches listed on this page.
 
-  - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
 
 - WiFi - This phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
@@ -45,20 +52,14 @@ outstanding patches waiting for a review. See below for further details.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
 
+- magnetometer
+
+  - [ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer](https://lore.kernel.org/lkml/20181128095335.5538-1-masneyb@onstation.org/) - Accepted for 4.21
+
 - Panel
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
-
-## Patches accepted for next merge window
-
-- gpio / pinctrl
-
-  - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/)
-
-- magnetometer
-
-  - [ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer](https://lore.kernel.org/lkml/20181128095335.5538-1-masneyb@onstation.org/)
 
 ## Patches accepted into upstream kernel
 
