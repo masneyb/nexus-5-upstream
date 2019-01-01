@@ -31,7 +31,6 @@ outstanding patches waiting for a review. See below for further details.
 
 - gpio / pinctrl / spmi
 
-  - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/) - Accepted for 4.21
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
   - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20181229114755.8711-2-masneyb@onstation.org/)
   - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20181229114755.8711-3-masneyb@onstation.org/)
@@ -58,6 +57,11 @@ outstanding patches waiting for a review. See below for further details.
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
+
+- gpio / pinctrl
+
+  - [149a96047237 ("pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=149a96047237574b756d872007c006acd0cc6687)
+  - [7ed078557738 ("pinctrl: qcom: ssbi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ed07855773814337b9814f1c3e866df52ebce68)
 
 - The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
   proximity / ambient light sensor (ALS), which is register compatible with the
