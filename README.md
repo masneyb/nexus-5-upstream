@@ -13,7 +13,7 @@ kernels onto newer upstream LTS kernel releases.
 
 ## Device summary
 
-This is a high-level summary of the devices that currently work upstream, or where there are
+This is a high-level summary of the components that currently work upstream, or where there are
 outstanding patches waiting for a review. See below for further details.
 
 - gyroscope / accelerometer: `/sys/bus/iio/devices/iio:device2`
@@ -29,7 +29,7 @@ outstanding patches waiting for a review. See below for further details.
 
 ## Outstanding patches
 
-- spmi / gpio / pinctrl
+- gpio / pinctrl / spmi
 
   - [pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues](https://lore.kernel.org/lkml/20181101001149.13453-6-masneyb@onstation.org/) - Accepted for 4.21
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
@@ -43,7 +43,7 @@ outstanding patches waiting for a review. See below for further details.
   - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20181025012937.2154-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20181025012937.2154-4-masneyb@onstation.org/)
 
-- USB - Requires the charger and gpio / pinctrl hogging patches listed on this page.
+- USB - Requires the charger and gpio hogging patches listed on this page.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
 
@@ -52,16 +52,12 @@ outstanding patches waiting for a review. See below for further details.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
 
-- magnetometer
-
-  - [ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer](https://lore.kernel.org/lkml/20181128095335.5538-1-masneyb@onstation.org/) - Accepted for 4.21
-
 - Panel
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
 
-## Patches accepted into upstream kernel
+## Patches accepted in upstream kernel
 
 - The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
   proximity / ambient light sensor (ALS), which is register compatible with the
@@ -109,6 +105,7 @@ outstanding patches waiting for a review. See below for further details.
   - [07c12b1c007c ("iio: imu: mpu6050: add support for regulator framework")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=07c12b1c007c5c1d9c434ec9a19373ce5d87fe04)
   - [703e699dbe2c ("ARM: dts: qcom-msm8974: change invalid flag IRQ NONE to valid value")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=703e699dbe2cd106c406882f5c385485a1156cc9)
   - [fe8d81fe7d9a ("ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for mpu6515")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fe8d81fe7d9aab6a8e22c8b115eb06b7707087db)
+  - [0567022c019a ("ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0567022c019ad1a1d7bb980a99797f7a7a11d7d3)
 
 - Flash memory 
 
