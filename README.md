@@ -35,12 +35,13 @@ outstanding patches waiting for a review. See below for further details.
 
   - This patch series adds hierarchical IRQ chip support to spmi-gpio so that device tree consumers
     can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
-    underlying PMIC. [Cover Letter](https://lore.kernel.org/lkml/20190107021145.6370-1-masneyb@onstation.org/)
-    - [spmi: pmic-arb: hardcode IRQ counts](https://lore.kernel.org/lkml/20190107021145.6370-2-masneyb@onstation.org/)
-    - [mfd: qcom-spmi-pmic: use devm_mfd_add_devices instead of devm_of_platform_populate](https://lore.kernel.org/lkml/20190107021145.6370-3-masneyb@onstation.org/)
-    - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190107021145.6370-4-masneyb@onstation.org/)
-    - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190107021145.6370-5-masneyb@onstation.org/)
-    - [ARM: dts: qcom: msm8974: add interrupt controller properties](https://lore.kernel.org/lkml/20190107021145.6370-6-masneyb@onstation.org/)
+    underlying PMIC.
+    - [pinctrl: qcom: spmi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190110011258.17227-2-masneyb@onstation.org/)
+    - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190110011258.17227-3-masneyb@onstation.org/)
+    - [gpio: add irq domain activate/deactivate functions](https://lore.kernel.org/lkml/20190110011258.17227-4-masneyb@onstation.org/)
+    - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190110011258.17227-5-masneyb@onstation.org/)
+    - [ARM: dts: qcom: pm8941: add interrupt controller properties](https://lore.kernel.org/lkml/20190110011258.17227-6-masneyb@onstation.org/)
+    - [ARM: dts: qcom: pma8084: add interrupt controller properties](https://lore.kernel.org/lkml/20190110011258.17227-7-masneyb@onstation.org/)
 
 - Vibrator
 
