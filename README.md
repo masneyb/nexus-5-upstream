@@ -35,22 +35,23 @@ outstanding patches waiting for a review. See below for further details.
 
   - This patch series adds hierarchical IRQ chip support to spmi-gpio so that device tree consumers
     can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
-    underlying PMIC.
+    underlying PMIC. [Cover Letter](https://lore.kernel.org/lkml/20190119204252.18370-1-masneyb@onstation.org/)
 
-    - [dt-bindings: pinctrl: qcom-pmic-gpio: add qcom,pmi8998-gpio binding](https://lore.kernel.org/lkml/20190117003234.22127-2-masneyb@onstation.org/)
-    - [pinctrl: qcom: spmi-gpio: add support for three new variants](https://lore.kernel.org/lkml/20190117003234.22127-3-masneyb@onstation.org/)
-    - [pinctrl: qcom: spmi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190117003234.22127-4-masneyb@onstation.org/)
-    - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190117003234.22127-5-masneyb@onstation.org/)
-    - [gpio: add irq domain activate/deactivate functions](https://lore.kernel.org/lkml/20190117003234.22127-6-masneyb@onstation.org/)
-    - [spmi: pmic-arb: disassociate old virq if hwirq mapping already exists](https://lore.kernel.org/lkml/20190117003234.22127-7-masneyb@onstation.org/)
-    - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190117003234.22127-8-masneyb@onstation.org/)
-    - [ARM: dts: qcom: pm8941: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-9-masneyb@onstation.org/)
-    - [ARM: dts: qcom: pma8084: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-10-masneyb@onstation.org/)
-    - [arm64: dts: qcom: pm8005: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-11-masneyb@onstation.org/)
-    - [arm64: dts: qcom: pm8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-12-masneyb@onstation.org/)
-    - [arm64: dts: qcom: pmi8994: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-13-masneyb@onstation.org/)
-    - [arm64: dts: qcom: pmi8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190117003234.22127-14-masneyb@onstation.org/)
-    - [spmi: pmic-arb: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190117003234.22127-15-masneyb@onstation.org/)
+    - [dt-bindings: pinctrl: qcom-pmic-gpio: add qcom,pmi8998-gpio binding](https://lore.kernel.org/lkml/20190119204252.18370-2-masneyb@onstation.org/)
+    - [pinctrl: qcom: spmi-gpio: add support for three new variants](https://lore.kernel.org/lkml/20190119204252.18370-3-masneyb@onstation.org/)
+    - [pinctrl: qcom: spmi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190119204252.18370-4-masneyb@onstation.org/)
+    - [spmi: pmic-arb: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190119204252.18370-5-masneyb@onstation.org/)
+    - [gpio: add irq domain activate/deactivate functions](https://lore.kernel.org/lkml/20190119204252.18370-6-masneyb@onstation.org/)
+    - [spmi: pmic-arb: disassociate old virq if hwirq mapping already exists](https://lore.kernel.org/lkml/20190119204252.18370-7-masneyb@onstation.org/)
+    - [qcom: spmi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190119204252.18370-8-masneyb@onstation.org/)
+    - [ARM: dts: qcom: pm8941: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-9-masneyb@onstation.org/)
+    - [ARM: dts: qcom: pma8084: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-10-masneyb@onstation.org/)
+    - [arm64: dts: qcom: pm8005: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-11-masneyb@onstation.org/)
+    - [arm64: dts: qcom: pm8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-12-masneyb@onstation.org/)
+    - [arm64: dts: qcom: pmi8994: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-13-masneyb@onstation.org/)
+    - [arm64: dts: qcom: pmi8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-14-masneyb@onstation.org/)
+    - [spmi: pmic-arb: validate type when mapping IRQ](https://lore.kernel.org/lkml/20190119204252.18370-15-masneyb@onstation.org/)
+    - [spmi: pmic-arb: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190119204252.18370-16-masneyb@onstation.org/)
 
 - Vibrator
 
