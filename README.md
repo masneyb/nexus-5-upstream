@@ -69,6 +69,10 @@ outstanding patches waiting for a review. See below for further details.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
 
+- defconfig
+
+  - [ARM: hammerhead_defconfig: new defconfig for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190124161621.24185-1-masneyb@onstation.org/)
+
 - Panel
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
