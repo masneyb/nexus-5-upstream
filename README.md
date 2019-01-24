@@ -31,11 +31,12 @@ outstanding patches waiting for a review. See below for further details.
 
 - gpio / pinctrl / spmi
 
-  - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
 
   - This patch series adds hierarchical IRQ chip support to spmi-gpio so that device tree consumers
     can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
-    underlying PMIC. [Cover Letter](https://lore.kernel.org/lkml/20190119204252.18370-1-masneyb@onstation.org/)
+    underlying PMIC. [Cover Letter](https://lore.kernel.org/lkml/20190119204252.18370-1-masneyb@onstation.org/).
+    *Queued for 5.1 merge window.*
 
     - [dt-bindings: pinctrl: qcom-pmic-gpio: add qcom,pmi8998-gpio binding](https://lore.kernel.org/lkml/20190119204252.18370-2-masneyb@onstation.org/)
     - [pinctrl: qcom: spmi-gpio: add support for three new variants](https://lore.kernel.org/lkml/20190119204252.18370-3-masneyb@onstation.org/)
@@ -61,12 +62,12 @@ outstanding patches waiting for a review. See below for further details.
 
 - USB - Requires the charger and gpio hogging patches listed on this page.
 
-  - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add USB OTG support](https://lore.kernel.org/lkml/20181101001149.13453-8-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
 
 - WiFi - This phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
   for wireless.
 
-  - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add WiFi support](https://lore.kernel.org/lkml/20181104215034.3677-1-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
 
 - Panel
 
