@@ -33,9 +33,9 @@ outstanding patches waiting for a review. See below for further details.
 
   - [ARM: dts: qcom: msm8974: add gpio-ranges](https://lore.kernel.org/lkml/20181101001149.13453-7-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
 
-  - This patch series adds hierarchical IRQ chip support to spmi-gpio so that device tree consumers
-    can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
-    underlying PMIC. [Cover Letter](https://lore.kernel.org/lkml/20190119204252.18370-1-masneyb@onstation.org/).
+  - Hierarchical IRQ chip support for spmi-gpio so that device tree consumers can request an IRQ
+    directly from the GPIO block rather than having to request an IRQ from the underlying PMIC.
+    [Cover Letter](https://lore.kernel.org/lkml/20190119204252.18370-1-masneyb@onstation.org/).
     *Queued for 5.1 merge window.*
 
     - [dt-bindings: pinctrl: qcom-pmic-gpio: add qcom,pmi8998-gpio binding](https://lore.kernel.org/lkml/20190119204252.18370-2-masneyb@onstation.org/)
@@ -53,6 +53,19 @@ outstanding patches waiting for a review. See below for further details.
     - [arm64: dts: qcom: pmi8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-14-masneyb@onstation.org/)
     - [spmi: pmic-arb: validate type when mapping IRQ](https://lore.kernel.org/lkml/20190119204252.18370-15-masneyb@onstation.org/)
     - [spmi: pmic-arb: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190119204252.18370-16-masneyb@onstation.org/)
+
+  - Hierarchical IRQ chip support for ssbi-gpio.
+    [Cover Letter](https://lore.kernel.org/lkml/20190125162302.14036-1-masneyb@onstation.org/)
+
+    - [pinctrl: qcom: ssbi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190125162302.14036-2-masneyb@onstation.org/)
+    - [genirq: introduce irq_domain_translate_twocell](https://lore.kernel.org/lkml/20190125162302.14036-3-masneyb@onstation.org/)
+    - [mfd: pm8xxx: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190125162302.14036-4-masneyb@onstation.org/)
+    - [mfd: pm8xxx: disassociate old virq if hwirq mapping already exists](https://lore.kernel.org/lkml/20190125162302.14036-5-masneyb@onstation.org/)
+    - [qcom: ssbi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190125162302.14036-6-masneyb@onstation.org/)
+    - [arm: dts: qcom: apq8064: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-7-masneyb@onstation.org/)
+    - [arm: dts: qcom: msm8660: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-8-masneyb@onstation.org/)
+    - [arm: dts: qcom: mdm9615: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-9-masneyb@onstation.org/)
+    - [mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190125162302.14036-10-masneyb@onstation.org/)
 
 - Vibrator
 
