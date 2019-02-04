@@ -55,8 +55,8 @@ outstanding patches waiting for a review. See below for further details.
     - [spmi: pmic-arb: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190119204252.18370-16-masneyb@onstation.org/)
 
   - Build fixes for spmi-gpio when using allmodconfig
-    - [genirq: export irq_chip_set_wake_parent symbol](https://lore.kernel.org/lkml/20190203123131.28323-1-masneyb@onstation.org/)
-    - [pinctrl: qcom: spmi-gpio: select IRQ_DOMAIN_HIERARCHY in Kconfig](https://lore.kernel.org/lkml/20190203123131.28323-2-masneyb@onstation.org/)
+    - [genirq: export irq_chip_set_wake_parent symbol](https://lore.kernel.org/lkml/20190204095853.12212-1-masneyb@onstation.org/)
+    - [pinctrl: qcom: spmi-gpio: select IRQ_DOMAIN_HIERARCHY in Kconfig](https://lore.kernel.org/lkml/20190204095853.12212-2-masneyb@onstation.org/)
 
   - Hierarchical IRQ chip support for ssbi-gpio.
     [Cover Letter](https://lore.kernel.org/lkml/20190125162302.14036-1-masneyb@onstation.org/)
