@@ -53,8 +53,6 @@ outstanding patches waiting for a review. See below for further details.
     - [arm64: dts: qcom: pmi8998: add interrupt controller properties](https://lore.kernel.org/lkml/20190119204252.18370-14-masneyb@onstation.org/)
     - [spmi: pmic-arb: validate type when mapping IRQ](https://lore.kernel.org/lkml/20190119204252.18370-15-masneyb@onstation.org/)
     - [spmi: pmic-arb: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190119204252.18370-16-masneyb@onstation.org/)
-
-  - Build fixes for spmi-gpio when using allmodconfig
     - [genirq: export irq_chip_set_wake_parent symbol](https://lore.kernel.org/lkml/20190204095853.12212-1-masneyb@onstation.org/)
     - [pinctrl: qcom: spmi-gpio: select IRQ_DOMAIN_HIERARCHY in Kconfig](https://lore.kernel.org/lkml/20190204095853.12212-2-masneyb@onstation.org/)
 
