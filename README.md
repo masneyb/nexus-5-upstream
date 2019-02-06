@@ -71,8 +71,8 @@ outstanding patches waiting for a review. See below for further details.
 
 - Vibrator
 
-  - [dt-bindings: Input: new bindings for MSM vibrator](https://lore.kernel.org/lkml/20190206013329.18195-2-masneyb@onstation.org/)
-  - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20190206013329.18195-3-masneyb@onstation.org/)
+  - [dt-bindings: Input: new bindings for MSM vibrator](https://lore.kernel.org/lkml/20190206013329.18195-2-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
+  - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20190206013329.18195-3-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
 
 - USB - Requires the charger and gpio hogging patches listed on this page.
