@@ -16,10 +16,10 @@ kernels onto newer upstream LTS kernel releases.
 This is a high-level summary of the components that currently work upstream, or where there are
 outstanding patches waiting for a review. See below for further details.
 
-- gyroscope / accelerometer: `/sys/bus/iio/devices/iio:device2`
-- magnetometer: `/sys/bus/iio/devices/iio:device3`
-- temperature / pressure: `/sys/bus/iio/devices/iio:device4`
-- proximity / ambient light sensor (ALS): `/sys/bus/iio/devices/iio:device5`
+- gyroscope / accelerometer: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068`
+- magnetometer: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f`
+- temperature / pressure: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076`
+- proximity / ambient light sensor (ALS): `/sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039`
 - vibrator: `/dev/input/event2`
 - USB: `usb0`
 - WiFi: `wlan0`
@@ -57,17 +57,17 @@ outstanding patches waiting for a review. See below for further details.
     - [pinctrl: qcom: spmi-gpio: select IRQ_DOMAIN_HIERARCHY in Kconfig](https://lore.kernel.org/lkml/20190204095853.12212-2-masneyb@onstation.org/)
 
   - Hierarchical IRQ chip support for ssbi-gpio.
-    [Cover Letter](https://lore.kernel.org/lkml/20190125162302.14036-1-masneyb@onstation.org/)
+    [Cover Letter](https://lore.kernel.org/lkml/20190208021631.30252-1-masneyb@onstation.org/)
 
-    - [pinctrl: qcom: ssbi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190125162302.14036-2-masneyb@onstation.org/)
-    - [genirq: introduce irq_domain_translate_twocell](https://lore.kernel.org/lkml/20190125162302.14036-3-masneyb@onstation.org/)
-    - [mfd: pm8xxx: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190125162302.14036-4-masneyb@onstation.org/)
-    - [mfd: pm8xxx: disassociate old virq if hwirq mapping already exists](https://lore.kernel.org/lkml/20190125162302.14036-5-masneyb@onstation.org/)
-    - [qcom: ssbi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190125162302.14036-6-masneyb@onstation.org/)
-    - [arm: dts: qcom: apq8064: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-7-masneyb@onstation.org/)
-    - [arm: dts: qcom: msm8660: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-8-masneyb@onstation.org/)
-    - [arm: dts: qcom: mdm9615: add interrupt controller](https://lore.kernel.org/lkml/20190125162302.14036-9-masneyb@onstation.org/)
-    - [mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190125162302.14036-10-masneyb@onstation.org/)
+    - [pinctrl: qcom: ssbi-gpio: hardcode IRQ counts](https://lore.kernel.org/lkml/20190208021631.30252-2-masneyb@onstation.org/)
+    - [genirq: introduce irq_domain_translate_twocell](https://lore.kernel.org/lkml/20190208021631.30252-3-masneyb@onstation.org/)
+    - [mfd: pm8xxx: convert to v2 irq interfaces to support hierarchical IRQ chips](https://lore.kernel.org/lkml/20190208021631.30252-5-masneyb@onstation.org/)
+    - [mfd: pm8xxx: disassociate old virq if hwirq mapping already exists](https://lore.kernel.org/lkml/20190208021631.30252-6-masneyb@onstation.org/)
+    - [qcom: ssbi-gpio: add support for hierarchical IRQ chip](https://lore.kernel.org/lkml/20190208021631.30252-7-masneyb@onstation.org/)
+    - [arm: dts: qcom: apq8064: add interrupt controller properties](https://lore.kernel.org/lkml/20190208021631.30252-8-masneyb@onstation.org/)
+    - [arm: dts: qcom: msm8660: add interrupt controller properties](https://lore.kernel.org/lkml/20190208021631.30252-9-masneyb@onstation.org/)
+    - [arm: dts: qcom: mdm9615: add interrupt controller properties](https://lore.kernel.org/lkml/20190208021631.30252-10-masneyb@onstation.org/)
+    - [mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"](https://lore.kernel.org/lkml/20190208021631.30252-12-masneyb@onstation.org/)
 
 - Vibrator
 
