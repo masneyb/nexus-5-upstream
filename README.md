@@ -86,7 +86,7 @@ outstanding patches waiting for a review. See below for further details.
 
 - defconfig
 
-  - [ARM: hammerhead_defconfig: new defconfig for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190124161621.24185-1-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
 
 - Panel
 
