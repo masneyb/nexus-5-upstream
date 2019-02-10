@@ -20,7 +20,7 @@ outstanding patches waiting for a review. See below for further details.
 - magnetometer: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f`
 - temperature / pressure: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076`
 - proximity / ambient light sensor (ALS): `/sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039`
-- vibrator: `/dev/input/event2`
+- vibrator: `/dev/input/by-path/platform-fd8c3450.vibrator-event`
 - USB: `usb0`
 - WiFi: `wlan0`
 - charger
