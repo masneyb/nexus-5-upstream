@@ -103,8 +103,9 @@ outstanding patches waiting for a review. See below for further details.
   proximity / ambient light sensor (ALS), which is register compatible with the
   [TAOS TSL2772 sensor](https://ams.com/eng/content/download/291503/1066377/file/TSL2772_DS000181_2-00.pdf).
   The [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
-  is one of the staging cleanups that I did and it took ~70 patches to move the driver out of
-  staging and into mainline. A few notable patches from that work:
+  is one of the staging cleanups that I did and it took
+  [74 patches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/drivers/staging/iio/light/tsl2x7x.c)
+  to move the driver out of staging and into mainline. A few notable patches from that work:
 
   - [498efcd08114 ("staging: iio: tsl2x7x: correct integration time and lux equation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=498efcd08114905074a644bf81f82ce5c62eac43)
   - [9861d2daaf28 ("staging: iio: tsl2x7x: correct IIO_EV_INFO_PERIOD values"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9861d2daaf28e7beaa0c655206c595094d47ccd8)
@@ -115,6 +116,9 @@ outstanding patches waiting for a review. See below for further details.
   - [95d22154d6bb ("staging: iio: tsl2x7x: don't setup event handlers if interrupts are not configured")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=95d22154d6bb980a80d59e500e8350d9a0e03f92)
   - [deaecbef3664 ("staging: iio: tsl2x7x: migrate *_thresh_period sysfs attributes to iio_event_spec")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=deaecbef366497c3435b573fed7991d89af9f59c)
   - [4546813a7f6b ("staging: iio: tsl2x7x: migrate in_illuminance0_integration_time sysfs attribute to iio_chan_spec")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4546813a7f6b3dc67ac258666092b1952c4e2ea1)
+  - [a2fdb4e1a6c8 ("staging: iio: tsl2x7x: use either direction for IIO_EV_INFO_{ENABLE,PERIOD}")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a2fdb4e1a6c8e68f95eae71724a4e071b8394a72)
+  - [2f58efa96373 ("staging: iio: tsl2x7x: move integration_time* attributes to IIO_INTENSITY channel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f58efa96373782a9c26203479c28a59976edfc5)
+  - [bce075d0ec4b ("staging: iio: tsl2x7x: simplify tsl2x7x_prox_cal()")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce075d0ec4b6155cf4f52a7e56aa2dd3b668679)
   - [c06c4d793584 ("staging: iio: tsl2x7x/tsl2772: move out of staging")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=c06c4d793584b965bf5fa3fb107f6279643574e2)
 
   Once the staging cleanup was done, additional changes were required upstream in order to support
