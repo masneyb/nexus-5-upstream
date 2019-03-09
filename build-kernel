@@ -14,8 +14,9 @@ set -e
 export KERNEL_SRC="$1"
 export INITRD="$2"
 export PREPARE_INITRD_SCR="$3"
+export DEFCONFIG="${4:-qcom_defconfig}"
 if [ "${KERNEL_SRC}" = "" ] || [ "${INITRD}" = "" ] ; then
-	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ]"
+	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ] [ <defconfig> ]"
 	exit 1
 fi
 
@@ -38,13 +39,16 @@ if [ "${NUM_CPUS}" = "" ] ; then
 fi
 
 cd "${KERNEL_SRC}"
-make qcom_defconfig
+echo "Running 'make ${DEFCONFIG}'"
+make "${DEFCONFIG}"
 make kernelrelease
 nice -n 19 make -j "${NUM_CPUS}"
 
+DTB=${DTB:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}
+echo "Using DTB ${DTB}"
+
 ZIMAGE_DTB=$(mktemp)
-cat "${KERNEL_SRC}"/arch/arm/boot/zImage \
-    "${KERNEL_SRC}"arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb > "${ZIMAGE_DTB}"
+cat arch/arm/boot/zImage "${DTB}" > "${ZIMAGE_DTB}"
 
 BOOT_CFG=$(mktemp)
 cat > "${BOOT_CFG}" << __EOF__
