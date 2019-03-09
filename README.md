@@ -16,15 +16,15 @@ kernels onto newer upstream LTS kernel releases.
 This is a high-level summary of the components that currently work upstream, or where there are
 outstanding patches waiting for a review. See below for further details.
 
-- gyroscope / accelerometer: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068`
-- magnetometer: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f`
-- temperature / pressure: `/sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076`
-- proximity / ambient light sensor (ALS): `/sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039`
-- vibrator: `/dev/input/by-path/platform-fd8c3450.vibrator-event`
-- USB: `usb0`
-- WiFi: `wlan0`
+- gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
+- magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
+- temperature / pressure: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
+- proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039
+- vibrator: /dev/input/by-path/platform-fd8c3450.vibrator-event
+- USB: usb0
+- WiFi: wlan0
 - charger
-- serial port: `/dev/ttyMSM0`. A serial console can be obtained through the headphone jack and
+- serial port: /dev/ttyMSM0. A serial console can be obtained through the headphone jack and
   requires building a custom cable [as described on this page](UART_CABLE.md).
 
 See the [build-kernel](build-kernel) script for how to build and boot a kernel. You'll need to
@@ -185,7 +185,7 @@ generate your own initial ramdisk.
 - A full teardown of the Nexus 5 is
   [available on ifixit](https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016).
 - [Downstream MSM 3.4 kernel sources](https://github.com/AICP/kernel_lge_hammerhead) with additions
-   from the community. Use `hammerhead_defconfig` when building this kernel.
+   from the community. Use hammerhead_defconfig when building this kernel.
 - [postmarketOS](https://postmarketos.org/) for the
   [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
 
