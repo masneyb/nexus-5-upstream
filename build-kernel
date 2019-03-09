@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+# SPDX-License-Identifier: GPL-2.0+
+
+# Install package dependencies
+#   - RedHat-based systems
+#         dnf install abootimg android-tools gcc-arm-linux-gnu 
+#
+#   - Debian-based systems
+#         apt-get install abootimg fastboot gcc-8-arm-linux-gnueabihf
+
+set -e
+
+export KERNEL_SRC="$1"
+export INITRD="$2"
+export PREPARE_INITRD_SCR="$3"
+if [ "${KERNEL_SRC}" = "" ] || [ "${INITRD}" = "" ] ; then
+	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ]"
+	exit 1
+fi
+
+export ARCH=arm
+export PATH="${PATH}":"${KERNEL_SRC}"/scripts/dtc
+
+if [ "${CROSS_COMPILE}" = "" ] ; then
+	if [ -f /usr/bin/arm-linux-gnu-gcc ] ; then
+		export CROSS_COMPILE=/usr/bin/arm-linux-gnu-
+	elif [ -f /usr/bin/arm-linux-gnueabihf-gcc ] ; then
+		export CROSS_COMPILE=/usr/bin/arm-linux-gnueabihf-
+	else
+		echo "Can't setup CROSS_COMPILE environment variable"
+		exit 1
+	fi
+fi
+
+if [ "${NUM_CPUS}" = "" ] ; then
+	NUM_CPUS=$(grep -c ^processor /proc/cpuinfo)
+fi
+
+cd "${KERNEL_SRC}"
+make qcom_defconfig
+make kernelrelease
+nice -n 19 make -j "${NUM_CPUS}"
+
+ZIMAGE_DTB=$(mktemp)
+cat "${KERNEL_SRC}"/arch/arm/boot/zImage \
+    "${KERNEL_SRC}"arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb > "${ZIMAGE_DTB}"
+
+BOOT_CFG=$(mktemp)
+cat > "${BOOT_CFG}" << __EOF__
+pagesize = 0x800
+kerneladdr = 0x8000
+ramdiskaddr = 0x2900000
+secondaddr = 0xf00000
+tagsaddr = 0x2700000
+name = 
+cmdline = console=tty0 console=ttyMSM0,115200,n8 rootwait androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 PMOS_NO_OUTPUT_REDIRECT=1
+__EOF__
+
+if [ "${PREPARE_INITRD_SCR}" != "" ] ; then
+	# The ARCH, CROSS_COMPILE, KERNEL_SRC, and INITRD environment variables
+	# will be passed to this script.
+	"${PREPARE_INITRD_SCR}"
+fi
+
+ABOOT_IMG="${KERNEL_SRC}"/arch/arm/boot/nexus5-boot.img
+abootimg --create "${ABOOT_IMG}" -f "${BOOT_CFG}" -k "${ZIMAGE_DTB}" -r "${INITRD}"
+rm -f "${BOOT_CFG}" "${ZIMAGE_DTB}"
+
+echo ""
+echo "Run to boot the kernel without flashing the boot partition:"
+echo "    sudo fastboot boot ${ABOOT_IMG}"
+echo ""
+echo "Run to flash the kernel on the boot paritition:"
+echo "    sudo fastboot flash boot ${ABOOT_IMG}"
