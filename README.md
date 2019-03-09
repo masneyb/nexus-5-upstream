@@ -170,10 +170,8 @@ outstanding patches waiting for a review. See below for further details.
     issue was resolved by commit
     [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
 
-- Other patches
-
-I have [another page up](OTHER_PATCHES.md) with some of my other kernel work that's not related
-to this Nexus 5 project.
+- I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
+  related to this Nexus 5 project.
 
 ## Working USB OTG
 
