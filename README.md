@@ -180,6 +180,15 @@ generate your own initial ramdisk.
 
 ![USB OTG](images/usb-otg.png?raw=1)
 
+## Other resources
+
+- A full teardown of the Nexus 5 is
+  [available on ifixit](https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016).
+- [Downstream MSM 3.4 kernel sources](https://github.com/AICP/kernel_lge_hammerhead) with additions
+   from the community. Use `hammerhead_defconfig` when building this kernel.
+- [postmarketOS](https://postmarketos.org/) for the
+  [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
+
 ## Contact
 
 Brian Masney: [Email](mailto:masneyb@onstation.org), [Linked In](https://www.linkedin.com/in/brian-masney/), [GitHub](https://github.com/masneyb)
