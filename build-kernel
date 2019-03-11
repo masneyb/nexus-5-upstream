@@ -16,8 +16,10 @@ export INITRD="$2"
 export PREPARE_INITRD_SCR="$3"
 export DEFCONFIG="${4:-qcom_defconfig}"
 export DTB="${5:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}"
+export SERIAL_TTY="${6:-ttyMSM0}" # downstream kernel uses ttyHSL0; upstream is ttyMSM0
+
 if [ "${KERNEL_SRC}" = "" ] || [ "${INITRD}" = "" ] ; then
-	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ] [ <defconfig> ] [ dtb ]"
+	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ] [ <defconfig> ] [ dtb ] [ serial tty ]"
 	exit 1
 fi
 
@@ -57,12 +59,12 @@ ramdiskaddr = 0x2900000
 secondaddr = 0xf00000
 tagsaddr = 0x2700000
 name = 
-cmdline = console=tty0 console=ttyMSM0,115200,n8 rootwait androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 PMOS_NO_OUTPUT_REDIRECT=1
+cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 PMOS_NO_OUTPUT_REDIRECT=1
 __EOF__
 
 if [ "${PREPARE_INITRD_SCR}" != "" ] ; then
-	# The ARCH, CROSS_COMPILE, KERNEL_SRC, and INITRD environment variables
-	# will be passed to this script.
+	# The ARCH, CROSS_COMPILE, KERNEL_SRC, INITRD, and SERIAL_TTY
+	# environment variables will be passed to this script.
 	echo "Running ${PREPARE_INITRD_SCR}"
 	"${PREPARE_INITRD_SCR}"
 fi
