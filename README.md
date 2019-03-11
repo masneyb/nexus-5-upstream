@@ -43,15 +43,13 @@ generate your own initial ramdisk.
   - [arm64: dts: qcom: pmi8994: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-8-masneyb@onstation.org/)
   - [arm64: dts: qcom: pmi8998: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-9-masneyb@onstation.org/)
 
-- Vibrator
-
-  - [dt-bindings: Input: new bindings for MSM vibrator](https://lore.kernel.org/lkml/20190206013329.18195-2-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
-  - [Input: add new vibrator driver for various MSM SOCs](https://lore.kernel.org/lkml/20190206013329.18195-3-masneyb@onstation.org/) - *Queued for 5.1 merge window.*
-  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
-
 - defconfig
 
   - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
+
+- Vibrator
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
 
 - Panel
 
@@ -90,7 +88,6 @@ generate your own initial ramdisk.
   - [a796fab2c605 ("arm: dts: qcom: msm8660: add interrupt controller properties")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a796fab2c605d6340512c51c6c3fa1c581357993)
   - [582648f5ef14 ("arm: dts: qcom: mdm9615: add interrupt controller properties")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=582648f5ef14383c66b26834b9a98ade8b4da74c)
   - [1a25d59a5529 ("mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a25d59a55292631a6c601fda5413abc297097b7)
-
   - [de744e01aa3a ("mfd: pm8xxx: select IRQ_DOMAIN_HIERARCHY in Kconfig")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de744e01aa3af421470eb9725574e3cbce319053)
   - [79890c2ec486 ("qcom: ssbi-gpio: correct boundary conditions in pm8xxx_domain_translate")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79890c2ec4860c3b715f89248c51abcc76a1fa39)
 
@@ -133,6 +130,12 @@ generate your own initial ramdisk.
   - [bd9392507588 ("ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for ALS / proximity")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bd9392507588483da81337cb430531d1cb114845)
   - [1ed80a817bc4 ("dt-bindings: iio: tsl2772: add new bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1ed80a817bc42de91701cc60e58d968077359a58)
   - [28b6977e089d ("dt-bindings: iio: tsl2772: add binding for avago,apds9930")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=28b6977e089dda97f8f32ac1a6a223f59e7065f4)
+
+- Vibrator - Use
+  [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
+  test the driver.
+
+  - [0f681d09e66e ("Input: add new vibrator driver for various MSM SOCs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f681d09e66ea6833e6173180ff3892e9026ab71)
 
 - The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger and for
   system power path management.
