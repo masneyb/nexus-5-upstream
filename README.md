@@ -51,6 +51,12 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
 
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
+
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190401103034.21062-2-masneyb@onstation.org/)
+  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190401103034.21062-3-masneyb@onstation.org/)
+  - [backlight: lm3630a: add device tree supprt](https://lore.kernel.org/lkml/20190401103034.21062-4-masneyb@onstation.org/)
+
 - Panel
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
