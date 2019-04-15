@@ -45,6 +45,7 @@ cd "${KERNEL_SRC}"
 echo "Running 'make ${DEFCONFIG}'"
 make "${DEFCONFIG}"
 make kernelrelease
+make dt_binding_check
 nice -n 19 make -j "${NUM_CPUS}"
 
 echo "Using DTB ${DTB}"
