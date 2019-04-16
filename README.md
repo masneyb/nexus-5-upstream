@@ -107,7 +107,7 @@ generate your own initial ramdisk.
 
 - The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
   proximity / ambient light sensor (ALS), which is register compatible with the
-  [TAOS TSL2772 sensor](https://ams.com/eng/content/download/291503/1066377/file/TSL2772_DS000181_2-00.pdf).
+  [TAOS TSL2772 sensor](https://ams.com/documents/20143/36005/TSL2772_DS000181_2-00.pdf).
   The [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
   is one of the staging cleanups that I did and it took
   [74 patches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/drivers/staging/iio/light/tsl2x7x.c)
