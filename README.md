@@ -32,15 +32,15 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
+
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190418151143.26068-2-masneyb@onstation.org/)
+  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190418151143.26068-3-masneyb@onstation.org/)
+  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190418151143.26068-4-masneyb@onstation.org/)
+
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
-
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
-
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190416235350.13742-2-masneyb@onstation.org/)
-  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190416235350.13742-3-masneyb@onstation.org/)
-  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190416235350.13742-4-masneyb@onstation.org/)
 
 - ALS / proximity
 
