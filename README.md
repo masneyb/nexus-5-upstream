@@ -32,6 +32,23 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- Vibrator
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
+
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
+
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190416235350.13742-2-masneyb@onstation.org/)
+  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190416235350.13742-3-masneyb@onstation.org/)
+  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190416235350.13742-4-masneyb@onstation.org/)
+
+- ALS / proximity
+
+  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-1-masneyb@onstation.org/)
+  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-2-masneyb@onstation.org/)
+
+## Queued for 5.2 merge window
+
 - gpio / pinctrl
 
   - [ARM: dts: qcom: apq8064: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-2-masneyb@onstation.org/)
@@ -47,25 +64,10 @@ generate your own initial ramdisk.
 
   - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
 
-- Vibrator
-
-  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
-
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
-
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190416235350.13742-2-masneyb@onstation.org/)
-  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190416235350.13742-3-masneyb@onstation.org/)
-  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190416235350.13742-4-masneyb@onstation.org/)
-
 - Panel
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
-
-- ALS / proximity
-
-  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-1-masneyb@onstation.org/)
-  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-2-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
