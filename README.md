@@ -32,7 +32,7 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LED backlight.
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
 
   - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190418151143.26068-2-masneyb@onstation.org/)
   - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190418151143.26068-3-masneyb@onstation.org/)
@@ -105,8 +105,7 @@ generate your own initial ramdisk.
   - [79890c2ec486 ("qcom: ssbi-gpio: correct boundary conditions in pm8xxx_domain_translate")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79890c2ec4860c3b715f89248c51abcc76a1fa39)
 
 - When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
-  errors during system boot. It was caused by a circular dependency between the gpio and pinctrl
-  frameworks.
+  errors during system boot due to a circular dependency between the gpio and pinctrl frameworks.
 
   - [149a96047237 ("pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=149a96047237574b756d872007c006acd0cc6687)
   - [7ed078557738 ("pinctrl: qcom: ssbi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ed07855773814337b9814f1c3e866df52ebce68)
