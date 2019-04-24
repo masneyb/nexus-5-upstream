@@ -34,9 +34,9 @@ generate your own initial ramdisk.
 
 - The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
 
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190418151143.26068-2-masneyb@onstation.org/)
-  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190418151143.26068-3-masneyb@onstation.org/)
-  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190418151143.26068-4-masneyb@onstation.org/)
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190424092505.6578-2-masneyb@onstation.org/)
+  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190424092505.6578-3-masneyb@onstation.org/)
+  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190424092505.6578-4-masneyb@onstation.org/)
 
 - Vibrator
 
@@ -44,8 +44,8 @@ generate your own initial ramdisk.
 
 - ALS / proximity
 
-  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-1-masneyb@onstation.org/)
-  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190416084552.1538-2-masneyb@onstation.org/)
+  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190424092238.6381-1-masneyb@onstation.org/)
+  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190424092238.6381-2-masneyb@onstation.org/)
 
 ## Queued for 5.2 merge window
 
