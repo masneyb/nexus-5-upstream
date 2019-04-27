@@ -46,6 +46,7 @@ generate your own initial ramdisk.
 
   - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-1-masneyb@onstation.org/)
   - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-2-masneyb@onstation.org/)
+  - [dt-bindings: iio: isl29018: convert bindings to YAML format](https://lore.kernel.org/lkml/20190427182359.27254-1-masneyb@onstation.org/)
 
 ## Queued for 5.2 merge window
 
