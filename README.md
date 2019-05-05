@@ -32,6 +32,18 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- Work in progress patches to get the display working on the device. The
+  [cover letter](https://lore.kernel.org/lkml/20190505130413.32253-1-masneyb@onstation.org/) for
+  this series goes into detail about the issue that I see. This requires the backlight patch
+  series below.
+
+  - [drm/msm: fix null pointer dereference in msm_atomic_prepare_fb()](https://lore.kernel.org/lkml/20190505130413.32253-2-masneyb@onstation.org/)
+  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190505130413.32253-3-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190505130413.32253-4-masneyb@onstation.org/)
+  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190505130413.32253-5-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190505130413.32253-6-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190505130413.32253-7-masneyb@onstation.org/)
+
 - The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
 
   - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190424092505.6578-2-masneyb@onstation.org/)
@@ -41,12 +53,6 @@ generate your own initial ramdisk.
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
-
-- ALS / proximity
-
-  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-1-masneyb@onstation.org/)
-  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-2-masneyb@onstation.org/)
-  - [dt-bindings: iio: isl29018: convert bindings to YAML format](https://lore.kernel.org/lkml/20190427182359.27254-1-masneyb@onstation.org/)
 
 ## Queued for 5.2 merge window
 
@@ -69,6 +75,14 @@ generate your own initial ramdisk.
 
   - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
   - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
+
+## Queued for 5.3 merge window
+
+- ALS / proximity
+
+  - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-1-masneyb@onstation.org/)
+  - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-2-masneyb@onstation.org/)
+  - [dt-bindings: iio: isl29018: convert bindings to YAML format](https://lore.kernel.org/lkml/20190427182359.27254-1-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
