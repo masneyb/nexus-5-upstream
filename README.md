@@ -18,9 +18,10 @@ outstanding patches waiting for a review. See below for further details.
 
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
 - magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
-- temperature / pressure: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
+- temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
 - proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039
 - vibrator: /dev/input/by-path/platform-fd8c3450.vibrator-event
+- backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - USB: usb0
 - WiFi: wlan0
 - charger
@@ -34,7 +35,7 @@ generate your own initial ramdisk.
 
 - Work in progress patches to get the display working on the device. The
   [cover letter](https://lore.kernel.org/lkml/20190505130413.32253-1-masneyb@onstation.org/) for
-  this series goes into detail about the issue that I see. This requires the backlight patch
+  this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
 
   - [drm/msm: fix null pointer dereference in msm_atomic_prepare_fb()](https://lore.kernel.org/lkml/20190505130413.32253-2-masneyb@onstation.org/)
@@ -172,14 +173,18 @@ generate your own initial ramdisk.
   - [5ea67bb0b090 ("power: supply: bq24190_charger: add support for bq24192 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ea67bb0b090033750a91325448dbee1d5b58b01)
   - [74d09c927cb6 ("power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d09c927cb69bd10c63e0c6dd3d1c71709ee7ea)
 
-- USB OTG - Requires the charger and gpio hogging patches listed on this page.
+- The phone contains a micro USB port that can be used for charging the battery or in USB OTG
+  mode so that other USB devices can be connected to the phone. You can also setup USB networking
+  between your computer and the phone. Ensure that `CONFIG_USB_ETH` is in your .config file since
+  qcom_defconfig does not have this option. The USB support requires the charger and gpio hogging
+  patches listed on this page.
 
   - [fb143fcbb9ad ("ARM: dts: qcom: msm8974-hammerhead: add USB OTG support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb143fcbb9ad361004f2818e9dcb52b2556bfec1)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
   [Asahi Kasei ak8963 magnetometer](https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf), and
-  [Bosch bmp280 temperature / humidity](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001-19.pdf)
+  [Bosch bmp280 temperature / humidity / barometer](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001-19.pdf)
   only required minimal changes in order to support these devices on the phone.
 
   - [de8df0b9c38d ("iio: imu: mpu6050: add support for 6515 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de8df0b9c38d8f232f0df03220ff540a54eaf73d)
