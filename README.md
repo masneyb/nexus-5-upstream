@@ -72,11 +72,6 @@ generate your own initial ramdisk.
 
   - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
 
-- Panel
-
-  - [dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-1-masneyb@onstation.org/)
-  - [drm/panel: simple: add lg,acx467akm-7 panel](https://lore.kernel.org/lkml/20181124200628.24393-2-masneyb@onstation.org/)
-
 ## Queued for 5.3 merge window
 
 - ALS / proximity
@@ -197,6 +192,11 @@ generate your own initial ramdisk.
   for wireless.
 
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
+
+- Panel
+
+  - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
+  - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
 
 - Flash memory 
 
