@@ -34,16 +34,16 @@ generate your own initial ramdisk.
 ## Outstanding patches
 
 - Work in progress patches to get the display working on the device. The
-  [cover letter](https://lore.kernel.org/lkml/20190505130413.32253-1-masneyb@onstation.org/) for
+  [cover letter](https://lore.kernel.org/lkml/20190509020352.14282-1-masneyb@onstation.org/) for
   this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
 
-  - [drm/msm: fix null pointer dereference in msm_atomic_prepare_fb()](https://lore.kernel.org/lkml/20190505130413.32253-2-masneyb@onstation.org/)
-  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190505130413.32253-3-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190505130413.32253-4-masneyb@onstation.org/)
-  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190505130413.32253-5-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190505130413.32253-6-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190505130413.32253-7-masneyb@onstation.org/)
+  - [drm: msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190509020352.14282-2-masneyb@onstation.org/)
+  - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
+  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190509020352.14282-5-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190509020352.14282-6-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190509020352.14282-7-masneyb@onstation.org/)
 
 - The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
 
