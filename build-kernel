@@ -45,7 +45,12 @@ cd "${KERNEL_SRC}"
 echo "Running 'make ${DEFCONFIG}'"
 make "${DEFCONFIG}"
 make kernelrelease
-make dt_binding_check
+
+HAS_DT_BINDING_CHECK=$(grep ^dt_binding_check: Makefile)
+if [ "${HAS_DT_BINDING_CHECK}" != "" ] ; then
+	make dt_binding_check
+fi
+
 nice -n 19 make -j "${NUM_CPUS}"
 
 echo "Using DTB ${DTB}"
