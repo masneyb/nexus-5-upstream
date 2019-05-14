@@ -38,8 +38,6 @@ generate your own initial ramdisk.
   this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
 
-  - [drm/msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190513234105.7531-1-masneyb@onstation.org/)
-  - [drm/msm: correct attempted NULL pointer dereference in debugfs](https://lore.kernel.org/lkml/20190513234105.7531-2-masneyb@onstation.org/)
   - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190509020352.14282-5-masneyb@onstation.org/)
@@ -51,6 +49,11 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
 
 ## Queued for 5.2 merge window
+
+- display
+
+  - [drm/msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190513234105.7531-1-masneyb@onstation.org/)
+  - [drm/msm: correct attempted NULL pointer dereference in debugfs](https://lore.kernel.org/lkml/20190513234105.7531-2-masneyb@onstation.org/)
 
 - gpio / pinctrl
 
@@ -68,12 +71,6 @@ generate your own initial ramdisk.
   - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
 
 ## Queued for 5.3 merge window
-
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
-
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190424092505.6578-2-masneyb@onstation.org/)
-  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190424092505.6578-3-masneyb@onstation.org/)
-  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190424092505.6578-4-masneyb@onstation.org/)
 
 - ALS / proximity
 
@@ -176,6 +173,12 @@ generate your own initial ramdisk.
   patches listed on this page.
 
   - [fb143fcbb9ad ("ARM: dts: qcom: msm8974-hammerhead: add USB OTG support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb143fcbb9ad361004f2818e9dcb52b2556bfec1)
+
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
+
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3f48ec0954c6aac736ab21c34a35d7554409112)
+  - [dt-bindings: backlight: add lm3630a bindings](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
+  - [backlight: lm3630a: add firmware node support](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
