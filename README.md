@@ -176,9 +176,9 @@ generate your own initial ramdisk.
 
 - The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
 
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3f48ec0954c6aac736ab21c34a35d7554409112)
-  - [dt-bindings: backlight: add lm3630a bindings](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
-  - [backlight: lm3630a: add firmware node support](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
+  - [d3f48ec0954c ("backlight: lm3630a: return 0 on success in update_status functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3f48ec0954c6aac736ab21c34a35d7554409112)
+  - [32fcb75c66a0 ("dt-bindings: backlight: add lm3630a bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
+  - [8fbce8efe15c ("backlight: lm3630a: add firmware node support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
