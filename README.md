@@ -38,7 +38,8 @@ generate your own initial ramdisk.
   this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
 
-  - [drm: msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190509020352.14282-2-masneyb@onstation.org/)
+  - [drm/msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190513234105.7531-1-masneyb@onstation.org/)
+  - [drm/msm: correct attempted NULL pointer dereference in debugfs](https://lore.kernel.org/lkml/20190513234105.7531-2-masneyb@onstation.org/)
   - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190509020352.14282-5-masneyb@onstation.org/)
