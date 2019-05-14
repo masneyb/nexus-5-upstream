@@ -46,12 +46,6 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190509020352.14282-6-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190509020352.14282-7-masneyb@onstation.org/)
 
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
-
-  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190424092505.6578-2-masneyb@onstation.org/)
-  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190424092505.6578-3-masneyb@onstation.org/)
-  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190424092505.6578-4-masneyb@onstation.org/)
-
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
@@ -74,6 +68,12 @@ generate your own initial ramdisk.
   - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
 
 ## Queued for 5.3 merge window
+
+- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
+
+  - [backlight: lm3630a: return 0 on success in update_status functions](https://lore.kernel.org/lkml/20190424092505.6578-2-masneyb@onstation.org/)
+  - [dt-bindings: backlight: add lm3630a bindings](https://lore.kernel.org/lkml/20190424092505.6578-3-masneyb@onstation.org/)
+  - [backlight: lm3630a: add firmware node support](https://lore.kernel.org/lkml/20190424092505.6578-4-masneyb@onstation.org/)
 
 - ALS / proximity
 
