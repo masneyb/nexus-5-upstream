@@ -48,28 +48,6 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
-## Queued for 5.2 merge window
-
-- display
-
-  - [drm/msm: remove resv fields from msm_gem_object struct](https://lore.kernel.org/lkml/20190513234105.7531-1-masneyb@onstation.org/)
-  - [drm/msm: correct attempted NULL pointer dereference in debugfs](https://lore.kernel.org/lkml/20190513234105.7531-2-masneyb@onstation.org/)
-
-- gpio / pinctrl
-
-  - [ARM: dts: qcom: apq8064: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-2-masneyb@onstation.org/)
-  - [ARM: dts: qcom: mdm9615: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-3-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8660: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-4-masneyb@onstation.org/)
-  - [ARM: dts: qcom: pma8084: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-5-masneyb@onstation.org/)
-  - [arm64: dts: qcom: pm8005: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-6-masneyb@onstation.org/)
-  - [arm64: dts: qcom: pm8998: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-7-masneyb@onstation.org/)
-  - [arm64: dts: qcom: pmi8994: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-8-masneyb@onstation.org/)
-  - [arm64: dts: qcom: pmi8998: add gpio-ranges](https://lore.kernel.org/lkml/20190306005316.12232-9-masneyb@onstation.org/)
-
-- defconfig
-
-  - [ARM: qcom_defconfig: add options for LG Nexus 5 phone](https://lore.kernel.org/lkml/20190210121657.4200-1-masneyb@onstation.org/)
-
 ## Queued for 5.3 merge window
 
 - ALS / proximity
@@ -118,7 +96,15 @@ generate your own initial ramdisk.
 
   - [149a96047237 ("pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=149a96047237574b756d872007c006acd0cc6687)
   - [7ed078557738 ("pinctrl: qcom: ssbi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ed07855773814337b9814f1c3e866df52ebce68)
-  - [cdd3d64d843a ("ARM: dts: qcom: msm8974: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cdd3d64d843a2a4c658a182b744bfefbd021d542)
+  - [cdd3d64d843a ("ARM: dts: qcom: pm8941: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cdd3d64d843a2a4c658a182b744bfefbd021d542)
+  - [33984dd6c4bb ("ARM: dts: qcom: apq8064: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=33984dd6c4bb89b606e38ed5810a157fe81b241c)
+  - [3bc5163ebbac ("ARM: dts: qcom: mdm9615: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=3bc5163ebbacf0f0d319f73de3d5e09a61e74f92)
+  - [546f72e7ecb2 ("ARM: dts: qcom: msm8660: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=546f72e7ecb25594a30f884da0d8ae79ad278cef)
+  - [05d86a0ae83b ("ARM: dts: qcom: pma8084: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=05d86a0ae83b62a11f74760d8edf84580beccb3e)
+  - [136e9d920dc6 ("arm64: dts: qcom: pm8005: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=136e9d920dc616f74642efaf1413f82096ddd989)
+  - [99c70e728623 ("arm64: dts: qcom: pm8998: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=99c70e7286237ea0701523555623faf6b49ce0db)
+  - [21750eb93ea9 ("arm64: dts: qcom: pmi8994: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21750eb93ea9ebe445c922f5319c6b490f45f70d)
+  - [d1fe337337ed ("arm64: dts: qcom: pmi8998: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d1fe337337edd37233e2fe65a43e7da6155fbec6)
 
 - The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
   proximity / ambient light sensor (ALS), which is register compatible with the
@@ -180,6 +166,11 @@ generate your own initial ramdisk.
   - [32fcb75c66a0 ("dt-bindings: backlight: add lm3630a bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
   - [8fbce8efe15c ("backlight: lm3630a: add firmware node support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
 
+- Some small fixes for the msm drm/kms driver.
+
+  - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
+  - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
+
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
   [Asahi Kasei ak8963 magnetometer](https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf), and
@@ -212,6 +203,10 @@ generate your own initial ramdisk.
     related to a change in the regulator framework that caused the the phone to no longer boot. The
     issue was resolved by commit
     [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
+
+- defconfig
+
+  - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
 
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
