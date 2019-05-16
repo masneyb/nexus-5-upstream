@@ -191,6 +191,7 @@ generate your own initial ramdisk.
   - [703e699dbe2c ("ARM: dts: qcom-msm8974: change invalid flag IRQ NONE to valid value")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=703e699dbe2cd106c406882f5c385485a1156cc9)
   - [fe8d81fe7d9a ("ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for mpu6515")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fe8d81fe7d9aab6a8e22c8b115eb06b7707087db)
   - [0567022c019a ("ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0567022c019ad1a1d7bb980a99797f7a7a11d7d3)
+  - [d2b863baf1c7 ("iio: pressure: bmp280: remove unused options from device tree documentation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2b863baf1c7d92969c2a9dcada3c6b14e5dbbc4)
 
 - WiFi - This phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
   for wireless.
