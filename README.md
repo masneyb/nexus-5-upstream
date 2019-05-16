@@ -46,7 +46,7 @@ generate your own initial ramdisk.
 
 - Vibrator
 
-  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190206013329.18195-4-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
 ## Queued for 5.2 merge window
 
