@@ -48,6 +48,10 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
+- Backlight
+
+  - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
+
 ## Queued for 5.3 merge window
 
 - ALS / proximity
