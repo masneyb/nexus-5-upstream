@@ -38,15 +38,15 @@ generate your own initial ramdisk.
   this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
 
-  I pushed [a branch to my GitHub](https://github.com/masneyb/linux/commits/display-works-4.17) with
-  15 patches that gets the display to work properly on a 4.17 kernel. The first 10 of those patches
-  are already included in newer mainline kernels and were backported.
-
   - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190509020352.14282-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190509020352.14282-6-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190509020352.14282-7-masneyb@onstation.org/)
+
+  I pushed [a branch to my GitHub](https://github.com/masneyb/linux/commits/display-works-4.17) with
+  15 patches that gets the display to work properly on a 4.17 kernel. The first 10 of those patches
+  are already included in newer mainline kernels and were backported.
 
 - Vibrator
 
