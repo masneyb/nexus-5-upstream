@@ -33,10 +33,14 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Work in progress patches to get the display working on the device. The
+- Work in progress patches to get the display partially working on the device. The
   [cover letter](https://lore.kernel.org/lkml/20190509020352.14282-1-masneyb@onstation.org/) for
   this series goes into detail about the issue with the display. This requires the backlight patch
   series below.
+
+  I pushed [a branch to my GitHub](https://github.com/masneyb/linux/commits/display-works-4.17) with
+  15 patches that gets the display to work properly on a 4.17 kernel. The first 10 of those patches
+  are already included in newer mainline kernels and were backported.
 
   - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
