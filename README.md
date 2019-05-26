@@ -48,7 +48,7 @@ generate your own initial ramdisk.
   15 patches that gets the display to work properly on a 4.17 kernel. The first 10 of those patches
   are already included in newer mainline kernels and were backported.
 
-- Correct sdhci regression introduced in 5.2rc1 that broke WiFi.
+- WiFi stopped working in 5.2rc1
 
   [mmc: sdhci: queue work after sdhci_defer_done()](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
 
