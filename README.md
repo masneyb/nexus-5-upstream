@@ -33,24 +33,14 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Work in progress patches to get the display partially working on the device. The
-  [cover letter](https://lore.kernel.org/lkml/20190509020352.14282-1-masneyb@onstation.org/) for
-  this series goes into detail about the issue with the display. This requires the backlight patch
-  series below.
+- Display support
 
-  - [drm: msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190509020352.14282-3-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190509020352.14282-4-masneyb@onstation.org/)
-  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190509020352.14282-5-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190509020352.14282-6-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190509020352.14282-7-masneyb@onstation.org/)
-
-  I pushed [a branch to my GitHub](https://github.com/masneyb/linux/commits/display-works-4.17) with
-  15 patches that gets the display to work properly on a 4.17 kernel. The first 10 of those patches
-  are already included in newer mainline kernels and were backported.
-
-- WiFi stopped working in 5.2rc1
-
-  [mmc: sdhci: queue work after sdhci_defer_done()](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
+  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
+  - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
+  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
 
 - Vibrator
 
@@ -59,6 +49,9 @@ generate your own initial ramdisk.
 - Backlight
 
   - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
+
+- Bisected a regression that caused WiFi to stop working. See
+  [this thread](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/) for details.
 
 ## Queued for 5.3 merge window
 
