@@ -16,15 +16,16 @@ kernels onto newer upstream LTS kernel releases.
 This is a high-level summary of the components that currently work upstream, or where there are
 outstanding patches waiting for a review. See below for further details.
 
+- display / panel - no GPU yet
+- backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
 - magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
 - temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
 - proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039
 - vibrator: /dev/input/by-path/platform-fd8c3450.vibrator-event
-- backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - USB: usb0
 - WiFi: wlan0
-- charger
+- charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
 - serial port: /dev/ttyMSM0. A serial console can be obtained through the headphone jack and
   requires building a custom cable [as described on this page](UART_CABLE.md).
 
@@ -33,7 +34,7 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Display support
+- Display is supported by the msm drm/kms driver upstream.
 
   - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
   - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
@@ -215,6 +216,10 @@ generate your own initial ramdisk.
 
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
+
+## Framebuffer Console
+
+![Framebuffer Console](images/Nexus5-FB-Console.jpg?raw=1)
 
 ## Working USB OTG
 
