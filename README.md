@@ -47,13 +47,6 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
-- Backlight
-
-  - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
-
-- Bisected a regression that caused WiFi to stop working. See
-  [this thread](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/) for details.
-
 ## Queued for 5.3 merge window
 
 - ALS / proximity
@@ -61,6 +54,13 @@ generate your own initial ramdisk.
   - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-1-masneyb@onstation.org/)
   - [dt-bindings: iio: tsl2583: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-2-masneyb@onstation.org/)
   - [dt-bindings: iio: isl29018: convert bindings to YAML format](https://lore.kernel.org/lkml/20190427182359.27254-1-masneyb@onstation.org/)
+
+- Backlight
+
+  - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
+
+- Bisected a regression that caused WiFi to stop working. See
+  [this thread](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/) for details.
 
 ## Patches accepted in upstream kernel
 
