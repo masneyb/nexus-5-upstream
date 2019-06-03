@@ -42,10 +42,19 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
+  - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
 
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
+
+- Touchscreen
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
+
+- defconfig
+
+  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
 
 ## Queued for 5.3 merge window
 
@@ -159,10 +168,8 @@ generate your own initial ramdisk.
   - [74d09c927cb6 ("power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d09c927cb69bd10c63e0c6dd3d1c71709ee7ea)
 
 - The phone contains a micro USB port that can be used for charging the battery or in USB OTG
-  mode so that other USB devices can be connected to the phone. You can also setup USB networking
-  between your computer and the phone. Ensure that `CONFIG_USB_ETH` is in your .config file since
-  qcom_defconfig does not have this option. The USB support requires the charger and gpio hogging
-  patches listed on this page.
+  mode so that other USB devices can be connected to the phone. The USB support requires the
+  charger and gpio hogging patches listed on this page.
 
   - [fb143fcbb9ad ("ARM: dts: qcom: msm8974-hammerhead: add USB OTG support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb143fcbb9ad361004f2818e9dcb52b2556bfec1)
 
