@@ -65,7 +65,7 @@ ramdiskaddr = 0x2900000
 secondaddr = 0xf00000
 tagsaddr = 0x2700000
 name = 
-cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait androidboot.hardware=hammerhead user_debug=31 maxcpus=2 msm_watchdog_v2.enable=1 PMOS_NO_OUTPUT_REDIRECT=1
+cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait androidboot.hardware=hammerhead user_debug=31 maxcpus=4 msm_watchdog_v2.enable=1 PMOS_NO_OUTPUT_REDIRECT=1
 __EOF__
 
 if [ "${PREPARE_INITRD_SCR}" != "" ] ; then
