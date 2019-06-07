@@ -18,6 +18,7 @@ outstanding patches waiting for a review. See below for further details.
 
 - display / panel - no GPU yet
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
+- touchscreen: /sys/devices/rmi4-00/input
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
 - magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
 - temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
