@@ -69,9 +69,6 @@ generate your own initial ramdisk.
 
   - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
 
-- Bisected a regression that caused WiFi to stop working. See
-  [this thread](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/) for details.
-
 ## Patches accepted in upstream kernel
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
@@ -198,10 +195,13 @@ generate your own initial ramdisk.
   - [0567022c019a ("ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0567022c019ad1a1d7bb980a99797f7a7a11d7d3)
   - [d2b863baf1c7 ("iio: pressure: bmp280: remove unused options from device tree documentation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2b863baf1c7d92969c2a9dcada3c6b14e5dbbc4)
 
-- WiFi - This phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
+- WiFi - The phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
   for wireless.
 
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
+  - [Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
+    that caused WiFi to stop working. This issue was fixed by the patch 
+    [89f3c365f3e1 ("mmc: sdhci: Fix SDIO IRQ thread deadlock")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f3c365f3e113d087f105c3acbbb5a71eee84e3).
 
 - Panel
 
