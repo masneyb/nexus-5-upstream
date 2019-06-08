@@ -227,7 +227,7 @@ generate your own initial ramdisk.
 
 ## Framebuffer Console
 
-![Framebuffer Console](images/fb-console.png?raw=1)
+![Framebuffer Console](images/Nexus5-FB-Console.png?raw=1)
 
 ## Working USB OTG
 
