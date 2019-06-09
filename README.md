@@ -225,11 +225,11 @@ generate your own initial ramdisk.
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
 
-## Framebuffer Console
+## Display
 
-![Framebuffer Console](images/Nexus5-FB-Console.png?raw=1)
+![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
 
-## Working USB OTG
+## USB OTG
 
 ![USB OTG](images/usb-otg.png?raw=1)
 
