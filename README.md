@@ -229,6 +229,12 @@ generate your own initial ramdisk.
 
 ![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
 
+[kmbscube](https://gitlab.freedesktop.org/mesa/kmscube/) and the text framebuffer console working
+on the Nexus 5. I'm currently working on upstreaming the various bits that will allow the GPU to
+work in the upstream kernel. You can find a branch on
+[the linux repository on my GitHub account](https://github.com/masneyb/linux/branches) that has
+working GPU support.
+
 ## USB OTG
 
 ![USB OTG](images/usb-otg.png?raw=1)
