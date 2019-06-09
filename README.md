@@ -235,6 +235,11 @@ work in the upstream kernel. You can find a branch on
 [the linux repository on my GitHub account](https://github.com/masneyb/linux/branches) that has
 working GPU support.
 
+It requires running version 19.1.0-rc5 or later of Mesa in the 19.x series. If you're using
+postmarketOS, then see
+[this thread](https://gitlab.com/postmarketOS/pmaports/issues/221#note_178818933) for a patch to
+upgrade the version of mesa.
+
 ## USB OTG
 
 ![USB OTG](images/usb-otg.png?raw=1)
