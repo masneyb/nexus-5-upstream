@@ -39,10 +39,6 @@ generate your own initial ramdisk.
 
   - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
   - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
-  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
   - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
@@ -59,15 +55,14 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
-- Touchscreen
-
-  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
-
-- defconfig
-
-  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
-
 ## Queued for 5.3 merge window
+
+- Display
+
+  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
+  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
 
 - ALS / proximity
 
@@ -78,6 +73,14 @@ generate your own initial ramdisk.
 - Backlight
 
   - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
+
+- Touchscreen
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
+
+- defconfig
+
+  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
