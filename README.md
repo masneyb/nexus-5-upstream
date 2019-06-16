@@ -45,6 +45,16 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
   - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
 
+- On Chip MEMory driver is required in order to support the GPU upstream.
+  [Cover Letter](https://lore.kernel.org/lkml/20190616132930.6942-1-masneyb@onstation.org/)
+
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190616132930.6942-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190616132930.6942-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config](https://lore.kernel.org/lkml/20190616132930.6942-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190616132930.6942-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190616132930.6942-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190616132930.6942-7-masneyb@onstation.org/)
+
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
