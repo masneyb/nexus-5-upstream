@@ -42,14 +42,14 @@ generate your own initial ramdisk.
   - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190616132930.6942-1-masneyb@onstation.org/)
+  [Cover Letter](https://lore.kernel.org/lkml/20190619023209.10036-1-masneyb@onstation.org/)
 
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190616132930.6942-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190616132930.6942-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config](https://lore.kernel.org/lkml/20190616132930.6942-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190616132930.6942-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190616132930.6942-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190616132930.6942-7-masneyb@onstation.org/)
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190619023209.10036-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190619023209.10036-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190619023209.10036-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190619023209.10036-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190619023209.10036-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190619023209.10036-7-masneyb@onstation.org/)
 
 - Vibrator
 
