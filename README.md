@@ -64,6 +64,14 @@ generate your own initial ramdisk.
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
 
+- Touchscreen
+
+  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
+
+- defconfig
+
+  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
+
 - ALS / proximity
 
   - [dt-bindings: iio: tsl2772: convert bindings to YAML format](https://lore.kernel.org/lkml/20190425230314.26000-1-masneyb@onstation.org/)
@@ -73,14 +81,6 @@ generate your own initial ramdisk.
 - Backlight
 
   - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
-
-- Touchscreen
-
-  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
-
-- defconfig
-
-  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
