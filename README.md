@@ -5,18 +5,19 @@ kernel image is based on the upstream Linux 3.4 kernel that was released in May 
 almost 2 million lines of code on top of the upstream kernel. This factory image is abandoned
 and no longer receives security updates.
 
-The goal is to eventually get all of the major components working upstream, including the necessary
-[device tree bindings](https://elinux.org/images/f/f9/Petazzoni-device-tree-dummies_0.pdf),
-so that the phone will work with the latest upstream kernel. These patches will eventually appear
-in the [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their
-kernels onto newer upstream LTS kernel releases.
+The goal is to eventually get all of the major components working upstream so that the phone will
+work with the latest upstream kernel. These patches will eventually appear in the
+[Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their kernels
+onto newer upstream LTS kernel releases. This will also allow using operating systems such as
+[postmarketOS](https://postmarketos.org/).
 
 ## Device summary
 
 This is a high-level summary of the components that currently work upstream, or where there are
 outstanding patches waiting for a review. See below for further details.
 
-- display / panel - no GPU yet
+- display / panel
+  - no GPU upstream yet, however there are out of tree patches available.
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - touchscreen: /sys/devices/rmi4-00/input
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
@@ -119,6 +120,8 @@ generate your own initial ramdisk.
 
 - When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
   errors during system boot due to a circular dependency between the gpio and pinctrl frameworks.
+  This fix is required in order to support USB on the Nexus 5 since one GPIO pin needs to be hogged
+  high at startup on the Nexus 5.
 
   - [149a96047237 ("pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=149a96047237574b756d872007c006acd0cc6687)
   - [7ed078557738 ("pinctrl: qcom: ssbi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ed07855773814337b9814f1c3e866df52ebce68)
@@ -135,10 +138,11 @@ generate your own initial ramdisk.
 - The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
   proximity / ambient light sensor (ALS), which is register compatible with the
   [TAOS TSL2772 sensor](https://ams.com/documents/20143/36005/TSL2772_DS000181_2-00.pdf).
-  The [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
+  By mere coincidence, the
+  [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
   is one of the staging cleanups that I did and it took
   [74 patches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/drivers/staging/iio/light/tsl2x7x.c)
-  to move the driver out of staging and into mainline. A few notable patches from that work:
+  to move that driver out of staging and into mainline. A few notable patches from that work:
 
   - [498efcd08114 ("staging: iio: tsl2x7x: correct integration time and lux equation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=498efcd08114905074a644bf81f82ce5c62eac43)
   - [9861d2daaf28 ("staging: iio: tsl2x7x: correct IIO_EV_INFO_PERIOD values"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9861d2daaf28e7beaa0c655206c595094d47ccd8)
@@ -246,12 +250,9 @@ generate your own initial ramdisk.
 on the Nexus 5. I'm currently working on upstreaming the various bits that will allow the GPU to
 work in the upstream kernel. You can find a branch on
 [the linux repository on my GitHub account](https://github.com/masneyb/linux/branches) that has
-working GPU support.
-
-It requires running version 19.1.0-rc5 or later of Mesa in the 19.x series. If you're using
-postmarketOS, then see
-[this thread](https://gitlab.com/postmarketOS/pmaports/issues/221#note_178818933) for a patch to
-upgrade the version of mesa.
+working GPU support. If you're using postmarketOS, then see
+[this issue](https://gitlab.com/postmarketOS/pmaports/merge_requests/450) for a patch that gets
+the phone booting with this kernel.
 
 ## USB OTG
 
@@ -265,6 +266,8 @@ upgrade the version of mesa.
    from the community. Use hammerhead_defconfig when building this kernel.
 - [postmarketOS](https://postmarketos.org/) for the
   [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
+  - This Nexus 5 project was mentioned on their
+    [Two years of postmarketOS](https://postmarketos.org/blog/2019/06/23/two-years/) blog post.
 
 ## Contact
 
