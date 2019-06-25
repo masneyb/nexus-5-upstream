@@ -36,11 +36,6 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Display is supported by the msm drm/kms driver upstream.
-
-  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
-  - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
-
 - On Chip MEMory driver is required in order to support the GPU upstream.
   [Cover Letter](https://lore.kernel.org/lkml/20190619023209.10036-1-masneyb@onstation.org/)
 
@@ -57,8 +52,10 @@ generate your own initial ramdisk.
 
 ## Queued for 5.3 merge window
 
-- Display
+- Display is supported by the msm drm/kms driver upstream.
 
+  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
+  - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
   - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
