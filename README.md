@@ -17,7 +17,6 @@ This is a high-level summary of the components that currently work upstream, or 
 outstanding patches waiting for a review. See below for further details.
 
 - display / panel
-  - no GPU upstream yet, however there are out of tree patches available.
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - touchscreen: /sys/devices/rmi4-00/input
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
@@ -37,14 +36,14 @@ generate your own initial ramdisk.
 ## Outstanding patches
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190619023209.10036-1-masneyb@onstation.org/)
+  [Cover Letter](https://lore.kernel.org/lkml/20190626022148.23712-1-masneyb@onstation.org/)
 
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190619023209.10036-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190619023209.10036-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190619023209.10036-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190619023209.10036-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190619023209.10036-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190619023209.10036-7-masneyb@onstation.org/)
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190626022148.23712-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190626022148.23712-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190626022148.23712-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190626022148.23712-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190626022148.23712-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190626022148.23712-7-masneyb@onstation.org/)
 
 - Vibrator
 
