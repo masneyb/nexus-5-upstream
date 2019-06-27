@@ -49,6 +49,10 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
+- Display is supported by the msm drm/kms driver upstream.
+
+  - [drm/msm: correct NULL pointer dereference in context_init](https://lore.kernel.org/lkml/20190627020515.5660-1-masneyb@onstation.org/)
+
 ## Queued for 5.3 merge window
 
 - Display is supported by the msm drm/kms driver upstream.
