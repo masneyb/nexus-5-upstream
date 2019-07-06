@@ -45,13 +45,14 @@ generate your own initial ramdisk.
   - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190626022148.23712-6-masneyb@onstation.org/)
   - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190626022148.23712-7-masneyb@onstation.org/)
 
+- Display is supported by the msm drm/kms driver upstream.
+
+  - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
+  - [drm/msm: correct NULL pointer dereference in context_init](https://lore.kernel.org/lkml/20190627020515.5660-1-masneyb@onstation.org/)
+
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
-
-- Display is supported by the msm drm/kms driver upstream.
-
-  - [drm/msm: correct NULL pointer dereference in context_init](https://lore.kernel.org/lkml/20190627020515.5660-1-masneyb@onstation.org/)
 
 ## Queued for 5.3 merge window
 
