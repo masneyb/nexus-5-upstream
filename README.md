@@ -50,14 +50,12 @@ generate your own initial ramdisk.
   - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
   - [drm/msm: correct NULL pointer dereference in context_init](https://lore.kernel.org/lkml/20190627020515.5660-1-masneyb@onstation.org/)
 
-- gpio / pinctrl
+- Helpers to the GPIO core for hierarchical IRQ chips. [Cover Letter](https://lore.kernel.org/lkml/20190708110138.24657-1-masneyb@onstation.org/)
 
-  - Helpers to the GPIO core for hierarchical IRQ chips. [Cover Letter](https://lore.kernel.org/lkml/20190708110138.24657-1-masneyb@onstation.org/)
-
-    - [gpio: introduce gpiochip_populate_parent_fwspec_{two,four}cell functions](https://lore.kernel.org/lkml/20190708110138.24657-2-masneyb@onstation.org/)
-    - [gpio: allow customizing hierarchical IRQ chips](https://lore.kernel.org/lkml/20190708110138.24657-3-masneyb@onstation.org/)
-    - [gpio: use handler in gpio_irq_chip instead of handle_bad_irq](https://lore.kernel.org/lkml/20190708110138.24657-4-masneyb@onstation.org/)
-    - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190708110138.24657-5-masneyb@onstation.org/)
+  - [gpio: introduce gpiochip_populate_parent_fwspec_{two,four}cell functions](https://lore.kernel.org/lkml/20190708110138.24657-2-masneyb@onstation.org/)
+  - [gpio: allow customizing hierarchical IRQ chips](https://lore.kernel.org/lkml/20190708110138.24657-3-masneyb@onstation.org/)
+  - [gpio: use handler in gpio_irq_chip instead of handle_bad_irq](https://lore.kernel.org/lkml/20190708110138.24657-4-masneyb@onstation.org/)
+  - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190708110138.24657-5-masneyb@onstation.org/)
 
 - Vibrator
 
