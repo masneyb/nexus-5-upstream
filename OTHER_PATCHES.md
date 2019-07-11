@@ -15,6 +15,7 @@ project.
   - [6ba5dee90b24 ("staging: iio: tsl2583: i2c_smbus_write_byte() / i2c_smbus_read_byte() migration")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6ba5dee90b2483f8a78081376f56e6b65c10ea92)
   - [cade8cde796c ("staging: iio: tsl2583: remove redundant write to the control register in taos_probe()")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cade8cde796cc330b23f62a24c93d754df62c949)
   - [f44d5c8ac399 ("staging: iio: tsl2583: move out of staging")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f44d5c8ac3993421370fc00951abd5864ca71689)
+  - [40e64432ce98 ("dt-bindings: iio: tsl2583: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=40e64432ce98f4ee5671d39fbf909ef3f3592366)
 
 - The [isl29028.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/isl29028.c)
   is one of the staging cleanups that I did and it took
@@ -35,6 +36,7 @@ project.
   to move the driver out of staging and into mainline.
 
   - [a57504144c62 ("staging: iio: isl29018: move out of staging")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a57504144c62404472f3cc6a7bf4ada4508d5ddc)
+  - [cf54f4dd07a6 ("dt-bindings: iio: isl29018: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=cf54f4dd07a652d9a0630ec4e82c5ff082d2a14e)
 
 - Other patches
 
