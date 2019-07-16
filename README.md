@@ -65,9 +65,7 @@ generate your own initial ramdisk.
 
 - Display is supported by the msm drm/kms driver upstream.
 
-  - [drm/msm: add dirty framebuffer helper](https://lore.kernel.org/lkml/20190531094619.31704-2-masneyb@onstation.org/)
   - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
-  - [drm/msm: correct attempted NULL pointer dereference in put_iova](https://lore.kernel.org/lkml/20190603010131.16773-1-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
   - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
@@ -81,11 +79,14 @@ generate your own initial ramdisk.
 
   - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
 
-- Backlight
-
-  - [dt-bindings: backlight: lm3630a: correct schema validation](https://lore.kernel.org/lkml/20190520085846.22320-1-masneyb@onstation.org/)
-
 ## Patches accepted in upstream kernel
+
+- Display is supported by the msm drm/kms driver upstream.
+
+  - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
+  - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
+  - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
+  - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
   can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
@@ -168,8 +169,8 @@ generate your own initial ramdisk.
   - [7c14947e4d3d ("iio: tsl2772: add support for regulator framework")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7c14947e4d3d8585cc047b132cd1a4ac3167928c)
   - [bd9392507588 ("ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for ALS / proximity")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bd9392507588483da81337cb430531d1cb114845)
   - [1ed80a817bc4 ("dt-bindings: iio: tsl2772: add new bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1ed80a817bc42de91701cc60e58d968077359a58)
-  - [17b62779cbe4 ("dt-bindings: iio: tsl2772: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17b62779cbe40773e10a83af000e51c29b764575)
   - [28b6977e089d ("dt-bindings: iio: tsl2772: add binding for avago,apds9930")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=28b6977e089dda97f8f32ac1a6a223f59e7065f4)
+  - [17b62779cbe4 ("dt-bindings: iio: tsl2772: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17b62779cbe40773e10a83af000e51c29b764575)
 
 - Vibrator - Use
   [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
@@ -196,11 +197,7 @@ generate your own initial ramdisk.
   - [d3f48ec0954c ("backlight: lm3630a: return 0 on success in update_status functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3f48ec0954c6aac736ab21c34a35d7554409112)
   - [32fcb75c66a0 ("dt-bindings: backlight: add lm3630a bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
   - [8fbce8efe15c ("backlight: lm3630a: add firmware node support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
-
-- Some small fixes for the msm drm/kms driver.
-
-  - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
-  - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
+  - [ef4db28c1f45 ("dt-bindings: backlight: lm3630a: correct schema validation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef4db28c1f45cda6989bc8a8e45294894786d947)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
