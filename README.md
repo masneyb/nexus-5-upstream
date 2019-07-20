@@ -66,24 +66,14 @@ generate your own initial ramdisk.
 - Display is supported by the msm drm/kms driver upstream.
 
   - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add display-related options](https://lore.kernel.org/lkml/20190531094619.31704-4-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for backlight](https://lore.kernel.org/lkml/20190531094619.31704-5-masneyb@onstation.org/)
-  - [ARM: dts: msm8974: add display support](https://lore.kernel.org/lkml/20190531094619.31704-6-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for display](https://lore.kernel.org/lkml/20190531094619.31704-7-masneyb@onstation.org/)
-
-- Touchscreen
-
-  - [ARM: dts: qcom: msm8974-hammerhead: add touchscreen support](https://lore.kernel.org/lkml/20190603010455.17060-1-masneyb@onstation.org/)
-
-- defconfig
-
-  - [ARM: qcom_defconfig: add support for USB networking](https://lore.kernel.org/lkml/20190603010455.17060-2-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
 - Display is supported by the msm drm/kms driver upstream.
 
   - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
+  - [5a9fc531f6ec ("ARM: dts: msm8974: add display support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5a9fc531f6ecc987980fdd025928790c5db5f48a)
+  - [489bacb29818 ("ARM: dts: qcom: msm8974-hammerhead: add support for display")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=489bacb29818865d2db63d4800f4ddff56929031)
   - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
   - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
@@ -198,6 +188,7 @@ generate your own initial ramdisk.
   - [32fcb75c66a0 ("dt-bindings: backlight: add lm3630a bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
   - [8fbce8efe15c ("backlight: lm3630a: add firmware node support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
   - [ef4db28c1f45 ("dt-bindings: backlight: lm3630a: correct schema validation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef4db28c1f45cda6989bc8a8e45294894786d947)
+  - [030b6d48ebfb ("ARM: dts: qcom: msm8974-hammerhead: add support for backlight")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=030b6d48ebfb8d45f397aa13da712210c9803042)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
@@ -220,10 +211,14 @@ generate your own initial ramdisk.
     that caused WiFi to stop working. This issue was fixed by the patch 
     [89f3c365f3e1 ("mmc: sdhci: Fix SDIO IRQ thread deadlock")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f3c365f3e113d087f105c3acbbb5a71eee84e3).
 
-- Panel
+- Panel is supported by the simple panel driver.
 
   - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
   - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
+
+- Touchscreen is supported by the Synaptics RMI4 driver.
+
+  - [48100d10c93f ("ARM: dts: qcom: msm8974-hammerhead: add touchscreen support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=48100d10c93fe3df6e1f4ea77888985d054f25d8)
 
 - Flash memory 
 
@@ -238,6 +233,8 @@ generate your own initial ramdisk.
 - defconfig
 
   - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
+  - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
+  - [817bbbb7749d ("ARM: qcom_defconfig: add support for USB networking")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=817bbbb7749decb99262dc3bb1569a579eea5ba8)
 
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
