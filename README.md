@@ -247,9 +247,7 @@ generate your own initial ramdisk.
 on the Nexus 5. I'm currently working on upstreaming the various bits that will allow the GPU to
 work in the upstream kernel. You can find a branch on
 [the linux repository on my GitHub account](https://github.com/masneyb/linux/branches) that has
-working GPU support. If you're using postmarketOS, then see
-[this issue](https://gitlab.com/postmarketOS/pmaports/merge_requests/450) for a patch that gets
-the phone booting with this kernel.
+working GPU support.
 
 ## USB OTG
 
