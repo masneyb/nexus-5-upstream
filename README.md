@@ -48,7 +48,6 @@ generate your own initial ramdisk.
 - Display is supported by the msm drm/kms driver upstream.
 
   - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
-  - [drm/msm: correct NULL pointer dereference in context_init](https://lore.kernel.org/lkml/20190627020515.5660-1-masneyb@onstation.org/)
 
 - Helpers to the GPIO core for hierarchical IRQ chips. [Cover Letter](https://lore.kernel.org/lkml/20190708110138.24657-1-masneyb@onstation.org/)
 
@@ -74,9 +73,10 @@ generate your own initial ramdisk.
   - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
   - [5a9fc531f6ec ("ARM: dts: msm8974: add display support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5a9fc531f6ecc987980fdd025928790c5db5f48a)
   - [489bacb29818 ("ARM: dts: qcom: msm8974-hammerhead: add support for display")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=489bacb29818865d2db63d4800f4ddff56929031)
-  - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
   - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
+  - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
+  - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
   can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
