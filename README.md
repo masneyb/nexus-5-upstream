@@ -250,6 +250,7 @@ working GPU support.
 
 ## Other resources
 
+- [TODO list](TODO.md) for upstreaming the various major components.
 - A full teardown of the Nexus 5 is
   [available on ifixit](https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016).
 - [Downstream MSM 3.4 kernel sources](https://github.com/AICP/kernel_lge_hammerhead) with additions
@@ -258,7 +259,6 @@ working GPU support.
   [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
   - This Nexus 5 project was mentioned on their
     [Two years of postmarketOS](https://postmarketos.org/blog/2019/06/23/two-years/) blog post.
-- [TODO list](TODO.md) for upstreaming the various major components.
 
 ## Contact
 
