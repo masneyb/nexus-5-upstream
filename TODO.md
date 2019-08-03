@@ -20,7 +20,8 @@ have any updates to this list. Feel free to pick up an item on this list if you'
   driver and referred to as torch in that code. Likely requires a new driver upstream.
 - The front LED appears to be supported by an out-of-tree patch with the
   [Qualcomm Light Pulse Generator (LPG) driver](https://lkml.org/lkml/2017/11/15/26).
-- [Battery](https://lore.kernel.org/patchwork/patch/437579/)
+- Battery - likely supported by the
+  [Battery Monitoring System](https://lore.kernel.org/lkml/20180614151435.6471-2-ctatlor97@gmail.com/).
 - Bluetooth - I have some work in progress patches towards this.
 
 ## Driver improvements
