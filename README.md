@@ -36,14 +36,14 @@ generate your own initial ramdisk.
 ## Outstanding patches
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190626022148.23712-1-masneyb@onstation.org/)
+  [Cover Letter](https://lore.kernel.org/lkml/20190803142026.9647-1-masneyb@onstation.org/)
 
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190626022148.23712-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190626022148.23712-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190626022148.23712-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190626022148.23712-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190626022148.23712-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190626022148.23712-7-masneyb@onstation.org/)
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190803142026.9647-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190803142026.9647-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190803142026.9647-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190803142026.9647-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190803142026.9647-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190803142026.9647-7-masneyb@onstation.org/)
 
 - Display is supported by the msm drm/kms driver upstream.
 
