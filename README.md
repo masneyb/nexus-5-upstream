@@ -263,6 +263,7 @@ working GPU support.
   [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
   - This Nexus 5 project was mentioned on their
     [Two years of postmarketOS](https://postmarketos.org/blog/2019/06/23/two-years/) blog post.
+- [TODO list](TODO.md) for upstreaming the various major components.
 
 ## Contact
 
