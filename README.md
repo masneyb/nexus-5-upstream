@@ -60,16 +60,11 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
-## Queued for 5.3 merge window
-
-- Display is supported by the msm drm/kms driver upstream.
-
-  - [drm/msm: add support for per-CRTC max_vblank_count on mdp5](https://lore.kernel.org/lkml/20190531094619.31704-3-masneyb@onstation.org/)
-
 ## Patches accepted in upstream kernel
 
 - Display is supported by the msm drm/kms driver upstream.
 
+  - [2bab52af6fe6 ("drm/msm: add support for per-CRTC max_vblank_count on mdp5")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2bab52af6fe68c43b327a57e5ce5fc10eefdfadf)
   - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
   - [5a9fc531f6ec ("ARM: dts: msm8974: add display support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5a9fc531f6ecc987980fdd025928790c5db5f48a)
   - [489bacb29818 ("ARM: dts: qcom: msm8974-hammerhead: add support for display")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=489bacb29818865d2db63d4800f4ddff56929031)
