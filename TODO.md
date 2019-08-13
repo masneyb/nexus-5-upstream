@@ -14,7 +14,9 @@ have any updates to this list. Feel free to pick up an item on this list if you'
   require the OCMEM and Interconnect support as well based on the downstream code.
 - Audio - Also requires OCMEM and Interconnect support based on downstream code.
 - Modem
-- GPS - Is this supported downstream with Qualcomm's proprietary libsensors?
+- GPS - Patch for gpsd is in [this tree](https://github.com/andersson/gpsd/commits/master) for the
+  Qualcomm PDS service support. Start gpsd with `sudo gpsd -N -D9 -F /var/run/gpsd.sock` and
+  connect to it with `sudo gpsdctl add pds://any`, and test with `sudo gpsmon`.
 - The rear flashlight is supported in the downstream Linux kernel with the
   [drivers/leds/leds-qpnp.c](https://github.com/AICP/kernel_lge_hammerhead/blob/n7.1/drivers/leds/leds-qpnp.c)
   driver and referred to as torch in that code. Likely requires a new driver upstream.
