@@ -23,6 +23,9 @@ have any updates to this list. Feel free to pick up an item on this list if you'
 - Battery - likely supported by the
   [Battery Monitoring System](https://lore.kernel.org/lkml/20180614151435.6471-2-ctatlor97@gmail.com/).
 - Bluetooth - I have some work in progress patches towards this.
+- CPUFreq support for msm8974. See [this message](https://lore.kernel.org/lkml/20190812152826.GA7958@centauri/)
+  for more details. The referenced patch in linux-next is titled
+  'cpufreq: qcom: Re-organise kryo cpufreq to use it for other nvmem based qcom socs'.
 
 ## Driver improvements
 
