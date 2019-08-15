@@ -46,6 +46,24 @@ generate your own initial ramdisk.
   - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190806002229.8304-7-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20190806002229.8304-8-masneyb@onstation.org/)
 
+- An external monitor can be hooked up via the
+  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
+  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
+  to 4K HDMI Adapter'. The external display is not working yet and some information can be
+  found on the [Cover Letter](https://lore.kernel.org/lkml/20190815004854.19860-1-masneyb@onstation.org/).
+
+  - [dt-bindings: drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-2-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-3-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: correct value of TX_P0](https://lore.kernel.org/lkml/20190815004854.19860-6-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20190815004854.19860-7-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add CONFIG_DRM_ANALOGIX_ANX78XX](https://lore.kernel.org/lkml/20190815004854.19860-8-masneyb@onstation.org/)
+  - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
+  - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20190815004854.19860-10-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20190815004854.19860-11-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20190815004854.19860-12-masneyb@onstation.org/)
+
 - Display is supported by the msm drm/kms driver upstream.
 
   - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
