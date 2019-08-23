@@ -36,15 +36,15 @@ generate your own initial ramdisk.
 ## Outstanding patches
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190822143703.13030-1-masneyb@onstation.org/)
+  [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
 
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190822143703.13030-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190822143703.13030-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190822143703.13030-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190822143703.13030-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190822143703.13030-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190822143703.13030-7-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20190822143703.13030-8-masneyb@onstation.org/)
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190823121637.5861-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190823121637.5861-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190823121637.5861-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190823121637.5861-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20190823121637.5861-8-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
