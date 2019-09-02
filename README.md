@@ -76,6 +76,14 @@ generate your own initial ramdisk.
   - [gpio: use handler in gpio_irq_chip instead of handle_bad_irq](https://lore.kernel.org/lkml/20190708110138.24657-4-masneyb@onstation.org/)
   - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190708110138.24657-5-masneyb@onstation.org/)
 
+## Work in progress patches
+
+- Work in progress interconnect driver in order to support the GPU upstream.
+  [Cover Letter](https://lore.kernel.org/lkml/20190902211925.27169-1-masneyb@onstation.org/)
+
+  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20190902211925.27169-2-masneyb@onstation.org/)
+  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20190902211925.27169-3-masneyb@onstation.org/)
+
 - Vibrator
 
   - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
