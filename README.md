@@ -65,16 +65,18 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20190815004854.19860-11-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20190815004854.19860-12-masneyb@onstation.org/)
 
+- [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
+
+## Patches queued for next merge window
+
 - Display is supported by the msm drm/kms driver upstream.
 
   - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
 
-- Helpers to the GPIO core for hierarchical IRQ chips. [Cover Letter](https://lore.kernel.org/lkml/20190708110138.24657-1-masneyb@onstation.org/)
+- Helpers to the GPIO core for hierarchical IRQ chips.
 
-  - [gpio: introduce gpiochip_populate_parent_fwspec_{two,four}cell functions](https://lore.kernel.org/lkml/20190708110138.24657-2-masneyb@onstation.org/)
-  - [gpio: allow customizing hierarchical IRQ chips](https://lore.kernel.org/lkml/20190708110138.24657-3-masneyb@onstation.org/)
-  - [gpio: use handler in gpio_irq_chip instead of handle_bad_irq](https://lore.kernel.org/lkml/20190708110138.24657-4-masneyb@onstation.org/)
-  - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190708110138.24657-5-masneyb@onstation.org/)
+  - [Add support for hierarchical IRQ domains](https://lore.kernel.org/linux-gpio/20190816011054.GA1041@onstation.org/T/#m6f0be0b0179274af8b52ffe009f562c719ba067e)
+  - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/linux-gpio/20190816011054.GA1041@onstation.org/T/#m372558c436fa6540f5b699efb8cb8afda55acd09)
 
 ## Work in progress patches
 
