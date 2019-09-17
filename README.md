@@ -73,11 +73,6 @@ generate your own initial ramdisk.
 
   - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
 
-- Helpers to the GPIO core for hierarchical IRQ chips.
-
-  - [Add support for hierarchical IRQ domains](https://lore.kernel.org/linux-gpio/20190816011054.GA1041@onstation.org/T/#m6f0be0b0179274af8b52ffe009f562c719ba067e)
-  - [qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/linux-gpio/20190816011054.GA1041@onstation.org/T/#m372558c436fa6540f5b699efb8cb8afda55acd09)
-
 ## Work in progress patches
 
 - Work in progress interconnect driver in order to support the GPU upstream.
@@ -135,6 +130,8 @@ generate your own initial ramdisk.
   - [1a25d59a5529 ("mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a25d59a55292631a6c601fda5413abc297097b7)
   - [de744e01aa3a ("mfd: pm8xxx: select IRQ_DOMAIN_HIERARCHY in Kconfig")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de744e01aa3af421470eb9725574e3cbce319053)
   - [79890c2ec486 ("qcom: ssbi-gpio: correct boundary conditions in pm8xxx_domain_translate")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79890c2ec4860c3b715f89248c51abcc76a1fa39)
+  - [fdd61a013a24 ("Add support for hierarchical IRQ domains")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fdd61a013a24f2699aec1a446f0168682b6f9ec4)
+  - [821c76c4c374 ("qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=821c76c4c374adf0c7a7608ee4661aa801f3c1c5)
 
 - When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
   errors during system boot due to a circular dependency between the gpio and pinctrl frameworks.
