@@ -8,7 +8,9 @@ have any updates to this list. Feel free to pick up an item on this list if you'
 - Slimbus to support showing the phone screen on an external TV / monitor. There is now Qualcomm
   code in the
   [slimbus subsystem upstream](https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git/tree/drivers/slimbus).
-  Does this just require adding the nodes to device tree in msm8974.dtsi?
+  I have some work in progress patches on the main page of this repository that works towards
+  getting this working. More troubleshooting is needed to determine why the external display
+  is not working.
 - Front and back camera - Appears to be supported by out-of-tree patch set for the
   [Qualcomm Camera Control Interface](https://patchwork.ozlabs.org/cover/825398/). This will likely
   require the OCMEM and Interconnect support as well based on the downstream code.
