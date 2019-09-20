@@ -53,7 +53,7 @@ generate your own initial ramdisk.
   to 4K HDMI Adapter'. The external display is not working yet and some information can be
   found on the [Cover Letter](https://lore.kernel.org/lkml/20190815004854.19860-1-masneyb@onstation.org/).
 
-  - [drm/bridge: analogix-anx78xx: correct value of TX_P0](https://lore.kernel.org/lkml/20190815004854.19860-6-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190920101438.6912-1-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20190815004854.19860-7-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add CONFIG_DRM_ANALOGIX_ANX78XX](https://lore.kernel.org/lkml/20190815004854.19860-8-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
@@ -133,7 +133,7 @@ generate your own initial ramdisk.
   - [1a25d59a5529 ("mfd: pm8xxx: revert "disassociate old virq if hwirq mapping already exists"")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a25d59a55292631a6c601fda5413abc297097b7)
   - [de744e01aa3a ("mfd: pm8xxx: select IRQ_DOMAIN_HIERARCHY in Kconfig")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=de744e01aa3af421470eb9725574e3cbce319053)
   - [79890c2ec486 ("qcom: ssbi-gpio: correct boundary conditions in pm8xxx_domain_translate")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79890c2ec4860c3b715f89248c51abcc76a1fa39)
-  - [fdd61a013a24 ("Add support for hierarchical IRQ domains")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fdd61a013a24f2699aec1a446f0168682b6f9ec4)
+  - [fdd61a013a24 ("gpio: Add support for hierarchical IRQ domains")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fdd61a013a24f2699aec1a446f0168682b6f9ec4)
   - [821c76c4c374 ("qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=821c76c4c374adf0c7a7608ee4661aa801f3c1c5)
 
 - When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
