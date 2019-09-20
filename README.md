@@ -53,10 +53,6 @@ generate your own initial ramdisk.
   to 4K HDMI Adapter'. The external display is not working yet and some information can be
   found on the [Cover Letter](https://lore.kernel.org/lkml/20190815004854.19860-1-masneyb@onstation.org/).
 
-  - [dt-bindings: drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-2-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-3-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: correct value of TX_P0](https://lore.kernel.org/lkml/20190815004854.19860-6-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20190815004854.19860-7-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add CONFIG_DRM_ANALOGIX_ANX78XX](https://lore.kernel.org/lkml/20190815004854.19860-8-masneyb@onstation.org/)
@@ -69,9 +65,15 @@ generate your own initial ramdisk.
 
 ## Patches queued for next merge window
 
-- Display is supported by the msm drm/kms driver upstream.
+- An external monitor can be hooked up via the
+  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
+  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
+  to 4K HDMI Adapter'.
 
-  - [drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190706111138.2238-1-masneyb@onstation.org/)
+  - [dt-bindings: drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-2-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-3-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
 
 ## Work in progress patches
 
@@ -97,6 +99,7 @@ generate your own initial ramdisk.
   - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
   - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
+  - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
   can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
