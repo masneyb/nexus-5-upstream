@@ -53,7 +53,7 @@ generate your own initial ramdisk.
   to 4K HDMI Adapter'. The external display is not working yet and some information can be
   found on the [Cover Letter](https://lore.kernel.org/lkml/20190815004854.19860-1-masneyb@onstation.org/).
 
-  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190920101438.6912-1-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190922175940.5311-1-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20190815004854.19860-7-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add CONFIG_DRM_ANALOGIX_ANX78XX](https://lore.kernel.org/lkml/20190815004854.19860-8-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
