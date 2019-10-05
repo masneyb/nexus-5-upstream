@@ -35,6 +35,12 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- Interconnect driver in order to support the GPU upstream.
+  [Cover Letter](https://lore.kernel.org/lkml/20191005114605.5279-1-masneyb@onstation.org/)
+
+  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191005114605.5279-2-masneyb@onstation.org/)
+  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191005114605.5279-3-masneyb@onstation.org/)
+
 - On Chip MEMory driver is required in order to support the GPU upstream.
   [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
 
@@ -61,8 +67,6 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20190815004854.19860-11-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20190815004854.19860-12-masneyb@onstation.org/)
 
-- [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
-
 ## Patches queued for next merge window
 
 - An external monitor can be hooked up via the
@@ -75,13 +79,9 @@ generate your own initial ramdisk.
   - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
 
+- [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
+
 ## Work in progress patches
-
-- Work in progress interconnect driver in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190902211925.27169-1-masneyb@onstation.org/)
-
-  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20190902211925.27169-2-masneyb@onstation.org/)
-  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20190902211925.27169-3-masneyb@onstation.org/)
 
 - Vibrator
 
