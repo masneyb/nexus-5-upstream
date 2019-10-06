@@ -69,6 +69,8 @@ generate your own initial ramdisk.
 
 - [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
 
+- [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
+
 ## Patches queued for next merge window
 
 - An external monitor can be hooked up via the
@@ -82,12 +84,6 @@ generate your own initial ramdisk.
   - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
 
 - [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
-
-## Work in progress patches
-
-- Vibrator
-
-  - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
