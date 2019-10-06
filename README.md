@@ -67,6 +67,8 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20190815004854.19860-11-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20190815004854.19860-12-masneyb@onstation.org/)
 
+- [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
+
 ## Patches queued for next merge window
 
 - An external monitor can be hooked up via the
