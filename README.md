@@ -286,7 +286,7 @@ working GPU support.
    from the community. Use hammerhead_defconfig when building this kernel.
 - [postmarketOS](https://postmarketos.org/) for the
   [Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead))
-- [Sep 2019: Linaro Connect San Diego 2019: Status update on Qualcomm upstreaming](https://connect.linaro.org/resources/san19/san19-119/)
+- [Sep 2019: Linaro Connect San Diego: Status update on Qualcomm upstreaming](https://connect.linaro.org/resources/san19/san19-119/)
 - [Aug 2019: Mainline status update for the Nexus 5 phone (qcom msm8974 SoC)](https://lkml.org/lkml/2019/8/4/164)
 - [June 2019: Two years of postmarketOS](https://postmarketos.org/blog/2019/06/23/two-years/) blog post.
 
