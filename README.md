@@ -57,15 +57,16 @@ generate your own initial ramdisk.
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
   to 4K HDMI Adapter'. The external display is not working yet and some information can be
-  found on the [Cover Letter](https://lore.kernel.org/lkml/20190815004854.19860-1-masneyb@onstation.org/).
+  found on the [Cover Letter](https://lore.kernel.org/lkml/20191007014509.25180-1-masneyb@onstation.org/)
 
   - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190922175940.5311-1-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20190815004854.19860-7-masneyb@onstation.org/)
+  - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20191007014509.25180-2-masneyb@onstation.org/)
+  - [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
+  - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20191007014509.25180-4-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add CONFIG_DRM_ANALOGIX_ANX78XX](https://lore.kernel.org/lkml/20190815004854.19860-8-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
-  - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20190815004854.19860-10-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20190815004854.19860-11-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20190815004854.19860-12-masneyb@onstation.org/)
 
 - [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
 
