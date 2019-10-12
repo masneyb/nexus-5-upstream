@@ -41,25 +41,12 @@ generate your own initial ramdisk.
   - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191005114605.5279-2-masneyb@onstation.org/)
   - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191005114605.5279-3-masneyb@onstation.org/)
 
-- On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
-
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190823121637.5861-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190823121637.5861-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190823121637.5861-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190823121637.5861-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20190823121637.5861-8-masneyb@onstation.org/)
-  - [soc: qcom: ocmem: add missing includes](https://lore.kernel.org/lkml/20190901213037.25889-1-masneyb@onstation.org/)
-
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
   to 4K HDMI Adapter'. The external display is not working yet and some information can be
   found on the [Cover Letter](https://lore.kernel.org/lkml/20191007014509.25180-1-masneyb@onstation.org/)
 
-  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190922175940.5311-1-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20191007014509.25180-2-masneyb@onstation.org/)
   - [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
@@ -69,15 +56,29 @@ generate your own initial ramdisk.
 
 - [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
 
+- [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20190823121637.5861-8-masneyb@onstation.org/)
+
 - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
 ## Patches queued for next merge window
+
+- On Chip MEMory driver is required in order to support the GPU upstream.
+  [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
+
+  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190823121637.5861-2-masneyb@onstation.org/)
+  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190823121637.5861-3-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190823121637.5861-4-masneyb@onstation.org/)
+  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190823121637.5861-5-masneyb@onstation.org/)
+  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
+  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
+  - [soc: qcom: ocmem: add missing includes](https://lore.kernel.org/lkml/20190901213037.25889-1-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
   to 4K HDMI Adapter'.
 
+  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190922175940.5311-1-masneyb@onstation.org/)
   - [dt-bindings: drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-2-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-3-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
