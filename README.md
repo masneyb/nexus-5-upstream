@@ -35,13 +35,12 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Interconnect driver in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20191005114605.5279-1-masneyb@onstation.org/)
+- Interconnect driver supports bus scaling and is required in order to support the GPU upstream.
 
-  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191005114605.5279-2-masneyb@onstation.org/)
-  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191005114605.5279-3-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191013080804.10231-3-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191013080804.10231-6-masneyb@onstation.org/)
+  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191024103054.9770-2-masneyb@onstation.org/)
+  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191024103054.9770-3-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
@@ -53,13 +52,12 @@ generate your own initial ramdisk.
   - [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191013080804.10231-4-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
 
-  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20191013080804.10231-2-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191013080804.10231-5-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
 
 - [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
 
@@ -77,6 +75,7 @@ generate your own initial ramdisk.
   - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
   - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
   - [soc: qcom: ocmem: add missing includes](https://lore.kernel.org/lkml/20190901213037.25889-1-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20191013080804.10231-2-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
