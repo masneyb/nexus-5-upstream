@@ -65,7 +65,7 @@ ramdiskaddr = 0x2900000
 secondaddr = 0xf00000
 tagsaddr = 0x2700000
 name = 
-cmdline = console=${SERIAL_TTY},115200,n8 console=tty0 rootwait PMOS_NO_OUTPUT_REDIRECT
+cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait PMOS_NO_OUTPUT_REDIRECT
 __EOF__
 
 if [ "${PREPARE_INITRD_SCR}" != "" ] ; then
