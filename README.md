@@ -37,8 +37,6 @@ generate your own initial ramdisk.
 
 - Interconnect driver supports bus scaling and is required in order to support the GPU upstream.
 
-  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191024103054.9770-2-masneyb@onstation.org/)
-  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191024103054.9770-3-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
 
@@ -64,6 +62,11 @@ generate your own initial ramdisk.
 - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
 ## Patches queued for next merge window
+
+- Interconnect driver supports bus scaling and is required in order to support the GPU upstream.
+
+  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191024103054.9770-2-masneyb@onstation.org/)
+  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191024103054.9770-3-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
   [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
