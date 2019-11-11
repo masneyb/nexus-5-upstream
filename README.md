@@ -17,6 +17,7 @@ This is a high-level summary of the components that currently work upstream, or 
 outstanding patches waiting for a review. See below for further details.
 
 - display / panel
+- bus scaling (interconnect)
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - touchscreen: /sys/devices/rmi4-00/input
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
@@ -35,7 +36,7 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
-- Interconnect driver supports bus scaling and is required in order to support the GPU upstream.
+- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
   - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
@@ -51,7 +52,6 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
   - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
-  - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
 
@@ -63,7 +63,7 @@ generate your own initial ramdisk.
 
 ## Patches queued for next merge window
 
-- Interconnect driver supports bus scaling and is required in order to support the GPU upstream.
+- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
   - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191024103054.9770-2-masneyb@onstation.org/)
   - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191024103054.9770-3-masneyb@onstation.org/)
@@ -91,6 +91,7 @@ generate your own initial ramdisk.
   - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
   - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20191007014509.25180-4-masneyb@onstation.org/)
+  - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
 - [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
 
