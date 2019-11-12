@@ -36,6 +36,8 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- [drm/msm/mdp5: enable autocommit](https://lore.kernel.org/lkml/20191112104854.20850-1-masneyb@onstation.org/)
+
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
   - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
