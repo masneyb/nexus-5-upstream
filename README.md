@@ -59,7 +59,7 @@ generate your own initial ramdisk.
 
   - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
 
-- [clk: qcom: mmcc8974: add frequency table for gfx3d](https://lore.kernel.org/lkml/20191006010100.32053-1-masneyb@onstation.org/)
+- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
 
 - [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
