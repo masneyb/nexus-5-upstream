@@ -42,6 +42,10 @@ generate your own initial ramdisk.
 
   - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
+  - [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191117114825.13541-2-masneyb@onstation.org/)
+  - [drm/msm/gpu: add support for ocmem interconnect path](https://lore.kernel.org/lkml/20191117114825.13541-3-masneyb@onstation.org/)
+  - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191117114825.13541-4-masneyb@onstation.org/)
+  - [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191117114825.13541-5-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
