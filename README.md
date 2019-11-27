@@ -69,11 +69,6 @@ generate your own initial ramdisk.
 
 ## Patches queued for next merge window
 
-- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
-
-  - [dt-bindings: interconnect: qcom: add msm8974 bindings](https://lore.kernel.org/lkml/20191024103054.9770-2-masneyb@onstation.org/)
-  - [interconnect: qcom: add msm8974 driver](https://lore.kernel.org/lkml/20191024103054.9770-3-masneyb@onstation.org/)
-
 - On Chip MEMory driver is required in order to support the GPU upstream.
   [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
 
@@ -99,8 +94,6 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20191007014509.25180-4-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
-- [qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core](https://lore.kernel.org/lkml/20190914111010.24384-1-masneyb@onstation.org/)
-
 ## Patches accepted in upstream kernel
 
 - Display is supported by the msm drm/kms driver upstream.
@@ -114,6 +107,11 @@ generate your own initial ramdisk.
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
   - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
   - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
+
+- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
+
+  - [6120e5d821c0 ("dt-bindings: interconnect: qcom: add msm8974 bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6120e5d821c0e3104ddbc2ad5dd126e0c9eb20f2)
+  - [4e60a9568dc6 ("interconnect: qcom: add msm8974 driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e60a9568dc6f411d4f631fe33b5553d080b7e8c)
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
   can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
@@ -149,6 +147,7 @@ generate your own initial ramdisk.
   - [79890c2ec486 ("qcom: ssbi-gpio: correct boundary conditions in pm8xxx_domain_translate")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=79890c2ec4860c3b715f89248c51abcc76a1fa39)
   - [fdd61a013a24 ("gpio: Add support for hierarchical IRQ domains")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fdd61a013a24f2699aec1a446f0168682b6f9ec4)
   - [821c76c4c374 ("qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=821c76c4c374adf0c7a7608ee4661aa801f3c1c5)
+  - [ae436fe81053 ("qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ae436fe81053cd6cb294214be382b545565440cc)
 
 - When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
   errors during system boot due to a circular dependency between the gpio and pinctrl frameworks.
