@@ -86,11 +86,6 @@ generate your own initial ramdisk.
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
   to 4K HDMI Adapter'.
 
-  - [drm/bridge: analogix-anx78xx: add support for 7808 addresses](https://lore.kernel.org/lkml/20190922175940.5311-1-masneyb@onstation.org/)
-  - [dt-bindings: drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-2-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: add new variants](https://lore.kernel.org/lkml/20190815004854.19860-3-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings](https://lore.kernel.org/lkml/20190815004854.19860-4-masneyb@onstation.org/)
-  - [drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device](https://lore.kernel.org/lkml/20190815004854.19860-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20191007014509.25180-4-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
@@ -199,6 +194,17 @@ generate your own initial ramdisk.
   - [1ed80a817bc4 ("dt-bindings: iio: tsl2772: add new bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1ed80a817bc42de91701cc60e58d968077359a58)
   - [28b6977e089d ("dt-bindings: iio: tsl2772: add binding for avago,apds9930")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=28b6977e089dda97f8f32ac1a6a223f59e7065f4)
   - [17b62779cbe4 ("dt-bindings: iio: tsl2772: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17b62779cbe40773e10a83af000e51c29b764575)
+
+- An external monitor can be hooked up via the
+  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
+  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
+  to 4K HDMI Adapter'.
+
+  - [2f932367d219 ("drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f932367d219ad4ce56278035a1ee1ca03c48308)
+  - [025910db8057 ("drm/bridge: analogix-anx78xx: add support for 7808 addresses")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=025910db8057f60d2d2aa11002f7751e3eb66588)
+  - [2fb658a603ba ("dt-bindings: drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2fb658a603bab4e41834a4f32475bbea9c01cf46)
+  - [0273831882c5 ("drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0273831882c5215f49628dcb3cb567b67cd7af39)
+  - [2708e876272d ("drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2708e876272d89bbbff811d12834adbeef85f022)
 
 - Vibrator - Use
   [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
