@@ -24,7 +24,7 @@ outstanding patches waiting for a review. See below for further details.
 - magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
 - temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
 - proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039
-- vibrator: /dev/input/by-path/platform-fd8c3450.vibrator-event
+- vibrator: /dev/input/by-path/platform-vibrator-event
 - USB: usb0
 - WiFi: wlan0
 - charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
@@ -47,6 +47,17 @@ generate your own initial ramdisk.
   - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
   - [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
 
+- Add support for clock-based vibrator devices where the speed can be controlled by changing the
+  duty cycle.
+
+  - [clk: qcom: add support for setting the duty cycle](https://lore.kernel.org/lkml/20191205002503.13088-2-masneyb@onstation.org/)
+  - [dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator](https://lore.kernel.org/lkml/20191205002503.13088-3-masneyb@onstation.org/)
+  - [Input: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-4-masneyb@onstation.org/)
+  - [dt-bindings: Input: introduce new clock vibrator bindings](https://lore.kernel.org/lkml/20191205002503.13088-5-masneyb@onstation.org/)
+  - [Input: introduce new clock vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-6-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974-hammerhead: add support for vibrator](https://lore.kernel.org/lkml/20191205002503.13088-8-masneyb@onstation.org/)
+
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
@@ -64,8 +75,6 @@ generate your own initial ramdisk.
   - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
 
 - [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
-
-- [ARM: dts: qcom: msm8974-hammerhead: add device tree bindings for vibrator](https://lore.kernel.org/lkml/20190516085018.2207-1-masneyb@onstation.org/)
 
 ## Patches queued for next merge window
 
