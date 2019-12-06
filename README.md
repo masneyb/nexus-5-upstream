@@ -88,14 +88,12 @@ generate your own initial ramdisk.
   - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
   - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
   - [soc: qcom: ocmem: add missing includes](https://lore.kernel.org/lkml/20190901213037.25889-1-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add ocmem support](https://lore.kernel.org/lkml/20191013080804.10231-2-masneyb@onstation.org/)
 
 - An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
   using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
   to 4K HDMI Adapter'.
 
-  - [ARM: dts: qcom: pm8941: add 5vs2 regulator node](https://lore.kernel.org/lkml/20191007014509.25180-4-masneyb@onstation.org/)
   - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
@@ -111,6 +109,7 @@ generate your own initial ramdisk.
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
   - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
   - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
+  - [ac242e2cfd14 ("ARM: dts: qcom: pm8941: add 5vs2 regulator node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac242e2cfd14f5be99fc2e6888702d02099d2f91)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
@@ -288,6 +287,7 @@ generate your own initial ramdisk.
   - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
   - [817bbbb7749d ("ARM: qcom_defconfig: add support for USB networking")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=817bbbb7749decb99262dc3bb1569a579eea5ba8)
+  - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
 
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
