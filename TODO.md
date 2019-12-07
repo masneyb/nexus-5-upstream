@@ -4,7 +4,7 @@ have any updates to this list. Feel free to pick up an item on this list if you'
 
 - GPU - I'm currently working on upstreaming the various bits to support the GPU upstream. See the
   [linux repository on my GitHub account](https://github.com/masneyb/linux/branches) for the
-  current work in progress. Needs OCMEM driver, msm8974 Interconnect driver, and IOMMU support.
+  current work in progress. Needs IOMMU support upstream.
 - Slimbus to support showing the phone screen on an external TV / monitor. There is now Qualcomm
   code in the
   [slimbus subsystem upstream](https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git/tree/drivers/slimbus).
@@ -12,10 +12,10 @@ have any updates to this list. Feel free to pick up an item on this list if you'
   getting this working. More troubleshooting is needed to determine why the external display
   is not working.
 - Front and back camera - Appears to be supported by out-of-tree patch set for the
-  [Qualcomm Camera Control Interface](https://patchwork.ozlabs.org/cover/825398/). This will likely
-  require the OCMEM and Interconnect support as well based on the downstream code.
-- Audio - Also requires OCMEM and Interconnect support based on downstream code.
-- Modem
+  [Qualcomm Camera Control Interface](https://patchwork.ozlabs.org/cover/825398/). This will
+  require additional changes to the OCMEM support upstream since it only supports the GPU.
+- Audio - Requires additional OCMEM code upstream.
+- Modem - upstream support appears to be close.
 - GPS - Patch for gpsd is in [this tree](https://github.com/andersson/gpsd/commits/master) for the
   Qualcomm PDS service support. Start gpsd with `sudo gpsd -N -D9 -F /var/run/gpsd.sock` and
   connect to it with `sudo gpsdctl add pds://any`, and test with `sudo gpsmon`.
