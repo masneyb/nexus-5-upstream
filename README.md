@@ -76,26 +76,6 @@ generate your own initial ramdisk.
 
 - [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
 
-## Patches queued for next merge window
-
-- On Chip MEMory driver is required in order to support the GPU upstream.
-  [Cover Letter](https://lore.kernel.org/lkml/20190823121637.5861-1-masneyb@onstation.org/)
-
-  - [dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings](https://lore.kernel.org/lkml/20190823121637.5861-2-masneyb@onstation.org/)
-  - [dt-bindings: display: msm: gmu: add optional ocmem property](https://lore.kernel.org/lkml/20190823121637.5861-3-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add OCMEM lock/unlock interface](https://lore.kernel.org/lkml/20190823121637.5861-4-masneyb@onstation.org/)
-  - [firmware: qcom: scm: add support to restore secure config to qcm_scm-32](https://lore.kernel.org/lkml/20190823121637.5861-5-masneyb@onstation.org/)
-  - [soc: qcom: add OCMEM driver](https://lore.kernel.org/lkml/20190823121637.5861-6-masneyb@onstation.org/)
-  - [drm/msm/gpu: add ocmem init/cleanup functions](https://lore.kernel.org/lkml/20190823121637.5861-7-masneyb@onstation.org/)
-  - [soc: qcom: ocmem: add missing includes](https://lore.kernel.org/lkml/20190901213037.25889-1-masneyb@onstation.org/)
-
-- An external monitor can be hooked up via the
-  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
-  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
-  to 4K HDMI Adapter'.
-
-  - [drm/msm/hdmi: silence -EPROBE_DEFER warning](https://lore.kernel.org/lkml/20190815004854.19860-9-masneyb@onstation.org/)
-
 ## Patches accepted in upstream kernel
 
 - Display is supported by the msm drm/kms driver upstream.
@@ -109,12 +89,24 @@ generate your own initial ramdisk.
   - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
   - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
   - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
-  - [ac242e2cfd14 ("ARM: dts: qcom: pm8941: add 5vs2 regulator node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac242e2cfd14f5be99fc2e6888702d02099d2f91)
+  - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
   - [6120e5d821c0 ("dt-bindings: interconnect: qcom: add msm8974 bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6120e5d821c0e3104ddbc2ad5dd126e0c9eb20f2)
   - [4e60a9568dc6 ("interconnect: qcom: add msm8974 driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e60a9568dc6f411d4f631fe33b5553d080b7e8c)
+
+- The On Chip Memory (OCMEM) allocator allows various clients to allocate memory from OCMEM based
+  on performance, latency and power requirements. This is typically used by the GPU, camera/video,
+  and audio components on some Snapdragon SoCs.
+
+  - [957fd69d396b ("dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=957fd69d396b2cc9b74c3b31a70fe7f266aa8c16)
+  - [198a72c8f9ee ("dt-bindings: display: msm: gmu: add optional ocmem property")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=198a72c8f9ee8eef24bacde6a3b3feb3b026ee04)
+  - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
+  - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
+  - [88c1e9404f1d ("soc: qcom: add OCMEM driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=88c1e9404f1deee02e52d13aae3d9ee2cabd66f5)
+  - [26c0b26dcd00 ("drm/msm/gpu: add ocmem init/cleanup functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26c0b26dcd005d9d6de9246737177e7af821859a)
+  - [bfcb7e1555ec ("soc: qcom: ocmem: add missing includes")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bfcb7e1555ecc157cea23e35057002e3055e90a6)
 
 - Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
   can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
@@ -271,6 +263,10 @@ generate your own initial ramdisk.
 - Touchscreen is supported by the Synaptics RMI4 driver.
 
   - [48100d10c93f ("ARM: dts: qcom: msm8974-hammerhead: add touchscreen support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=48100d10c93fe3df6e1f4ea77888985d054f25d8)
+
+- Regulator
+
+  - [ac242e2cfd14 ("ARM: dts: qcom: pm8941: add 5vs2 regulator node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac242e2cfd14f5be99fc2e6888702d02099d2f91)
 
 - Flash memory 
 
