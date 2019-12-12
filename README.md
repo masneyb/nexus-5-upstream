@@ -36,12 +36,12 @@ generate your own initial ramdisk.
 
 ## Outstanding patches
 
+- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
+
 - [drm/msm/mdp5: enable autocommit](https://lore.kernel.org/lkml/20191112104854.20850-1-masneyb@onstation.org/)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
-  - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
   - [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
   - [drm/msm/gpu: add support for ocmem interconnect path](https://lore.kernel.org/lkml/20191122012645.7430-3-masneyb@onstation.org/)
   - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
@@ -68,13 +68,21 @@ generate your own initial ramdisk.
   - [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
+
+## Patches queued for next merge window
+
+- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
+
+  - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
 
   - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
 
-- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
+- defconfig
+
+  - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
+  - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
 
 ## Patches accepted in upstream kernel
 
