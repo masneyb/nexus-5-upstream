@@ -31,8 +31,8 @@ outstanding patches waiting for a review. See below for further details.
 - serial port: /dev/ttyMSM0. A serial console can be obtained through the headphone jack and
   requires building a custom cable [as described on this page](UART_CABLE.md).
 
-See the [build-kernel](build-kernel) script for how to build and boot a kernel. You'll need to
-generate your own initial ramdisk.
+See the [build-kernel](build-kernel) script for how to build and boot a custom kernel into a
+postmarketOS userspace.
 
 ## Outstanding patches
 
