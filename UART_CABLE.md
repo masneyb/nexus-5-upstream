@@ -77,4 +77,9 @@ over the serial cable:
     [2270] -- portchange --
     [2360] fastboot: processing commands
 
+You can use the minicom package to access the serial console. Here's my ~/.minirc.dfl file:
+
+    pu port             /dev/ttyUSB0
+    pu rtscts           No
+
 [Back to main page](README.md)
