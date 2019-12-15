@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIRNAME=$(ls -1d /sys/devices/rmi4-00/input/input*/event*)
+DEVICE=$(basename "${DIRNAME}")
+gesture -p "/dev/input/${DEVICE}" -W 1080 -H 1920 -M 150 2>/dev/null | injectkeys -p /dev/tty1 2>/dev/null

@@ -2,82 +2,145 @@
 
 # SPDX-License-Identifier: GPL-2.0+
 
+# How to build and boot a custom kernel
+# -------------------------------------
+#
 # Install package dependencies
 #   - RedHat-based systems
 #         dnf install abootimg android-tools gcc-arm-linux-gnu 
-#
 #   - Debian-based systems
 #         apt-get install abootimg fastboot gcc-8-arm-linux-gnueabihf
+#
+# Clone Linus's linux and the nexus-5-upstream repositories:
+#
+#   mkdir ~/src
+#   git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+#   git clone https://github.com/masneyb/nexus-5-upstream.git
+#
+#   # Optional: Clone downstream MSM 3.4 sources
+#   git clone https://github.com/AICP/kernel_lge_hammerhead.git linux-msm-3.4-hammerhead
+#   cd ~/src/linux-msm-3.4-hammerhead
+#   git am ~/src/nexus-5-upstream/downstream-patches/*.patch
+#
+# Install postmarketOS user space on the phone as described at
+# https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)
+#
+# Build and boot the upstream kernel:
+#
+#   ~/src/nexus-5-upstream/build-kernel ~/src/linux
+#   sudo fastboot boot ~/src/linux/arch/arm/boot/nexus5-boot.img
+#
+# Build and boot the downstream kernel. Note that I haven't been able to get the framebuffer
+# to work on the downstream kernel, so you'll need to build a serial cable as described in
+# UART_CABLE.md.
+#
+#   ~/src/nexus-5-upstream/build-kernel ~/src/linux-msm-3.4-hammerhead hammerhead_defconfig \
+#       ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/msm8974-hammerhead-rev-11.dtb ttyHSL0
+#   sudo fastboot boot ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/nexus5-boot.img
 
 set -e
 
-export KERNEL_SRC="$1"
-export INITRD="$2"
-export PREPARE_INITRD_SCR="$3"
-export DEFCONFIG="${4:-qcom_defconfig}"
-export DTB="${5:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}"
-export SERIAL_TTY="${6:-ttyMSM0}" # downstream kernel uses ttyHSL0; upstream is ttyMSM0
+build_kernel()
+{
+	export ARCH=arm
+	export PATH="${PATH}":"${KERNEL_SRC}"/scripts/dtc
 
-if [ "${KERNEL_SRC}" = "" ] || [ "${INITRD}" = "" ] ; then
-	echo "$0 <kernel source tree> <initrd> [ <prepare initrd script> ] [ <defconfig> ] [ dtb ] [ serial tty ]"
+	if [ "${CROSS_COMPILE}" = "" ] ; then
+		if [ -f /usr/bin/arm-linux-gnu-gcc ] ; then
+			export CROSS_COMPILE=/usr/bin/arm-linux-gnu-
+		elif [ -f /usr/bin/arm-linux-gnueabihf-gcc ] ; then
+			export CROSS_COMPILE=/usr/bin/arm-linux-gnueabihf-
+		else
+			echo "Can't setup CROSS_COMPILE environment variable"
+			exit 1
+		fi
+	fi
+
+	if [ "${NUM_CPUS}" = "" ] ; then
+		NUM_CPUS=$(grep -c ^processor /proc/cpuinfo)
+	fi
+
+	cd "${KERNEL_SRC}"
+	echo "Running 'make ${DEFCONFIG}'"
+	make "${DEFCONFIG}"
+	make kernelrelease
+
+	#HAS_DT_BINDING_CHECK=$(grep ^dt_binding_check: Makefile || true)
+	#if [ "${HAS_DT_BINDING_CHECK}" != "" ] ; then
+	#	make dt_binding_check
+	#fi
+
+	nice -n 19 make -j "${NUM_CPUS}"
+
+	echo "Using DTB ${DTB}"
+	ZIMAGE_DTB=$(mktemp)
+	cat arch/arm/boot/zImage "${DTB}" > "${ZIMAGE_DTB}"
+}
+
+generate_boot_cfg()
+{
+	cat > "${BOOT_CFG}" << __EOF__
+	pagesize = 0x800
+	kerneladdr = 0x8000
+	ramdiskaddr = 0x2900000
+	secondaddr = 0xf00000
+	tagsaddr = 0x2700000
+	name = 
+	cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait PMOS_NO_OUTPUT_REDIRECT
+__EOF__
+}
+
+create_char_device()
+{
+       if [ ! -c "${1}" ] ; then
+               echo "Creating ${1}"
+               sudo mknod --mode="${2}" "${1}" c "${3}" "${4}"
+       fi
+}
+
+generate_initrd()
+{
+	BASE_DIR=$(dirname "$0")
+	INITRD_DIR="${BASE_DIR}/initrd"
+	mkdir -p "${INITRD_DIR}/boot" "${INITRD_DIR}/dev" "${INITRD_DIR}/proc" "${INITRD_DIR}/sys" \
+	         "${INITRD_DIR}/sysroot" "${INITRD_DIR}/tmp" "${INITRD_DIR}/usr/bin"
+
+	sed "s/__SERIAL_TTY__/${SERIAL_TTY}/g" "${INITRD_DIR}/copy-to-root-fs/etc/inittab.template" > \
+		"${INITRD_DIR}"/copy-to-root-fs/etc/inittab
+
+	create_char_device "${INITRD_DIR}"/dev/null 0666 1 3
+	create_char_device "${INITRD_DIR}"/dev/random 0644 1 8
+	create_char_device "${INITRD_DIR}"/dev/urandom 0644 1 9
+
+	rm -rf "${INITRD_DIR}/lib/modules"
+	make INSTALL_MOD_PATH="${INITRD_DIR}" modules_install || true
+	cd "${INITRD_DIR}"
+	find . | grep -v \.placeholder | cpio --create --format="newc" --quiet > "${INITRD}"
+	# To extract: cpio -idm --quiet < initrd.img
+}
+
+export KERNEL_SRC="$1"
+export DEFCONFIG="${2:-qcom_defconfig}"
+export DTB="${3:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}"
+export SERIAL_TTY="${4:-ttyMSM0}" # downstream kernel uses ttyHSL0; upstream is ttyMSM0
+
+if [ "${KERNEL_SRC}" = "" ] ; then
+	echo "$0 <kernel source tree> [ <defconfig> ] [ dtb ] [ serial tty ]"
 	exit 1
 fi
 
-export ARCH=arm
-export PATH="${PATH}":"${KERNEL_SRC}"/scripts/dtc
-
-if [ "${CROSS_COMPILE}" = "" ] ; then
-	if [ -f /usr/bin/arm-linux-gnu-gcc ] ; then
-		export CROSS_COMPILE=/usr/bin/arm-linux-gnu-
-	elif [ -f /usr/bin/arm-linux-gnueabihf-gcc ] ; then
-		export CROSS_COMPILE=/usr/bin/arm-linux-gnueabihf-
-	else
-		echo "Can't setup CROSS_COMPILE environment variable"
-		exit 1
-	fi
-fi
-
-if [ "${NUM_CPUS}" = "" ] ; then
-	NUM_CPUS=$(grep -c ^processor /proc/cpuinfo)
-fi
-
-cd "${KERNEL_SRC}"
-echo "Running 'make ${DEFCONFIG}'"
-make "${DEFCONFIG}"
-make kernelrelease
-
-#HAS_DT_BINDING_CHECK=$(grep ^dt_binding_check: Makefile || true)
-#if [ "${HAS_DT_BINDING_CHECK}" != "" ] ; then
-#	make dt_binding_check
-#fi
-
-nice -n 19 make -j "${NUM_CPUS}"
-
-echo "Using DTB ${DTB}"
-ZIMAGE_DTB=$(mktemp)
-cat arch/arm/boot/zImage "${DTB}" > "${ZIMAGE_DTB}"
+build_kernel
 
 BOOT_CFG=$(mktemp)
-cat > "${BOOT_CFG}" << __EOF__
-pagesize = 0x800
-kerneladdr = 0x8000
-ramdiskaddr = 0x2900000
-secondaddr = 0xf00000
-tagsaddr = 0x2700000
-name = 
-cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait PMOS_NO_OUTPUT_REDIRECT
-__EOF__
+generate_boot_cfg
 
-if [ "${PREPARE_INITRD_SCR}" != "" ] ; then
-	# The ARCH, CROSS_COMPILE, KERNEL_SRC, INITRD, and SERIAL_TTY
-	# environment variables will be passed to this script.
-	echo "Running ${PREPARE_INITRD_SCR}"
-	"${PREPARE_INITRD_SCR}"
-fi
+INITRD=$(mktemp)
+generate_initrd
 
 ABOOT_IMG="${KERNEL_SRC}"/arch/arm/boot/nexus5-boot.img
 abootimg --create "${ABOOT_IMG}" -f "${BOOT_CFG}" -k "${ZIMAGE_DTB}" -r "${INITRD}"
-rm -f "${BOOT_CFG}" "${ZIMAGE_DTB}"
+
+rm -f "${BOOT_CFG}" "${INITRD}" "${ZIMAGE_DTB}"
 
 echo ""
 echo "Run to boot the kernel without flashing the boot partition:"

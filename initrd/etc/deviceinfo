@@ -1,0 +1,32 @@
+# Reference: <https://postmarketos.org/deviceinfo>
+# Please use double quotes only. You can source this file in shell scripts.
+
+deviceinfo_format_version="0"
+deviceinfo_name="Google Nexus 5"
+deviceinfo_manufacturer="LG"
+deviceinfo_codename="lg-hammerhead"
+deviceinfo_date=""
+deviceinfo_keyboard="false"
+deviceinfo_nonfree="????"
+deviceinfo_dtb="qcom-msm8974-lge-nexus5-hammerhead"
+deviceinfo_append_dtb="true"
+deviceinfo_modules_initfs="dm_mod"
+deviceinfo_external_storage="false"
+deviceinfo_flash_method="fastboot"
+deviceinfo_arch="armv7"
+
+# Splash screen
+deviceinfo_no_framebuffer="true"
+deviceinfo_screen_width="1080"
+deviceinfo_screen_height="1920"
+
+# Fastboot related
+deviceinfo_generate_bootimg="true"
+deviceinfo_flash_offset_base="0"
+deviceinfo_flash_offset_kernel="0x00008000"
+deviceinfo_flash_offset_ramdisk="0x2900000"
+deviceinfo_flash_offset_second="0x00f00000"
+deviceinfo_flash_offset_tags="0x02700000"
+deviceinfo_kernel_cmdline="console=ttyMSM0,115200,n8 rootwait PMOS_NO_OUTPUT_REDIRECT"
+deviceinfo_flash_pagesize="2048"
+

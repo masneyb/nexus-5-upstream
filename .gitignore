@@ -1,0 +1,5 @@
+initrd/copy-to-root-fs/etc/inittab
+initrd/dev/null
+initrd/dev/random
+initrd/dev/urandom
+initrd/lib/modules
