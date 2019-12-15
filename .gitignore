@@ -1,3 +1,4 @@
+initrd/bin/sh
 initrd/copy-to-root-fs/etc/inittab
 initrd/dev/null
 initrd/dev/random

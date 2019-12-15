@@ -108,6 +108,12 @@ generate_initrd()
 	sed "s/__SERIAL_TTY__/${SERIAL_TTY}/g" "${INITRD_DIR}/copy-to-root-fs/etc/inittab.template" > \
 		"${INITRD_DIR}"/copy-to-root-fs/etc/inittab
 
+	if [ ! -e "${INITRD_DIR}"/bin/sh ] ; then
+		pushd "${INITRD_DIR}"/bin/
+		ln -s busybox sh
+		popd
+	fi
+
 	create_char_device "${INITRD_DIR}"/dev/null 0666 1 3
 	create_char_device "${INITRD_DIR}"/dev/random 0644 1 8
 	create_char_device "${INITRD_DIR}"/dev/urandom 0644 1 9
