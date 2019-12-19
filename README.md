@@ -36,8 +36,6 @@ postmarketOS userspace.
 
 ## Outstanding patches
 
-- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
-
 - [drm/msm/mdp5: enable autocommit](https://lore.kernel.org/lkml/20191112104854.20850-1-masneyb@onstation.org/)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
@@ -70,6 +68,8 @@ postmarketOS userspace.
   - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
 
 ## Patches queued for next merge window
+
+- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
