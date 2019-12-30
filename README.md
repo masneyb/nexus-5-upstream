@@ -36,7 +36,7 @@ postmarketOS userspace.
 
 ## Outstanding patches
 
-- [drm/msm/mdp5: enable autocommit](https://lore.kernel.org/lkml/20191112104854.20850-1-masneyb@onstation.org/)
+- [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
