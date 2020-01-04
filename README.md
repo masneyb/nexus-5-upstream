@@ -40,13 +40,6 @@ postmarketOS userspace.
 
 - [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
 
-- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
-
-  - [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
-  - [drm/msm/gpu: add support for ocmem interconnect path](https://lore.kernel.org/lkml/20191122012645.7430-3-masneyb@onstation.org/)
-  - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
-  - [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
-
 - Add support for clock-based vibrator devices where the speed can be controlled by changing the
   duty cycle.
 
@@ -76,6 +69,10 @@ postmarketOS userspace.
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
   - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
+  - [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
+  - [drm/msm/gpu: add support for ocmem interconnect path](https://lore.kernel.org/lkml/20191122012645.7430-3-masneyb@onstation.org/)
+  - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
+  - [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
 
 - On Chip MEMory driver is required in order to support the GPU upstream.
 
