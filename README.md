@@ -38,9 +38,7 @@ postmarketOS userspace.
 
 - [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
-- [firmware: qcom: scm: add 32 bit iommu page table support](https://lore.kernel.org/lkml/20200101033704.32264-1-masneyb@onstation.org/)
-
-- [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200101033949.755-1-masneyb@onstation.org/)
+- [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
 
 - Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
 
