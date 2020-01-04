@@ -1,0 +1,26 @@
+From 788c8b27a6d07152efa12d86c507248f68b70106 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sat, 4 Jan 2020 05:50:57 -0500
+Subject: [PATCH 2/2] gcc-wrapper: explictly set python2
+
+Fedora 31 now sets /usr/bin/python to python3 and causes this build to
+fail. Explictly set this to python2 to get a working build again.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ scripts/gcc-wrapper.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/gcc-wrapper.py b/scripts/gcc-wrapper.py
+index 548d655085f2..3bbefa620403 100755
+--- a/scripts/gcc-wrapper.py
++++ b/scripts/gcc-wrapper.py
+@@ -1,4 +1,4 @@
+-#! /usr/bin/env python
++#! /usr/bin/env python2
+ # -*- coding: utf-8 -*-
+ 
+ # Copyright (c) 2011-2012, The Linux Foundation. All rights reserved.
+-- 
+2.24.1
+
