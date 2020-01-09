@@ -21,23 +21,21 @@ The following is a summary of my upstream Linux kernel contributions as part of 
 - Created a new On Chip Memory (OCMEM) allocator driver that allows various clients to allocate
   memory from OCMEM based on performance, latency and power requirements. This is typically used
   by the GPU, camera/video, and audio components on some Snapdragon SoCs. [Patches](#ocmem)
-- GPIO / Pinctrl subsystems
-  - Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and ssbi-gpio) so that
-    device tree consumers can request an IRQ directly from the GPIO block rather than having to
-    request an IRQ from the underlying PMIC. Contributed to the generic implementation in the
-    GPIO core. [Patches](#gpio-hierarchy)
-  - When attempting to setup up a GPIO hog, device probing would repeatedly fail with
-    -EPROBE_DEFERED errors during system boot due to a circular dependency between the GPIO and
-    Pinctrl frameworks. [Patches](#gpio-hog)
-- Display-related subsystems via the Freedreno DRM/KMS driver.
-  - Corrected issue with the display not working properly on old command-mode DSI panels,
-    dirty framebuffer helper support, corected msm8974 gfx3d clock, wired display into msm8974
-    device tree, corrected issues when running without an IOMMU, and silenced several
-    -EPROBE_DEFER warnings.  [Patches](#display)
-  - Created PLL driver and necessary device tree changes for external display over HDMI (not
-    upstream yet), converted analogix-anx78xx driver to use i2c_new_dummy_device, added necessary
-    regulator node to device tree, and added support for new variants to the analogix-anx78xx
-    driver. [Patches](#hdmi)
+- Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and ssbi-gpio) so that
+  device tree consumers can request an IRQ directly from the GPIO block rather than having to
+  request an IRQ from the underlying PMIC. Contributed to the generic implementation in the
+  GPIO core. [Patches](#gpio-hierarchy)
+- When attempting to setup up a GPIO hog, device probing would repeatedly fail with
+  -EPROBE_DEFERED errors during system boot due to a circular dependency between the GPIO and
+  Pinctrl frameworks. [Patches](#gpio-hog)
+- Corrected issue with the Freedreno DRM/KMS driver not working properly on old command-mode DSI
+  panels, dirty framebuffer helper support, corected msm8974 gfx3d clock, wired display into
+  msm8974 device tree, corrected issues when running without an IOMMU, and silenced several
+  -EPROBE_DEFER warnings.  [Patches](#display)
+- Created PLL driver and necessary device tree changes for external display over HDMI (work in
+  progress), converted analogix-anx78xx driver to use i2c_new_dummy_device, added necessary
+  regulator node to device tree, and added support for new variants to the analogix-anx78xx
+  driver. [Patches](#hdmi)
 - Took over maintainership of the TAOS tsl2772 driver upstream for the proximity detection and
   ambient light sensing, performed the staging graduation, corrected equations and timings for
   the 10 hardware variants supported by the driver, got interrupt and proximity functionality
