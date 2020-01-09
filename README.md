@@ -38,7 +38,10 @@ postmarketOS userspace.
 
 - [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
-- [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
+- Work in progress patches to get the IOMMU working.
+
+  - [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
+  - [ARM: dts: qcom: msm8974: add mdp5 iommu support](https://lore.kernel.org/lkml/20200109002606.35653-1-masneyb@onstation.org/)
 
 - Add support for clock-based vibrator devices where the speed can be controlled by changing the
   duty cycle.
