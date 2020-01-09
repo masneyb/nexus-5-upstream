@@ -1,9 +1,9 @@
 This page describes the current development efforts to port the the
 [upstream Linux Kernel](https://www.kernel.org/) to the
-[LG Nexus 5 (hammerhead) phone](https://en.wikipedia.org/wiki/Nexus_5). The factory
-kernel image is based on the upstream Linux 3.4 kernel that was released in May 2012, and adds
-almost 2 million lines of code on top of the upstream kernel. This factory image is abandoned
-and no longer receives security updates.
+[LG Nexus 5 (hammerhead) phone](https://en.wikipedia.org/wiki/Nexus_5) and other phones that use
+the Qualcomm msm8974 System on Chip (SoC). The factory kernel image is based on the upstream Linux
+3.4 kernel that was released in May 2012, and adds almost 2 million lines of code on top of the
+upstream kernel. This factory image is abandoned and no longer receives security updates.
 
 The goal is to eventually get all of the major components working upstream so that the phone will
 work with the latest upstream kernel. These patches will eventually appear in the
@@ -11,13 +11,64 @@ work with the latest upstream kernel. These patches will eventually appear in th
 onto newer upstream LTS kernel releases. This will also allow using operating systems such as
 [postmarketOS](https://postmarketos.org/).
 
-## Device summary
+## Upstream contribution summary
 
-This is a high-level summary of the components that currently work upstream, or where there are
-outstanding patches waiting for a review. See below for further details.
+The following is a summary of my upstream Linux kernel contributions as part of this project:
 
-- display / panel
-- bus scaling (interconnect)
+- Created a new Qualcomm msm8974 interconnect driver that allows setting system bandwidth
+  requirements between various network-on-chip fabrics. This is required in order to support the
+  display, GPU and various other devices upstream. [Patches](#interconnect)
+- Created a new On Chip Memory (OCMEM) allocator driver that allows various clients to allocate
+  memory from OCMEM based on performance, latency and power requirements. This is typically used
+  by the GPU, camera/video, and audio components on some Snapdragon SoCs. [Patches](#ocmem)
+- GPIO / Pinctrl subsystems
+  - Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and ssbi-gpio) so that
+    device tree consumers can request an IRQ directly from the GPIO block rather than having to
+    request an IRQ from the underlying PMIC. Contributed to the generic implementation in the
+    GPIO core. [Patches](#gpio-hierarchy)
+  - When attempting to setup up a GPIO hog, device probing would repeatedly fail with
+    -EPROBE_DEFERED errors during system boot due to a circular dependency between the GPIO and
+    Pinctrl frameworks. [Patches](#gpio-hog)
+- Display-related subsystems via the Freedreno DRM/KMS driver.
+  - Corrected issue with the display not working properly on old command-mode DSI panels,
+    dirty framebuffer helper support, corected msm8974 gfx3d clock, wired display into msm8974
+    device tree, corrected issues when running without an IOMMU, and silenced several
+    -EPROBE_DEFER warnings.  [Patches](#display)
+  - Created PLL driver and necessary device tree changes for external display over HDMI (not
+    upstream yet), converted analogix-anx78xx driver to use i2c_new_dummy_device, added necessary
+    regulator node to device tree, and added support for new variants to the analogix-anx78xx
+    driver. [Patches](#hdmi)
+- Took over maintainership of the TAOS tsl2772 driver upstream for the proximity detection and
+  ambient light sensing, performed the staging graduation, corrected equations and timings for
+  the 10 hardware variants supported by the driver, got interrupt and proximity functionality
+  working properly, added regulator support, and numerous cleanups to the driver.
+  [Patches](#tsl2772)
+- Added firmware node support to the existing lm3630a driver and corrected an issue updating the
+  brightness level via sysfs. [Patches](#lm3630a)
+- Added extcon support to the existing bq24190_charger driver upstream, and support for USB OTG
+  to device tree. [Patches](#bq24192)
+- Work in progress patches to get the vibrator supported upstream. Working with the upstream
+  maintainers to see where this code should go upstream. [Patches](#vibrator)
+- Bisected bugs found in linux-next with the [regulator subsystem](#bisect-regulator) and
+  the [mmc/sdhci system](#bisect-wifi).
+
+![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
+
+## Phone user space
+
+I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
+on their [Nexus 5 page](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)) that
+describes how to install it. Here's my [pmbootstrap.cfg](pmbootstrap.cfg) config file.
+
+Once that's installed, see my [build-kernel](build-kernel) script for how to build and boot a custom
+kernel into a postmarketOS userspace.
+
+A serial console can be obtained through the headphone jack and requires building a custom cable
+[as described on this page](UART_CABLE.md). You will want to make a cable if you plan to do any
+development work.
+
+Some of the various components are available at the following locations:
+
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - touchscreen: /sys/devices/rmi4-00/input
 - gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
@@ -28,99 +79,40 @@ outstanding patches waiting for a review. See below for further details.
 - USB: usb0
 - WiFi: wlan0
 - charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
-- serial port: /dev/ttyMSM0. A serial console can be obtained through the headphone jack and
-  requires building a custom cable [as described on this page](UART_CABLE.md).
+- serial port: /dev/ttyMSM0.
 
-See the [build-kernel](build-kernel) script for how to build and boot a custom kernel into a
-postmarketOS userspace.
+# Patches
 
-## Outstanding patches
-
-- [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
-
-- Work in progress patches to get the IOMMU working.
-
-  - [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add mdp5 iommu support](https://lore.kernel.org/lkml/20200109002606.35653-1-masneyb@onstation.org/)
-
-- Add support for clock-based vibrator devices where the speed can be controlled by changing the
-  duty cycle.
-
-  - [clk: qcom: add support for setting the duty cycle](https://lore.kernel.org/lkml/20191205002503.13088-2-masneyb@onstation.org/)
-  - [dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator](https://lore.kernel.org/lkml/20191205002503.13088-3-masneyb@onstation.org/)
-  - [Input: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-4-masneyb@onstation.org/)
-  - [dt-bindings: Input: introduce new clock vibrator bindings](https://lore.kernel.org/lkml/20191205002503.13088-5-masneyb@onstation.org/)
-  - [Input: introduce new clock vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-6-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for vibrator](https://lore.kernel.org/lkml/20191205002503.13088-8-masneyb@onstation.org/)
-
-- An external monitor can be hooked up via the
-  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
-  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
-  to 4K HDMI Adapter'. The external display is not working yet and some information can be
-  found on the [Cover Letter](https://lore.kernel.org/lkml/20191007014509.25180-1-masneyb@onstation.org/)
-
-  - [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20191007014509.25180-2-masneyb@onstation.org/)
-  - [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
-  - [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
-
-## Patches queued for next merge window
-
-- [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
-
-- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
-
-  - [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
-  - [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
-  - [drm/msm/gpu: add support for ocmem interconnect path](https://lore.kernel.org/lkml/20191122012645.7430-3-masneyb@onstation.org/)
-  - [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
-  - [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
-
-- On Chip MEMory driver is required in order to support the GPU upstream.
-
-  - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
-
-- defconfig
-
-  - [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
-  - [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
-
-## Patches accepted in upstream kernel
-
-- Display is supported by the msm drm/kms driver upstream.
-
-  - [2bab52af6fe6 ("drm/msm: add support for per-CRTC max_vblank_count on mdp5")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2bab52af6fe68c43b327a57e5ce5fc10eefdfadf)
-  - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
-  - [5a9fc531f6ec ("ARM: dts: msm8974: add display support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5a9fc531f6ecc987980fdd025928790c5db5f48a)
-  - [489bacb29818 ("ARM: dts: qcom: msm8974-hammerhead: add support for display")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=489bacb29818865d2db63d4800f4ddff56929031)
-  - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
-  - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
-  - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
-  - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
-  - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
-  - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
-
-- Interconnect driver implements bus scaling and is required in order to support the GPU upstream.
+- <a id="interconnect"></a>Qualcomm MSM8974 interconnect driver that allows setting system bandwidth
+  requirements between various network-on-chip fabrics. This is required in order to support the
+  display, GPU and various other devices upstream. [Patches](#interconnect)
 
   - [6120e5d821c0 ("dt-bindings: interconnect: qcom: add msm8974 bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6120e5d821c0e3104ddbc2ad5dd126e0c9eb20f2)
   - [4e60a9568dc6 ("interconnect: qcom: add msm8974 driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e60a9568dc6f411d4f631fe33b5553d080b7e8c)
+  - *Queued*: [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
+  - *Queued*: [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
+  - *Queued*: [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
+  - *Queued*: [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
+  - *Queued*: [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
 
-- The On Chip Memory (OCMEM) allocator allows various clients to allocate memory from OCMEM based
-  on performance, latency and power requirements. This is typically used by the GPU, camera/video,
-  and audio components on some Snapdragon SoCs.
+- <a id="ocmem"></a>The On Chip Memory (OCMEM) allocator allows various clients to allocate memory
+  from OCMEM based on performance, latency and power requirements. This is typically used by the
+  GPU, camera/video, and audio components on some Snapdragon SoCs.
 
   - [957fd69d396b ("dt-bindings: soc: qcom: add On Chip MEMory (OCMEM) bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=957fd69d396b2cc9b74c3b31a70fe7f266aa8c16)
   - [198a72c8f9ee ("dt-bindings: display: msm: gmu: add optional ocmem property")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=198a72c8f9ee8eef24bacde6a3b3feb3b026ee04)
-  - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
-  - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
   - [88c1e9404f1d ("soc: qcom: add OCMEM driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=88c1e9404f1deee02e52d13aae3d9ee2cabd66f5)
   - [26c0b26dcd00 ("drm/msm/gpu: add ocmem init/cleanup functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26c0b26dcd005d9d6de9246737177e7af821859a)
   - [bfcb7e1555ec ("soc: qcom: ocmem: add missing includes")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bfcb7e1555ecc157cea23e35057002e3055e90a6)
+  - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
+  - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
+  - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
+  - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
 
-- Hierarchical IRQ chip support for Qualcomm spmi-gpio and ssbi-gpio so that device tree consumers
-  can request an IRQ directly from the GPIO block rather than having to request an IRQ from the
-  underlying PMIC.
+- <a id="gpio-hierarchy"></a>Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and
+  ssbi-gpio) so that device tree consumers can request an IRQ directly from the GPIO block rather
+  than having to request an IRQ from the underlying PMIC. Contributed to the generic implementation
+  in the GPIO core.
 
   - [697818f383fc ("dt-bindings: pinctrl: qcom-pmic-gpio: add qcom,pmi8998-gpio binding")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=697818f383fc548cdbfb1528c7067994739ace04)
   - [d7ee4d0a6731 ("pinctrl: qcom: spmi-gpio: add support for three new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d7ee4d0a67315736b402291ed48b77e701c76224)
@@ -154,10 +146,10 @@ postmarketOS userspace.
   - [821c76c4c374 ("qcom: spmi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=821c76c4c374adf0c7a7608ee4661aa801f3c1c5)
   - [ae436fe81053 ("qcom: ssbi-gpio: convert to hierarchical IRQ helpers in gpio core")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ae436fe81053cd6cb294214be382b545565440cc)
 
-- When attempting to setup up a gpio hog, device probing would repeatedly fail with -EPROBE_DEFERED
-  errors during system boot due to a circular dependency between the gpio and pinctrl frameworks.
-  This fix is required in order to support USB on the Nexus 5 since one GPIO pin needs to be hogged
-  high at startup on the Nexus 5.
+- <a id="gpio-hog"></a>When attempting to setup up a gpio hog, device probing would repeatedly fail
+  with -EPROBE_DEFERED errors during system boot due to a circular dependency between the gpio and
+  pinctrl frameworks. This fix is required in order to support USB on the Nexus 5 since one GPIO
+  pin needs to be hogged high at startup on the Nexus 5.
 
   - [149a96047237 ("pinctrl: qcom: spmi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=149a96047237574b756d872007c006acd0cc6687)
   - [7ed078557738 ("pinctrl: qcom: ssbi-gpio: fix gpio-hog related boot issues")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7ed07855773814337b9814f1c3e866df52ebce68)
@@ -171,10 +163,51 @@ postmarketOS userspace.
   - [21750eb93ea9 ("arm64: dts: qcom: pmi8994: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21750eb93ea9ebe445c922f5319c6b490f45f70d)
   - [d1fe337337ed ("arm64: dts: qcom: pmi8998: add gpio-ranges")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d1fe337337edd37233e2fe65a43e7da6155fbec6)
 
-- The phone contains an [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN)
-  proximity / ambient light sensor (ALS), which is register compatible with the
-  [TAOS TSL2772 sensor](https://ams.com/documents/20143/36005/TSL2772_DS000181_2-00.pdf).
-  By mere coincidence, the
+- <a id="display"></a>Display is supported by the msm drm/kms driver upstream.
+
+  - [2bab52af6fe6 ("drm/msm: add support for per-CRTC max_vblank_count on mdp5")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2bab52af6fe68c43b327a57e5ce5fc10eefdfadf)
+  - [648fdc3f6475 ("drm/msm: add dirty framebuffer helper")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=648fdc3f6475d96de287a849a31d89e79ba7669c)
+  - [5a9fc531f6ec ("ARM: dts: msm8974: add display support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5a9fc531f6ecc987980fdd025928790c5db5f48a)
+  - [489bacb29818 ("ARM: dts: qcom: msm8974-hammerhead: add support for display")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=489bacb29818865d2db63d4800f4ddff56929031)
+  - [e2f597a20470 ("drm/msm: remove resv fields from msm_gem_object struct")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e2f597a20470d7dfeca49c3d45cb8a7e46d3cf66)
+  - [d67f1b6d0e0b ("drm/msm: correct attempted NULL pointer dereference in put_iova")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d67f1b6d0e0be8240186e3cc998353e52ed6ea31)
+  - [90f94660e531 ("drm/msm: correct attempted NULL pointer dereference in debugfs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=90f94660e53189755676543954101de78c26253b)
+  - [7af5cdb158f3 ("drm/msm: correct NULL pointer dereference in context_init")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7af5cdb158f3398a3220bd2fe81cec8d2be9317c)
+  - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
+  - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
+  - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
+  - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
+  - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
+  - *Queued*: [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
+  - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
+
+- <a id="hdmi"></a>An external monitor can be hooked up via the
+  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
+  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
+  to 4K HDMI Adapter'.
+
+  - [ac242e2cfd14 ("ARM: dts: qcom: pm8941: add 5vs2 regulator node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac242e2cfd14f5be99fc2e6888702d02099d2f91)
+  - [2f932367d219 ("drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f932367d219ad4ce56278035a1ee1ca03c48308)
+  - [025910db8057 ("drm/bridge: analogix-anx78xx: add support for 7808 addresses")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=025910db8057f60d2d2aa11002f7751e3eb66588)
+  - [2fb658a603ba ("dt-bindings: drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2fb658a603bab4e41834a4f32475bbea9c01cf46)
+  - [0273831882c5 ("drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0273831882c5215f49628dcb3cb567b67cd7af39)
+  - [2708e876272d ("drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2708e876272d89bbbff811d12834adbeef85f022)
+  - *Queued*: [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
+  - *Needs work*: [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20191007014509.25180-2-masneyb@onstation.org/)
+  - *Needs work*: [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
+  - *Needs work*: [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
+  - *Needs work*: [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
+
+- <a id="iommu"></a>Work in progress patches to get the IOMMU working.
+
+  - *Needs work*: [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
+  - *Needs work*: [ARM: dts: qcom: msm8974: add mdp5 iommu support](https://lore.kernel.org/lkml/20200109002606.35653-1-masneyb@onstation.org/)
+
+- <a id="tsl2772"></a>The phone contains an
+  [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN) proximity / ambient light sensor
+  (ALS), which is register compatible with the
+  [TAOS tsl2772 sensor](https://ams.com/documents/20143/36005/TSL2772_DS000181_2-00.pdf). By mere
+  coincidence, the
   [tsl2772.c driver](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/iio/light/tsl2772.c)
   is one of the staging cleanups that I did and it took
   [74 patches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/log/drivers/staging/iio/light/tsl2x7x.c)
@@ -205,44 +238,41 @@ postmarketOS userspace.
   - [28b6977e089d ("dt-bindings: iio: tsl2772: add binding for avago,apds9930")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=28b6977e089dda97f8f32ac1a6a223f59e7065f4)
   - [17b62779cbe4 ("dt-bindings: iio: tsl2772: convert bindings to YAML format")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=17b62779cbe40773e10a83af000e51c29b764575)
 
-- An external monitor can be hooked up via the
-  [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
-  using a SlimPort cable. I'm currently using an 'Analogix Semiconductor SP6001 SlimPort Micro-USB
-  to 4K HDMI Adapter'.
-
-  - [2f932367d219 ("drm/bridge: analogix-anx78xx: convert to i2c_new_dummy_device")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2f932367d219ad4ce56278035a1ee1ca03c48308)
-  - [025910db8057 ("drm/bridge: analogix-anx78xx: add support for 7808 addresses")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=025910db8057f60d2d2aa11002f7751e3eb66588)
-  - [2fb658a603ba ("dt-bindings: drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2fb658a603bab4e41834a4f32475bbea9c01cf46)
-  - [0273831882c5 ("drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0273831882c5215f49628dcb3cb567b67cd7af39)
-  - [2708e876272d ("drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2708e876272d89bbbff811d12834adbeef85f022)
-
-- Vibrator - Use
-  [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
-  test the driver.
-
-  - [0f681d09e66e ("Input: add new vibrator driver for various MSM SOCs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f681d09e66ea6833e6173180ff3892e9026ab71)
-
-- The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the USB charger and for
-  system power path management.
-
-  - [161a2135e082 ("power: supply: bq24190_charger: add extcon support for USB OTG")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=161a2135e08274a6fa9742e1c020d8138d0032a1)
-  - [8e49c0b4bbe9 ("dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e49c0b4bbe9482a26e8ad26a99ee99b806f6ac4)
-  - [5ea67bb0b090 ("power: supply: bq24190_charger: add support for bq24192 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ea67bb0b090033750a91325448dbee1d5b58b01)
-  - [74d09c927cb6 ("power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d09c927cb69bd10c63e0c6dd3d1c71709ee7ea)
-
-- The phone contains a micro USB port that can be used for charging the battery or in USB OTG
-  mode so that other USB devices can be connected to the phone. The USB support requires the
-  charger and gpio hogging patches listed on this page.
-
-  - [fb143fcbb9ad ("ARM: dts: qcom: msm8974-hammerhead: add USB OTG support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb143fcbb9ad361004f2818e9dcb52b2556bfec1)
-
-- The phone contains a [TI LM3630A](https://www.ti.com/product/LM3630A) for the LCD backlight.
+- <a id="lm3630a"></a>The phone contains a [TI lm3630a](https://www.ti.com/product/LM3630A) for the
+  LCD backlight.
 
   - [d3f48ec0954c ("backlight: lm3630a: return 0 on success in update_status functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d3f48ec0954c6aac736ab21c34a35d7554409112)
   - [32fcb75c66a0 ("dt-bindings: backlight: add lm3630a bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=32fcb75c66a0cb66db9ec4f777f864675e5aebb2)
   - [8fbce8efe15c ("backlight: lm3630a: add firmware node support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8fbce8efe15cd2ca7a4947bc814f890dbe4e43d7)
   - [ef4db28c1f45 ("dt-bindings: backlight: lm3630a: correct schema validation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef4db28c1f45cda6989bc8a8e45294894786d947)
   - [030b6d48ebfb ("ARM: dts: qcom: msm8974-hammerhead: add support for backlight")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=030b6d48ebfb8d45f397aa13da712210c9803042)
+
+- <a id="bq24192"></a>The phone contains a [BQ24192](http://www.ti.com/lit/pdf/slusaw5) for the
+  charger, system power path management, and for USB OTG support. This requires the GPIO hogging
+  patches on this page.
+
+  - [161a2135e082 ("power: supply: bq24190_charger: add extcon support for USB OTG")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=161a2135e08274a6fa9742e1c020d8138d0032a1)
+  - [8e49c0b4bbe9 ("dt-bindings: power: supply: bq24190_charger: add bq24192 and usb-otg-vbus")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=8e49c0b4bbe9482a26e8ad26a99ee99b806f6ac4)
+  - [5ea67bb0b090 ("power: supply: bq24190_charger: add support for bq24192 variant")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=5ea67bb0b090033750a91325448dbee1d5b58b01)
+  - [74d09c927cb6 ("power: supply: bq24190_charger: add of_match for usb-otg-vbus regulator")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=74d09c927cb69bd10c63e0c6dd3d1c71709ee7ea)
+  - [fb143fcbb9ad ("ARM: dts: qcom: msm8974-hammerhead: add USB OTG support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fb143fcbb9ad361004f2818e9dcb52b2556bfec1)
+  - [817bbbb7749d ("ARM: qcom_defconfig: add support for USB networking")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=817bbbb7749decb99262dc3bb1569a579eea5ba8)
+
+  ![USB OTG](images/usb-otg.png?raw=1)
+
+- <a id="vibrator"></a>Add support for clock-based vibrator devices where the speed can be
+  controlled by changing the duty cycle. Use
+  [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
+  test the driver.
+
+  - [0f681d09e66e ("Input: add new vibrator driver for various MSM SOCs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f681d09e66ea6833e6173180ff3892e9026ab71)
+  - *Needs work*: [clk: qcom: add support for setting the duty cycle](https://lore.kernel.org/lkml/20191205002503.13088-2-masneyb@onstation.org/)
+  - *Needs work*: [dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator](https://lore.kernel.org/lkml/20191205002503.13088-3-masneyb@onstation.org/)
+  - *Needs work*: [Input: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-4-masneyb@onstation.org/)
+  - *Needs work*: [dt-bindings: Input: introduce new clock vibrator bindings](https://lore.kernel.org/lkml/20191205002503.13088-5-masneyb@onstation.org/)
+  - *Needs work*: [Input: introduce new clock vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-6-masneyb@onstation.org/)
+  - *Needs work*: [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)
+  - *Needs work*: [ARM: dts: qcom: msm8974-hammerhead: add support for vibrator](https://lore.kernel.org/lkml/20191205002503.13088-8-masneyb@onstation.org/)
 
 - The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
@@ -261,29 +291,20 @@ postmarketOS userspace.
   for wireless.
 
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
-  - [Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
+  - <a id="bisect-wifi"></a>[Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
     that caused WiFi to stop working. This issue was fixed by the patch 
     [89f3c365f3e1 ("mmc: sdhci: Fix SDIO IRQ thread deadlock")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f3c365f3e113d087f105c3acbbb5a71eee84e3).
-
-- Panel is supported by the simple panel driver.
-
-  - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
-  - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
 
 - Touchscreen is supported by the Synaptics RMI4 driver.
 
   - [48100d10c93f ("ARM: dts: qcom: msm8974-hammerhead: add touchscreen support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=48100d10c93fe3df6e1f4ea77888985d054f25d8)
-
-- Regulator
-
-  - [ac242e2cfd14 ("ARM: dts: qcom: pm8941: add 5vs2 regulator node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ac242e2cfd14f5be99fc2e6888702d02099d2f91)
 
 - Flash memory 
 
   - [03864e57770a ("ARM: dts: qcom: msm8974-hammerhead: increase load on l20 for sdhci")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=03864e57770a9541e7ff3990bacf2d9a2fffcd5d) -
     Corrects an issue where the phone would not boot properly when starting to read from the flash
     memory.
-  - [Bisected an issue in linux-next](https://lore.kernel.org/lkml/20181125093750.GA28055@basecamp/)
+  - <a id="bisect-regulator"></a>[Bisected an issue in linux-next](https://lore.kernel.org/lkml/20181125093750.GA28055@basecamp/)
     related to a change in the regulator framework that caused the the phone to no longer boot. The
     issue was resolved by commit
     [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
@@ -291,30 +312,15 @@ postmarketOS userspace.
 - defconfig
 
   - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
-  - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
-  - [817bbbb7749d ("ARM: qcom_defconfig: add support for USB networking")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=817bbbb7749decb99262dc3bb1569a579eea5ba8)
-  - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
 
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
   related to this Nexus 5 project.
 
-## Display
-
-![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
-
-[kmbscube](https://gitlab.freedesktop.org/mesa/kmscube/) and the text framebuffer console working
-on the Nexus 5. I'm currently working on upstreaming the various bits that will allow the GPU to
-work in the upstream kernel. You can find a branch on
-[the linux repository on my GitHub account](https://github.com/masneyb/linux/branches) that has
-working GPU support.
-
-## USB OTG
-
-![USB OTG](images/usb-otg.png?raw=1)
-
 ## Other resources
 
 - [TODO list](TODO.md) for upstreaming the various major components.
+- My [linux branches](https://github.com/masneyb/linux/branches) that include some of my in progress
+  and out-of-tree patches.
 - A full teardown of the Nexus 5 is
   [available on ifixit](https://www.ifixit.com/Teardown/Nexus+5+Teardown/19016).
 - [Downstream MSM 3.4 kernel sources](https://github.com/AICP/kernel_lge_hammerhead) with additions
