@@ -1,15 +1,17 @@
-This page describes the current development efforts to port the the
+This page describes the current development efforts to port the
 [upstream Linux Kernel](https://www.kernel.org/) to the
-[LG Nexus 5 (hammerhead) phone](https://en.wikipedia.org/wiki/Nexus_5) and other phones that use
-the Qualcomm msm8974 System on Chip (SoC). The factory kernel image is based on the upstream Linux
-3.4 kernel that was released in May 2012, and adds almost 2 million lines of code on top of the
-upstream kernel. This factory image is abandoned and no longer receives security updates.
+[LG Nexus 5 (hammerhead) phone](https://en.wikipedia.org/wiki/Nexus_5). This work benefits
+other devices that use the Qualcomm msm8974 System on Chip (SoC) such as the Fairphone 2,
+OnePlus One, Samsung Galaxy S5, Sony Xperia Z1, Sony Xperia Z2 tablets, and current devices
+that use some of the same IP blocks within newer Qualcomm SoCs.
 
-The goal is to eventually get all of the major components working upstream so that the phone will
-work with the latest upstream kernel. These patches will eventually appear in the
+The factory kernel image is based on the upstream Linux 3.4 kernel that was released in May
+2012, and adds almost 2 million lines of code on top of the upstream kernel. This factory
+image is abandoned and no longer receives security updates. The goal is to eventually get
+all of the major components working upstream so that the phone will work with the latest
+upstream kernel. These patches will eventually appear in the
 [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their kernels
-onto newer upstream LTS kernel releases. This will also allow using operating systems such as
-[postmarketOS](https://postmarketos.org/).
+onto newer upstream LTS kernel releases.
 
 ## Upstream contribution summary
 
@@ -29,11 +31,11 @@ The following is a summary of my upstream Linux kernel contributions as part of 
   -EPROBE_DEFERED errors during system boot due to a circular dependency between the GPIO and
   Pinctrl frameworks. [Patches](#gpio-hog)
 - Corrected issue with the Freedreno DRM/KMS driver not working properly on old command-mode DSI
-  panels, dirty framebuffer helper support, corected msm8974 gfx3d clock, wired display into
+  panels, dirty framebuffer helper support, corrected msm8974 gfx3d clock, wired display into
   msm8974 device tree, corrected issues when running without an IOMMU, and silenced several
-  -EPROBE_DEFER warnings.  [Patches](#display)
+  -EPROBE_DEFER warnings. [Patches](#display)
 - Created PLL driver and necessary device tree changes for external display over HDMI (work in
-  progress), converted analogix-anx78xx driver to use i2c_new_dummy_device, added necessary
+  progress), converted analogix-anx78xx driver to use i2c_new_dummy_device(), added necessary
   regulator node to device tree, and added support for new variants to the analogix-anx78xx
   driver. [Patches](#hdmi)
 - Took over maintainership of the TAOS tsl2772 driver upstream for the proximity detection and
@@ -47,8 +49,15 @@ The following is a summary of my upstream Linux kernel contributions as part of 
   to device tree. [Patches](#bq24192)
 - Work in progress patches to get the vibrator supported upstream. Working with the upstream
   maintainers to see where this code should go upstream. [Patches](#vibrator)
+- Work in progress patches to get the IOMMU for the display and GPU working. [Patches](#iommu)
+- Cleaned up patches from other people and got them accepted upstream for the following
+  components: [various I2C sensors](#various-i2c-sensors), [panel](#panel), [WiFi](#wifi),
+  [touchscreen](#touchscreen), and [sdhci](#sdhci).
 - Bisected bugs found in linux-next with the [regulator subsystem](#bisect-regulator) and
   the [mmc/sdhci system](#bisect-wifi).
+- I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
+  related to this Nexus 5 project. A few highlights: 3 staging graduations in the IIO subsystem,
+  runtime power management, and various other driver cleanups.
 
 ![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
 
@@ -80,6 +89,9 @@ Some of the various components are available at the following locations:
 - serial port: /dev/ttyMSM0.
 
 # Patches
+
+Note that the ones with a short git SHA at the beginning are in the mainline kernel, the ones
+marked *Queued* are in linux-next, and the others are labeled either *Pending* or *Needs Work*.
 
 - <a id="interconnect"></a>Qualcomm MSM8974 interconnect driver that allows setting system bandwidth
   requirements between various network-on-chip fabrics. This is required in order to support the
@@ -174,8 +186,6 @@ Some of the various components are available at the following locations:
   - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
   - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
-  - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
-  - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
   - *Queued*: [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
   - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
@@ -195,11 +205,6 @@ Some of the various components are available at the following locations:
   - *Needs work*: [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
   - *Needs work*: [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
   - *Needs work*: [ARM: dts: qcom: msm8974-hammerhead: add support for external display](https://lore.kernel.org/lkml/20191007014509.25180-6-masneyb@onstation.org/)
-
-- <a id="iommu"></a>Work in progress patches to get the IOMMU working.
-
-  - *Needs work*: [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
-  - *Needs work*: [ARM: dts: qcom: msm8974: add mdp5 iommu support](https://lore.kernel.org/lkml/20200109002606.35653-1-masneyb@onstation.org/)
 
 - <a id="tsl2772"></a>The phone contains an
   [Avago APDS 9930](https://docs.broadcom.com/docs/AV02-3190EN) proximity / ambient light sensor
@@ -272,7 +277,12 @@ Some of the various components are available at the following locations:
   - *Needs work*: [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)
   - *Needs work*: [ARM: dts: qcom: msm8974-hammerhead: add support for vibrator](https://lore.kernel.org/lkml/20191205002503.13088-8-masneyb@onstation.org/)
 
-- The
+- <a id="iommu"></a>Work in progress patches to get the IOMMU working.
+
+  - *Needs work*: [iommu/qcom: fix NULL pointer dereference during probe deferral](https://lore.kernel.org/lkml/20200104002024.37335-1-masneyb@onstation.org/)
+  - *Needs work*: [ARM: dts: qcom: msm8974: add mdp5 iommu support](https://lore.kernel.org/lkml/20200109002606.35653-1-masneyb@onstation.org/)
+
+- <a id="various-i2c-sensors"></a>The
   [InvenSense mpu6515 gyroscope / accelerometer](https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf),
   [Asahi Kasei ak8963 magnetometer](https://www.akm.com/akm/en/file/datasheet/AK8963C.pdf), and
   [Bosch bmp280 temperature / humidity / barometer](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001-19.pdf)
@@ -285,19 +295,24 @@ Some of the various components are available at the following locations:
   - [0567022c019a ("ARM: dts: qcom: msm8974-hammerhead: correct gpios property on magnetometer")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0567022c019ad1a1d7bb980a99797f7a7a11d7d3)
   - [d2b863baf1c7 ("iio: pressure: bmp280: remove unused options from device tree documentation")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2b863baf1c7d92969c2a9dcada3c6b14e5dbbc4)
 
-- WiFi - The phone has a [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download)
-  for wireless.
+- <a id="panel"></a>The panel is supported by the simple-panel driver upstream.
+
+  - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
+  - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
+
+- <a id="wifi"></a>WiFi - The phone has a
+  [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless.
 
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
   - <a id="bisect-wifi"></a>[Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
-    that caused WiFi to stop working. This issue was fixed by the patch 
+    that caused WiFi to stop working. This issue was fixed by the patch
     [89f3c365f3e1 ("mmc: sdhci: Fix SDIO IRQ thread deadlock")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=89f3c365f3e113d087f105c3acbbb5a71eee84e3).
 
-- Touchscreen is supported by the Synaptics RMI4 driver.
+- <a id="touchscreen"></a>Touchscreen is supported by the Synaptics RMI4 driver.
 
   - [48100d10c93f ("ARM: dts: qcom: msm8974-hammerhead: add touchscreen support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=48100d10c93fe3df6e1f4ea77888985d054f25d8)
 
-- Flash memory 
+- <a id="sdhci"></a>Flash memory
 
   - [03864e57770a ("ARM: dts: qcom: msm8974-hammerhead: increase load on l20 for sdhci")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=03864e57770a9541e7ff3990bacf2d9a2fffcd5d) -
     Corrects an issue where the phone would not boot properly when starting to read from the flash
@@ -307,12 +322,7 @@ Some of the various components are available at the following locations:
     issue was resolved by commit
     [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
 
-- defconfig
-
-  - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
-
-- I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
-  related to this Nexus 5 project.
+- [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
 
 ## Other resources
 
