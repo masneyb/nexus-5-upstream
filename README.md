@@ -78,10 +78,14 @@ Some of the various components are available at the following locations:
 
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
 - touchscreen: /sys/devices/rmi4-00/input
-- gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
-- magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f
-- temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076
-- proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039
+- gyroscope / accelerometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068.
+  [iio_info output](libiio_info.md#mpu6515)
+- magnetometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f.
+  [iio_info output](libiio_info.md#ak8963)
+- temperature / humidity / barometer: /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076.
+  [iio_info output](libiio_info.md#bmp280)
+- proximity / ambient light sensor (ALS): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039.
+  [iio_info output](libiio_info.md#tsl2772)
 - vibrator: /dev/input/by-path/platform-vibrator-event
 - USB: usb0
 - WiFi: wlan0
