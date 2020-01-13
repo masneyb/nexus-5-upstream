@@ -19,7 +19,8 @@ are available upstream from the various i2c sensors.
           attr  1: calibscale value: 1
           attr  2: calibscale_available value: 1 8 16 120
           attr  3: integration_time value: 0.002730
-          attr  4: integration_time_available value: [0.002730 0.002730 0.699000]
+          attr  4: integration_time_available value:
+                   [0.002730 0.002730 0.699000]
           attr  5: raw value: 2
         proximity0:  (input)
         4 channel-specific attributes found:
@@ -42,7 +43,8 @@ are available upstream from the various i2c sensors.
           attr  2: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  3: raw value: -858
           attr  4: scale value: 0.000598
-          attr  5: scale_available value: 0.000598 0.001196 0.002392 0.004785
+          attr  5: scale_available value:
+                   0.000598 0.001196 0.002392 0.004785
         accel_y:  (input, index: 1, format: be:S16/16>>0)
         6 channel-specific attributes found:
           attr  0: calibbias value: 17
@@ -50,7 +52,8 @@ are available upstream from the various i2c sensors.
           attr  2: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  3: raw value: 452
           attr  4: scale value: 0.000598
-          attr  5: scale_available value: 0.000598 0.001196 0.002392 0.004785
+          attr  5: scale_available value:
+                   0.000598 0.001196 0.002392 0.004785
         accel_z:  (input, index: 2, format: be:S16/16>>0)
         6 channel-specific attributes found:
           attr  0: calibbias value: 10752
@@ -58,28 +61,32 @@ are available upstream from the various i2c sensors.
           attr  2: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  3: raw value: -15791
           attr  4: scale value: 0.000598
-          attr  5: scale_available value: 0.000598 0.001196 0.002392 0.004785
+          attr  5: scale_available value:
+                   0.000598 0.001196 0.002392 0.004785
         anglvel_x:  (input, index: 3, format: be:S16/16>>0)
         5 channel-specific attributes found:
           attr  0: calibbias value: 0
           attr  1: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  2: raw value: 45
           attr  3: scale value: 0.001064724
-          attr  4: scale_available value: 0.000133090 0.000266181 0.000532362 0.001064724
+          attr  4: scale_available value:
+                   0.000133090 0.000266181 0.000532362 0.001064724
         anglvel_y:  (input, index: 4, format: be:S16/16>>0)
         5 channel-specific attributes found:
           attr  0: calibbias value: 0
           attr  1: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  2: raw value: -24
           attr  3: scale value: 0.001064724
-          attr  4: scale_available value: 0.000133090 0.000266181 0.000532362 0.001064724
+          attr  4: scale_available value:
+                   0.000133090 0.000266181 0.000532362 0.001064724
         anglvel_z:  (input, index: 5, format: be:S16/16>>0)
         5 channel-specific attributes found:
           attr  0: calibbias value: 0
           attr  1: mount_matrix value: 1, 0, 0; 0, 1, 0; 0, 0, 1
           attr  2: raw value: -13
           attr  3: scale value: 0.001064724
-          attr  4: scale_available value: 0.000133090 0.000266181 0.000532362 0.001064724
+          attr  4: scale_available value:
+                   0.000133090 0.000266181 0.000532362 0.001064724
         timestamp:  (input, index: 6, format: le:S64/64>>0)
         temp:  (input)
         3 channel-specific attributes found:
