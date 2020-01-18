@@ -187,6 +187,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
   - *Queued*: [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
+  - *Pending*: [drm/msm/mdp5: rate limit pp done timeout warnings](https://lore.kernel.org/lkml/20200118204120.1039774-1-masneyb@onstation.org/)
   - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
 - <a id="hdmi"></a>An external monitor can be hooked up via the
