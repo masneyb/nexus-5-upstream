@@ -1,9 +1,0 @@
-#!/bin/sh
-
-X &
-export DISPLAY=:0
-sleep 2
-openbox &
-sleep 1
-glxgears &
-xterm
