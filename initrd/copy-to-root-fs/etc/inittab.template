@@ -9,4 +9,4 @@ tty5::respawn:/sbin/getty 38400 tty5
 tty6::respawn:/sbin/getty 38400 tty6
 ::ctrlaltdel:/sbin/reboot
 ::shutdown:/sbin/openrc --verbose shutdown
-__SERIAL_TTY__::respawn:/sbin/getty -L __SERIAL_TTY__ 115200 vt100 -n -l /bin/sh
+__SERIAL_TTY__::respawn:/sbin/getty -L __SERIAL_TTY__ 115200 vt100 -n -l /usr/local/bin/tty_root_sh

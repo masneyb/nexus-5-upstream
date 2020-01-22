@@ -1,0 +1,3 @@
+#!/bin/ash
+
+HOME=/root ENV=/etc/profile exec ash -i
