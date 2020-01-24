@@ -43,7 +43,8 @@ Some of the various components are available at the following locations:
 - serial port: /dev/ttyMSM0.
 
 See the [gpio_demoy.py script](initrd/copy-to-root-fs/usr/local/bin/gpio_demo.py) for the source
-code to the GTK+ application controlling the external LEDs in the image above.
+code to the GTK+ application controlling the external LEDs in the image above. The phone is running
+XFCE4 under postmarketOS on an upstream Linux kernel.
 
 ## Upstream contribution summary
 
