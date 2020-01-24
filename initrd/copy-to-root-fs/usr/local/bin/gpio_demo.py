@@ -2,22 +2,31 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (C) 2020 Brian Masney <masneyb@onstation.org>
 #
-# GTK+ demo application that shows toggling GPIO pins over USB.
+# GTK+ demo application that shows toggling GPIO pins via a MCP2221 breakboard board over USB
+# (https://www.adafruit.com/product/4471) to demonstrate how an older phone, such as the Nexus 5,
+# can be used can be used to control external hardware for prototyping purposes.
 #
 # Install the required dependencies on Alpine Linux with:
 #
-#    apk add gtk+3.0 py3-gobject3 python3
+#    apk add eudev-dev gtk+3.0 libusb-dev linux-headers py3-gobject3 python3 python3-dev
+#    pip3 install hidapi adafruit-blinka
 #
-# If you are running this on a phone and want to make the program larger, then run it with:
+# To run:
 #
-#     GDK_SCALE=6 ./gpio_demo.py
+#    BLINKA_MCP2221=1 GDK_SCALE=6 ./gpio_demo.py
 
+import board
+import digitalio
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import GLib, Gtk
 
-DEMO_TIMER_MS = 750
+DEMO_TIMER_MS = 500
+
 MAX_GPIOS = 4
+GPIO_PIN_RANGE = range(0, MAX_GPIOS)
+GPIO_PIN_CONSTANTS = [board.G0, board.G1, board.G2, board.G3]
+GPIO_PINS = []
 
 class GpioWindow(Gtk.Window):
     def __init__(self):
@@ -28,42 +37,58 @@ class GpioWindow(Gtk.Window):
         self.add(vbox)
 
         buttons = []
-        for gpio in range(1, MAX_GPIOS + 1):
-            button = Gtk.ToggleButton(label="GPIO %d" % (gpio))
-            button.connect("toggled", self.gpio_button_toggled, gpio)
+        for pin in GPIO_PIN_RANGE:
+            button = Gtk.ToggleButton(label="GPIO %d" % (pin))
+            button.connect("toggled", self.gpio_button_toggled, pin)
             vbox.pack_start(button, True, True, 0)
             buttons.append(button)
 
-        check = Gtk.CheckButton(label="Demo")
-        check.connect("toggled", self.demo_checkbox_toggled, buttons)
-        vbox.pack_start(check, True, True, 0)
+        auto_checkbox = Gtk.CheckButton(label="Automatic")
+        auto_checkbox.connect("toggled", self.auto_checkbox_toggled, buttons)
+        vbox.pack_start(auto_checkbox, True, True, 0)
 
-    def gpio_button_toggled(self, button, gpio):
-        set_gpio_state(gpio, button.get_active())
+    def gpio_button_toggled(self, button, pin):
+        set_gpio_state(pin, button.get_active())
 
-    def demo_checkbox_toggled(self, checkbox, buttons):
+    def auto_checkbox_toggled(self, checkbox, buttons):
         if checkbox.get_active():
-            GLib.timeout_add(DEMO_TIMER_MS, self.timeout, (checkbox, buttons, 0))
+            GLib.timeout_add(DEMO_TIMER_MS, self.timeout, (checkbox, buttons))
 
     def timeout(self, data):
-        (checkbox, buttons, active_gpio) = data
+        (checkbox, buttons) = data
         if not checkbox.get_active():
             return
 
-        for idx, button in enumerate(buttons):
-            button.set_active(idx == active_gpio)
+        # When in automatic mode, shift the value of all the GPIO pins by one. If all of the pins
+        # are off, then turn the first one on. If all pins are on, then turn the first pin off.
 
-        active_gpio = (active_gpio + 1) % MAX_GPIOS
-        GLib.timeout_add(DEMO_TIMER_MS, self.timeout, (checkbox, buttons, active_gpio))
+        num_active = 0
+        button_states = [None] * MAX_GPIOS
+        for idx, button in enumerate(buttons):
+            num_active += button.get_active()
+            button_states[(idx + 1) % MAX_GPIOS] = button.get_active()
+
+        if num_active == 0:
+            button_states[0] = True
+        elif num_active == MAX_GPIOS:
+            button_states[0] = False
+
+        for idx, button in enumerate(buttons):
+            button.set_active(button_states[idx])
+
+        GLib.timeout_add(DEMO_TIMER_MS, self.timeout, (checkbox, buttons))
 
 def init_gpio():
     # Ensure that all of the GPIO pins are set to low on startup.
-    for gpio in range(1, MAX_GPIOS + 1):
-        set_gpio_state(gpio, 0)
+    for pin in GPIO_PIN_RANGE:
+        gpio = digitalio.DigitalInOut(GPIO_PIN_CONSTANTS[pin])
+        gpio.direction = digitalio.Direction.OUTPUT
+        GPIO_PINS.append(gpio)
 
-def set_gpio_state(gpio_number, active):
-    print('GPIO %s = %d' % (gpio_number, active))
-    # FIXME - add hardware control code here
+        set_gpio_state(pin, False)
+
+def set_gpio_state(pin, active):
+    GPIO_PINS[pin].value = active
 
 init_gpio()
 WIN = GpioWindow()
