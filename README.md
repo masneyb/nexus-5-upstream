@@ -13,6 +13,38 @@ upstream kernel. These patches will eventually appear in the
 [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their kernels
 onto newer upstream LTS kernel releases.
 
+## Phone user space
+
+I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
+on their [Nexus 5 page](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)) that
+describes how to install it. Here's my [pmbootstrap.cfg](pmbootstrap.cfg) config file.
+
+Once that's installed, see my [build-kernel](build-kernel) script for how to build and boot a custom
+kernel into a postmarketOS userspace.
+
+A serial console can be obtained through the headphone jack and requires building a custom cable
+[as described on this page](UART_CABLE.md). You will want to make a cable if you plan to do any
+development work.
+
+![External GPIO Example](images/external-gpio.gif?raw=1)
+
+Some of the various components are available at the following locations:
+
+- backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
+- touchscreen: /sys/devices/rmi4-00/input
+- [gyroscope / accelerometer](libiio_info.md#mpu6515): /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
+- [magnetometer](libiio_info.md#ak8963): /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f.
+- [temperature / humidity / barometer](libiio_info.md#bmp280): /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076.
+- [proximity / ambient light sensor (ALS)](libiio_info.md#tsl2772): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039.
+- vibrator: /dev/input/by-path/platform-vibrator-event
+- USB: usb0
+- WiFi: wlan0
+- charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
+- serial port: /dev/ttyMSM0.
+
+See the [gpio_demoy.py script](initrd/copy-to-root-fs/usr/local/bin/gpio_demo.py) for the source
+code to the GTK+ application controlling the external LEDs in the image above.
+
 ## Upstream contribution summary
 
 The following is a summary of my upstream Linux kernel contributions as part of this project:
@@ -60,33 +92,6 @@ The following is a summary of my upstream Linux kernel contributions as part of 
   runtime power management, and various other driver cleanups.
 
 ![Display](images/Nexus5-kmscube-and-fb-console.png?raw=1)
-
-## Phone user space
-
-I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
-on their [Nexus 5 page](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)) that
-describes how to install it. Here's my [pmbootstrap.cfg](pmbootstrap.cfg) config file.
-
-Once that's installed, see my [build-kernel](build-kernel) script for how to build and boot a custom
-kernel into a postmarketOS userspace.
-
-A serial console can be obtained through the headphone jack and requires building a custom cable
-[as described on this page](UART_CABLE.md). You will want to make a cable if you plan to do any
-development work.
-
-Some of the various components are available at the following locations:
-
-- backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
-- touchscreen: /sys/devices/rmi4-00/input
-- [gyroscope / accelerometer](libiio_info.md#mpu6515): /sys/devices/platform/soc/f9968000.i2c/i2c-2/2-0068
-- [magnetometer](libiio_info.md#ak8963): /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-000f.
-- [temperature / humidity / barometer](libiio_info.md#bmp280): /sys/devices/platform/soc/f9968000.i2c/i2c-2/i2c-3/3-0076.
-- [proximity / ambient light sensor (ALS)](libiio_info.md#tsl2772): /sys/devices/platform/soc/f9925000.i2c/i2c-1/1-0039.
-- vibrator: /dev/input/by-path/platform-vibrator-event
-- USB: usb0
-- WiFi: wlan0
-- charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
-- serial port: /dev/ttyMSM0.
 
 # Patches
 
