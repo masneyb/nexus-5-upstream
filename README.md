@@ -44,7 +44,8 @@ Some of the various components are available at the following locations:
 
 See the [gpio_demoy.py script](initrd/copy-to-root-fs/usr/local/bin/gpio_demo.py) for the source
 code to the GTK+ application controlling the external LEDs in the image above. The phone is running
-XFCE4 under postmarketOS on an upstream Linux kernel.
+XFCE4 under postmarketOS on an upstream Linux kernel. This
+[Tiny OTG USB adapter](https://www.adafruit.com/product/2910) is used on that video.
 
 ## Upstream contribution summary
 
