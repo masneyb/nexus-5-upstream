@@ -20,7 +20,7 @@
 #   # Optional: Clone downstream MSM 3.4 sources
 #   git clone https://github.com/AICP/kernel_lge_hammerhead.git linux-msm-3.4-hammerhead
 #   cd ~/src/linux-msm-3.4-hammerhead
-#   git am ~/src/nexus-5-upstream/downstream-patches/*.patch
+#   git am ~/src/nexus-5-upstream/out-of-tree-patches/downstream-patches/*.patch
 #
 # Install postmarketOS user space on the phone as described at
 # https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)
