@@ -1,0 +1,100 @@
+From f380425a57e68e510ed822fe74ddf2312318bf57 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 13 Oct 2019 03:29:14 -0400
+Subject: [PATCH 08/25] ARM: dts: qcom: msm8974: add interconnect nodes
+
+Add interconnect nodes that's needed to support bus scaling.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+This patch is queued for v5.6.
+
+ arch/arm/boot/dts/qcom-msm8974.dtsi | 58 +++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974.dtsi b/arch/arm/boot/dts/qcom-msm8974.dtsi
+index 3bbb8a1bf710..902e26b4960e 100644
+--- a/arch/arm/boot/dts/qcom-msm8974.dtsi
++++ b/arch/arm/boot/dts/qcom-msm8974.dtsi
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ /dts-v1/;
+ 
++#include <dt-bindings/interconnect/qcom,msm8974.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/clock/qcom,gcc-msm8974.h>
+ #include <dt-bindings/clock/qcom,mmcc-msm8974.h>
+@@ -1198,6 +1199,60 @@ gmu_sram: gmu-sram@0 {
+ 			};
+ 		};
+ 
++		bimc: interconnect@fc380000 {
++			reg = <0xfc380000 0x6a000>;
++			compatible = "qcom,msm8974-bimc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&rpmcc RPM_SMD_BIMC_CLK>,
++			         <&rpmcc RPM_SMD_BIMC_A_CLK>;
++		};
++
++		snoc: interconnect@fc460000 {
++			reg = <0xfc460000 0x4000>;
++			compatible = "qcom,msm8974-snoc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&rpmcc RPM_SMD_SNOC_CLK>,
++			         <&rpmcc RPM_SMD_SNOC_A_CLK>;
++		};
++
++		pnoc: interconnect@fc468000 {
++			reg = <0xfc468000 0x4000>;
++			compatible = "qcom,msm8974-pnoc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&rpmcc RPM_SMD_PNOC_CLK>,
++			         <&rpmcc RPM_SMD_PNOC_A_CLK>;
++		};
++
++		ocmemnoc: interconnect@fc470000 {
++			reg = <0xfc470000 0x4000>;
++			compatible = "qcom,msm8974-ocmemnoc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&rpmcc RPM_SMD_OCMEMGX_CLK>,
++			         <&rpmcc RPM_SMD_OCMEMGX_A_CLK>;
++		};
++
++		mmssnoc: interconnect@fc478000 {
++			reg = <0xfc478000 0x4000>;
++			compatible = "qcom,msm8974-mmssnoc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&mmcc MMSS_S0_AXI_CLK>,
++			         <&mmcc MMSS_S0_AXI_CLK>;
++		};
++
++		cnoc: interconnect@fc480000 {
++			reg = <0xfc480000 0x4000>;
++			compatible = "qcom,msm8974-cnoc";
++			#interconnect-cells = <1>;
++			clock-names = "bus", "bus_a";
++			clocks = <&rpmcc RPM_SMD_CNOC_CLK>,
++			         <&rpmcc RPM_SMD_CNOC_A_CLK>;
++		};
++
+ 		mdss: mdss@fd900000 {
+ 			status = "disabled";
+ 
+@@ -1244,6 +1299,9 @@ mdp: mdp@fd900000 {
+ 				              "core",
+ 				              "vsync";
+ 
++				interconnects = <&mmssnoc MNOC_MAS_MDP_PORT0 &bimc BIMC_SLV_EBI_CH0>;
++				interconnect-names = "mdp0-mem";
++
+ 				ports {
+ 					#address-cells = <1>;
+ 					#size-cells = <0>;
+-- 
+2.24.1
+

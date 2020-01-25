@@ -1,0 +1,32 @@
+From 275ad87bbe15d350aaedfc75c79efb080f5c794e Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Mon, 2 Sep 2019 08:09:39 -0400
+Subject: [PATCH 05/25] ARM: qcom_defconfig: add msm8974 interconnect support
+
+Add interconnect support for msm8974-based SoCs in order to support the
+GPU on this platform.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+This patch is queued for v5.6.
+
+ arch/arm/configs/qcom_defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index 4dd1d8ca4455..52017e4f9f31 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -251,6 +251,9 @@ CONFIG_PHY_QCOM_IPQ806X_SATA=y
+ CONFIG_PHY_QCOM_USB_HS=y
+ CONFIG_PHY_QCOM_USB_HSIC=y
+ CONFIG_QCOM_QFPROM=y
++CONFIG_INTERCONNECT=y
++CONFIG_INTERCONNECT_QCOM=y
++CONFIG_INTERCONNECT_QCOM_MSM8974=m
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT2_FS_XATTR=y
+ CONFIG_EXT3_FS=y
+-- 
+2.24.1
+

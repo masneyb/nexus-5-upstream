@@ -1,0 +1,46 @@
+From 617146f4de78c0a31b1971bdb2ead274490e0bd4 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 17 Nov 2019 06:32:16 -0500
+Subject: [PATCH 02/25] dt-bindings: drm/msm/gpu: document second interconnect
+
+Some A3xx and all A4xx Adreno GPUs do not have GMEM inside the GPU core
+and must use the On Chip MEMory (OCMEM) in order to be functional.
+There's a separate interconnect path that needs to be setup to OCMEM.
+Let's document this second interconnect path that's available. Since
+there's now two available interconnects, let's add the
+interconnect-names property.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+This patch is queued for v5.6.
+
+ Documentation/devicetree/bindings/display/msm/gpu.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/msm/gpu.txt b/Documentation/devicetree/bindings/display/msm/gpu.txt
+index 2b8fd26c43b0..3e6cd3f64a78 100644
+--- a/Documentation/devicetree/bindings/display/msm/gpu.txt
++++ b/Documentation/devicetree/bindings/display/msm/gpu.txt
+@@ -23,7 +23,10 @@ Required properties:
+ - iommus: optional phandle to an adreno iommu instance
+ - operating-points-v2: optional phandle to the OPP operating points
+ - interconnects: optional phandle to an interconnect provider.  See
+-  ../interconnect/interconnect.txt for details.
++  ../interconnect/interconnect.txt for details. Some A3xx and all A4xx platforms
++  will have two paths; all others will have one path.
++- interconnect-names: The names of the interconnect paths that correspond to the
++  interconnects property. Values must be gfx-mem and ocmem.
+ - qcom,gmu: For GMU attached devices a phandle to the GMU device that will
+   control the power for the GPU. Applicable targets:
+     - qcom,adreno-630.2
+@@ -76,6 +79,7 @@ Example a6xx (with GMU):
+ 		operating-points-v2 = <&gpu_opp_table>;
+ 
+ 		interconnects = <&rsc_hlos MASTER_GFX3D &rsc_hlos SLAVE_EBI1>;
++		interconnect-names = "gfx-mem";
+ 
+ 		qcom,gmu = <&gmu>;
+ 
+-- 
+2.24.1
+

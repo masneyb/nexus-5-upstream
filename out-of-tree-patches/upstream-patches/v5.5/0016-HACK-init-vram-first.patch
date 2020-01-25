@@ -1,0 +1,39 @@
+From c1d266638479c6a110a07e42f84cdc0881cd6ac5 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Tue, 4 Jun 2019 06:58:44 -0400
+Subject: [PATCH 16/25] HACK: init vram first
+
+There will not be a need for this patch once the IOMMU is working.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ drivers/gpu/drm/msm/msm_drv.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/msm/msm_drv.c b/drivers/gpu/drm/msm/msm_drv.c
+index c84f0a8b3f2c..104ba6274256 100644
+--- a/drivers/gpu/drm/msm/msm_drv.c
++++ b/drivers/gpu/drm/msm/msm_drv.c
+@@ -432,15 +432,15 @@ static int msm_drm_init(struct device *dev, struct drm_driver *drv)
+ 
+ 	drm_mode_config_init(ddev);
+ 
++	ret = msm_init_vram(ddev);
++	if (ret)
++		goto err_msm_uninit;
++
+ 	/* Bind all our sub-components: */
+ 	ret = component_bind_all(dev, ddev);
+ 	if (ret)
+ 		goto err_destroy_mdss;
+ 
+-	ret = msm_init_vram(ddev);
+-	if (ret)
+-		goto err_msm_uninit;
+-
+ 	msm_gem_shrinker_init(ddev);
+ 
+ 	switch (get_mdp_ver(pdev)) {
+-- 
+2.24.1
+

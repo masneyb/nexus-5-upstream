@@ -1,0 +1,70 @@
+From 21542f95f72ed12f1510a4a08fa3b5fa6bc8ac9a Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sat, 5 Oct 2019 20:55:54 -0400
+Subject: [PATCH 01/25] clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc
+ to rpm
+
+gfx3d_clk_src for msm8974 was introduced into the MMCC by commit
+d8b212014e69 ("clk: qcom: Add support for MSM8974's multimedia
+clock controller (MMCC)") to ensure that all of the clocks for
+this platform are documented upstream. This clock actually belongs
+on the RPM. Since then, commit 685dc94b7d8f ("clk: qcom: smd-rpmcc:
+Add msm8974 clocks") was introduced, which contains the proper
+definition for gfx3d_clk_src. Let's drop the definition from the
+mmcc and register the clock with the rpm instead.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+This patch is queued for v5.6.
+
+ drivers/clk/qcom/clk-smd-rpm.c  |  2 ++
+ drivers/clk/qcom/mmcc-msm8974.c | 13 -------------
+ 2 files changed, 2 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/clk/qcom/clk-smd-rpm.c b/drivers/clk/qcom/clk-smd-rpm.c
+index 930fa4a4c52a..322b831375b3 100644
+--- a/drivers/clk/qcom/clk-smd-rpm.c
++++ b/drivers/clk/qcom/clk-smd-rpm.c
+@@ -485,6 +485,8 @@ static struct clk_smd_rpm *msm8974_clks[] = {
+ 	[RPM_SMD_MMSSNOC_AHB_CLK]	= &msm8974_mmssnoc_ahb_clk,
+ 	[RPM_SMD_MMSSNOC_AHB_A_CLK]	= &msm8974_mmssnoc_ahb_a_clk,
+ 	[RPM_SMD_BIMC_CLK]		= &msm8974_bimc_clk,
++	[RPM_SMD_GFX3D_CLK_SRC]		= &msm8974_gfx3d_clk_src,
++	[RPM_SMD_GFX3D_A_CLK_SRC]	= &msm8974_gfx3d_a_clk_src,
+ 	[RPM_SMD_BIMC_A_CLK]		= &msm8974_bimc_a_clk,
+ 	[RPM_SMD_OCMEMGX_CLK]		= &msm8974_ocmemgx_clk,
+ 	[RPM_SMD_OCMEMGX_A_CLK]		= &msm8974_ocmemgx_a_clk,
+diff --git a/drivers/clk/qcom/mmcc-msm8974.c b/drivers/clk/qcom/mmcc-msm8974.c
+index bcb0a397ef91..015426262d08 100644
+--- a/drivers/clk/qcom/mmcc-msm8974.c
++++ b/drivers/clk/qcom/mmcc-msm8974.c
+@@ -452,18 +452,6 @@ static struct clk_rcg2 mdp_clk_src = {
+ 	},
+ };
+ 
+-static struct clk_rcg2 gfx3d_clk_src = {
+-	.cmd_rcgr = 0x4000,
+-	.hid_width = 5,
+-	.parent_map = mmcc_xo_mmpll0_1_2_gpll0_map,
+-	.clkr.hw.init = &(struct clk_init_data){
+-		.name = "gfx3d_clk_src",
+-		.parent_names = mmcc_xo_mmpll0_1_2_gpll0,
+-		.num_parents = 5,
+-		.ops = &clk_rcg2_ops,
+-	},
+-};
+-
+ static struct freq_tbl ftbl_camss_jpeg_jpeg0_2_clk[] = {
+ 	F(75000000, P_GPLL0, 8, 0, 0),
+ 	F(133330000, P_GPLL0, 4.5, 0, 0),
+@@ -2411,7 +2399,6 @@ static struct clk_regmap *mmcc_msm8974_clocks[] = {
+ 	[VFE0_CLK_SRC] = &vfe0_clk_src.clkr,
+ 	[VFE1_CLK_SRC] = &vfe1_clk_src.clkr,
+ 	[MDP_CLK_SRC] = &mdp_clk_src.clkr,
+-	[GFX3D_CLK_SRC] = &gfx3d_clk_src.clkr,
+ 	[JPEG0_CLK_SRC] = &jpeg0_clk_src.clkr,
+ 	[JPEG1_CLK_SRC] = &jpeg1_clk_src.clkr,
+ 	[JPEG2_CLK_SRC] = &jpeg2_clk_src.clkr,
+-- 
+2.24.1
+

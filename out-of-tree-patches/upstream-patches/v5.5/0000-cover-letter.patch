@@ -1,0 +1,83 @@
+From 45d8485b16475a2f17b4ad3967a0b728ecbad8c7 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sat, 25 Jan 2020 08:43:30 -0500
+Subject: [PATCH 00/25] qcom: Nexus 5 out-of-tree patches for v5.5
+
+Here's my v5.5 patch series with my out-of-tree patches for the Nexus 5
+and other msm8974-related systems. This gets the modem, GPU, and
+vibrator working. On patches marked as needing work, see the thread on
+the linux-arm-msm mailinglist.
+
+Patches 1-8 are queued for the v5.6 merge window.
+
+Patches 9-11 are to get the modem working on msm8974. This series still
+needs work.
+
+Patch 12 should hopefully be queued for v5.7
+
+Patch 13 and 14 requires IOMMU support. Hopefully patches 15-18 will no
+longer be needed once IOMMU support is in place.
+
+Patches 19-25 are to get the vibrator working. This one needs some work.
+I'm waiting for someone from Qualcomm to post support for setting the
+clock duty cycle for the Qualcomm clocks since the m, n, and d clock
+values are undocumented.
+
+Bjorn Andersson (2):
+  remoteproc: qcom_q6v5_mss: Don't reassign mpss region on shutdown
+  remoteproc: qcom_q6v5_mss: Validate each segment during loading
+
+Brian Masney (22):
+  clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm
+  dt-bindings: drm/msm/gpu: document second interconnect
+  drm/msm/gpu: add support for ocmem interconnect path
+  drm/msm/a3xx: set interconnect bandwidth vote
+  ARM: qcom_defconfig: add msm8974 interconnect support
+  ARM: qcom_defconfig: add anx78xx HDMI bridge support
+  ARM: dts: qcom: msm8974: add ocmem node
+  ARM: dts: qcom: msm8974: add interconnect nodes
+  add debugfs and modem options to qcom_defconfig
+  drm/msm/mdp5: rate limit pp done timeout warnings
+  ARM: dts: qcom: msm8974: add gpu support
+  ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+  HACK: init vram first
+  HACK: increase default vram carveout
+  HACK: allow running without IOMMU
+  clk: qcom: add support for setting the duty cycle
+  dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator
+  Input: drop msm-vibrator in favor of clk-vibrator driver
+  dt-bindings: Input: introduce new clock vibrator bindings
+  Input: introduce new clock vibrator driver
+  ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver
+  ARM: dts: qcom: msm8974-hammerhead: add support for vibrator
+
+Jonathan Marek (1):
+  HACK: delay rpm init
+
+ .../devicetree/bindings/display/msm/gpu.txt   |   6 +-
+ .../bindings/input/clk-vibrator.yaml          |  60 ++++++++
+ .../bindings/input/msm-vibrator.txt           |  36 -----
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    |  38 +++++
+ arch/arm/boot/dts/qcom-msm8974.dtsi           | 122 ++++++++++++++++
+ arch/arm/configs/qcom_defconfig               |  12 +-
+ drivers/clk/qcom/clk-rcg.h                    |   4 +
+ drivers/clk/qcom/clk-rcg2.c                   |  61 +++++++-
+ drivers/clk/qcom/clk-smd-rpm.c                |   6 +
+ drivers/clk/qcom/mmcc-msm8974.c               |  13 --
+ drivers/gpu/drm/msm/adreno/a3xx_gpu.c         |  10 +-
+ drivers/gpu/drm/msm/adreno/adreno_gpu.c       |  14 +-
+ drivers/gpu/drm/msm/disp/mdp5/mdp5_crtc.c     |   4 +-
+ drivers/gpu/drm/msm/msm_drv.c                 |  10 +-
+ drivers/gpu/drm/msm/msm_gpu.h                 |   7 +
+ drivers/input/misc/Kconfig                    |  20 +--
+ drivers/input/misc/Makefile                   |   2 +-
+ .../misc/{msm-vibrator.c => clk-vibrator.c}   | 138 +++++++-----------
+ drivers/remoteproc/qcom_q6v5_mss.c            |  92 +++++++-----
+ 19 files changed, 461 insertions(+), 194 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/input/clk-vibrator.yaml
+ delete mode 100644 Documentation/devicetree/bindings/input/msm-vibrator.txt
+ rename drivers/input/misc/{msm-vibrator.c => clk-vibrator.c} (51%)
+
+-- 
+2.24.1
+

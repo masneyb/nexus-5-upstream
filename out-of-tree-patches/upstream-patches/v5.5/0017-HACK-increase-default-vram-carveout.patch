@@ -1,0 +1,30 @@
+From 16174a44370a572cabc131a1d113d1cd51d71a21 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Wed, 5 Jun 2019 21:37:07 -0400
+Subject: [PATCH 17/25] HACK: increase default vram carveout
+
+This shouldn't be necessary once IOMMU support is in place. Yes, people
+can override this on their kernel command line, but easier to include a
+temporary patch in my tree as a reminder.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ drivers/gpu/drm/msm/msm_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/msm/msm_drv.c b/drivers/gpu/drm/msm/msm_drv.c
+index 104ba6274256..9be69338ddd8 100644
+--- a/drivers/gpu/drm/msm/msm_drv.c
++++ b/drivers/gpu/drm/msm/msm_drv.c
+@@ -67,7 +67,7 @@ MODULE_PARM_DESC(fbdev, "Enable fbdev compat layer");
+ module_param(fbdev, bool, 0600);
+ #endif
+ 
+-static char *vram = "16m";
++static char *vram = "192m";
+ MODULE_PARM_DESC(vram, "Configure VRAM size (for devices without IOMMU/GPUMMU)");
+ module_param(vram, charp, 0);
+ 
+-- 
+2.24.1
+
