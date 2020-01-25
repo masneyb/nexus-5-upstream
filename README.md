@@ -26,8 +26,6 @@ A serial console can be obtained through the headphone jack and requires buildin
 [as described on this page](UART_CABLE.md). You will want to make a cable if you plan to do any
 development work.
 
-![External GPIO Example](images/external-gpio.gif?raw=1)
-
 Some of the various components are available at the following locations:
 
 - backlight: /sys/devices/platform/soc/f9967000.i2c/i2c-2/2-0038/backlight/lcd-backlight
@@ -42,10 +40,17 @@ Some of the various components are available at the following locations:
 - charger: /sys/devices/platform/soc/f9923000.i2c/i2c-0/0-006b/power_supply/bq24190-charger
 - serial port: /dev/ttyMSM0.
 
+![External GPIO Example](images/external-gpio.gif?raw=1)
+
 See the [gpio_demoy.py script](initrd/copy-to-root-fs/usr/local/bin/gpio_demo.py) for the source
 code to the GTK+ application controlling the external LEDs in the image above. The phone is running
-XFCE4 under postmarketOS on an upstream Linux kernel. This
+XFCE4 and postmarketOS on an upstream Linux kernel. This
 [Tiny OTG USB adapter](https://www.adafruit.com/product/2910) is used on that video.
+
+See the [iio_info.py script](initrd/copy-to-root-fs/usr/local/bin/iio_info.py) for an example
+reading some of the IIO sensors.
+[This commit](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bce075d0ec4b6155cf4f52a7e56aa2dd3b668679)
+describes how to setup an interrupt for proximity detection.
 
 ## Upstream contribution summary
 
