@@ -31,9 +31,6 @@ isn't fully working yet with these patches.
 See the [TODO list](TODO.md) for information about other components and links to some out-of-tree
 patches.
 
-See the [peripheral paths page](PERIPHERAL_PATHS.md) for the location of the major peripherals
-on the filesystem.
-
 ## Phone user space
 
 I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
