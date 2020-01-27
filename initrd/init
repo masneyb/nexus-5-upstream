@@ -61,7 +61,7 @@ umount /dev
 rm -rf /sysroot/lib/modules
 cp -dpR /lib/modules /sysroot/lib
 cp -dpR /copy-to-root-fs/* /sysroot
-rm -f /sysroot/etc/runlevels/default/lightdm
+rm -f /sysroot/etc/runlevels/default/lightdm /etc/runlevels/boot/msm-fb-refresher
 
 if [ ! -e /sysroot/etc/runlevels/boot/consolefont ] ; then
 	ln -s /etc/init.d/consolefont /sysroot/etc/runlevels/boot/consolefont
