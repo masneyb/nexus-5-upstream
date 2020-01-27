@@ -24,8 +24,8 @@ that adds support for the GPU, modem, and vibrator. See my
 [v5.5 patch series cover letter](https://github.com/masneyb/nexus-5-upstream/blob/master/out-of-tree-patches/upstream-patches/v5.5/0000-cover-letter.patch)
 that gives a high-level overview of the status of those patches.
 
-I have work in progress patches available below to get the external display over HDMI and the IOMMU
-working, where the latter is the last piece that's needed to support the GPU upstream. The hardware
+I have work in progress patches available below to get the external display over HDMI and the
+IOMMU, where the latter is the last piece that's needed to support the GPU upstream. The hardware
 isn't fully working yet with these patches.
 
 See the [TODO list](TODO.md) for information about other components and links to some out-of-tree
