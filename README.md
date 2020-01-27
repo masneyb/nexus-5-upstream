@@ -13,21 +13,38 @@ upstream kernel. These patches will eventually appear in the
 [Android kernels](https://android.googlesource.com/kernel/common/) as they rebase their kernels
 onto newer upstream LTS kernel releases.
 
+## Hardware status
+
+The following components work upstream without any additional patches: display, backlight,
+touchscreen, USB, WiFi, charger, gyroscope / accelerometer, magnetometer,
+temperature / humidity / barometer, proximity / ambient light sensor (ALS), serial console.
+
+My [linux tree on GitHub](https://github.com/masneyb/linux) contains work-in-progress patches
+that adds support for the GPU, modem, and vibrator. See my
+[v5.5 patch series cover letter](https://github.com/masneyb/nexus-5-upstream/blob/master/out-of-tree-patches/upstream-patches/v5.5/0000-cover-letter.patch)
+that gives a high-level overview of the status of those patches.
+
+I have work in progress patches available below to get the external display over HDMI and the IOMMU
+working, where the latter is the last piece that's needed to support the GPU upstream. The hardware
+isn't fully working yet with these patches.
+
+See the [TODO list](TODO.md) for information about other components and links to some out-of-tree
+patches.
+
+See the [peripheral paths page](PERIPHERAL_PATHS.md) for the location of the major peripherals
+on the filesystem.
+
 ## Phone user space
 
 I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
 on their [Nexus 5 page](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)) that
-describes how to install it. Here's my [pmbootstrap.cfg](pmbootstrap.cfg) config file.
-
-Once that's installed, see my [build-kernel](build-kernel) script for how to build and boot a custom
-kernel into a postmarketOS userspace.
+describes how to install it. Here's my [pmbootstrap.cfg](pmbootstrap.cfg) config file. Once that's
+installed, see my [build-kernel](build-kernel) script for how to build and boot a custom kernel
+into a postmarketOS userspace.
 
 A serial console can be obtained through the headphone jack and requires building a custom cable
 [as described on this page](UART_CABLE.md). You will want to make a cable if you plan to do any
 development work.
-
-See the [peripheral paths page](PERIPHERAL_PATHS.md) for the location of the major peripherals
-on the filesystem.
 
 ![External GPIO Example](images/external-gpio.gif?raw=1)
 
