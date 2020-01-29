@@ -20,7 +20,7 @@ touchscreen, USB, WiFi, charger, gyroscope / accelerometer, magnetometer,
 temperature / humidity / barometer, proximity / ambient light sensor (ALS), serial console.
 
 My [linux tree on GitHub](https://github.com/masneyb/linux) contains work-in-progress patches
-that adds support for the GPU, modem, and vibrator. See my
+that adds support for the GPU, modem, bluetooth, and vibrator. See my
 [v5.5 patch series cover letter](https://github.com/masneyb/nexus-5-upstream/blob/master/out-of-tree-patches/upstream-patches/v5.5/0000-cover-letter.patch)
 that gives a high-level overview of the status of those patches.
 
@@ -88,8 +88,8 @@ The following is a summary of my upstream Linux kernel contributions as part of 
   maintainers to see where this code should go upstream. [Patches](#vibrator)
 - Work in progress patches to get the IOMMU for the display and GPU working. [Patches](#iommu)
 - Cleaned up patches from other people and got them accepted upstream for the following
-  components: [various I2C sensors](#various-i2c-sensors), [panel](#panel), [WiFi](#wifi),
-  [touchscreen](#touchscreen), and [sdhci](#sdhci).
+  components: [various I2C sensors](#various-i2c-sensors), [panel](#panel),
+  [WiFi / Bluetooth](#wifi_bt), [touchscreen](#touchscreen), and [sdhci](#sdhci).
 - Bisected bugs found in linux-next with the [regulator subsystem](#bisect-regulator) and
   the [mmc/sdhci system](#bisect-wifi).
 - I have [another page](OTHER_PATCHES.md) that describes some of my other kernel work that's not
@@ -311,9 +311,13 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
   - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
 
-- <a id="wifi"></a>WiFi - The phone has a
-  [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless.
+- <a id="wifi_bt"></a>WiFi - The phone has a
+  [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless and
+  bluetooth.
 
+  - *Pending*: [ARM: dts: qcom: msm8974: add blsp2_uart10](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-3-masneyb@onstation.org/)
+  - *Pending*: [ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-4-masneyb@onstation.org/)
+  - *Pending*: [ARM: qcom_defconfig: add Broadcom bluetooth options](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-2-masneyb@onstation.org/)
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
   - <a id="bisect-wifi"></a>[Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
     that caused WiFi to stop working. This issue was fixed by the patch
