@@ -1,7 +1,7 @@
-From a6d85e3fbe9d9f98193b4cf017f5be4e78b6fb69 Mon Sep 17 00:00:00 2001
+From c150c8cc5e168cb2cb2750a4813e787e37553609 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:16:07 -0500
-Subject: [PATCH 24/25] ARM: qcom_defconfig: drop msm-vibrator in favor of
+Subject: [PATCH 27/28] ARM: qcom_defconfig: drop msm-vibrator in favor of
  clk-vibrator driver
 
 The msm-vibrator driver no longer exists, so let's enable the more
@@ -13,10 +13,10 @@ Signed-off-by: Brian Masney <masneyb@onstation.org>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
-index 97cfa34b9c6c..dd60a2c4debc 100644
+index 4b1a9c94f892..8b5076adbe8d 100644
 --- a/arch/arm/configs/qcom_defconfig
 +++ b/arch/arm/configs/qcom_defconfig
-@@ -98,7 +98,7 @@ CONFIG_KEYBOARD_PMIC8XXX=y
+@@ -101,7 +101,7 @@ CONFIG_KEYBOARD_PMIC8XXX=y
  CONFIG_INPUT_JOYSTICK=y
  CONFIG_INPUT_TOUCHSCREEN=y
  CONFIG_INPUT_MISC=y

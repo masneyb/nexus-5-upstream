@@ -1,7 +1,7 @@
-From 45d8485b16475a2f17b4ad3967a0b728ecbad8c7 Mon Sep 17 00:00:00 2001
+From edd297afe2521ea06d79ec0c5a0aba212861814e Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 03:14:33 -0500
-Subject: [PATCH 25/25] ARM: dts: qcom: msm8974-hammerhead: add support for
+Subject: [PATCH 28/28] ARM: dts: qcom: msm8974-hammerhead: add support for
  vibrator
 
 Add support for the vibrator found on the Nexus 5 phone.
@@ -12,10 +12,10 @@ Signed-off-by: Brian Masney <masneyb@onstation.org>
  1 file changed, 30 insertions(+)
 
 diff --git a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
-index 797a43be844e..e17ea4f602c1 100644
+index ae41081eb4e3..5fb6d2e01d0c 100644
 --- a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
 +++ b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
-@@ -234,6 +234,21 @@ vreg_wlan: wlan-regulator {
+@@ -235,6 +235,21 @@ vreg_wlan: wlan-regulator {
  		pinctrl-names = "default";
  		pinctrl-0 = <&wlan_regulator_pin>;
  	};
@@ -37,7 +37,7 @@ index 797a43be844e..e17ea4f602c1 100644
  };
  
  &soc {
-@@ -355,6 +370,21 @@ te {
+@@ -407,6 +422,21 @@ rts {
  				bias-disable;
  			};
  		};

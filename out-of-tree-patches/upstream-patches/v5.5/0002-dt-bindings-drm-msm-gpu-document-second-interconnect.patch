@@ -1,7 +1,7 @@
-From 617146f4de78c0a31b1971bdb2ead274490e0bd4 Mon Sep 17 00:00:00 2001
+From d513ca19be4e6e9e129aead065e79dd6fc37719f Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 17 Nov 2019 06:32:16 -0500
-Subject: [PATCH 02/25] dt-bindings: drm/msm/gpu: document second interconnect
+Subject: [PATCH 02/28] dt-bindings: drm/msm/gpu: document second interconnect
 
 Some A3xx and all A4xx Adreno GPUs do not have GMEM inside the GPU core
 and must use the On Chip MEMory (OCMEM) in order to be functional.

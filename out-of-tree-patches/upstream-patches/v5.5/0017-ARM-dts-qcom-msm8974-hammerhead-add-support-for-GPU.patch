@@ -1,7 +1,7 @@
-From 8f25d36f88c977c6428214b6b7fd46c72faec937 Mon Sep 17 00:00:00 2001
+From e1e03dd19420a8b2627a1373751793af949dd752 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 1 Jun 2019 05:15:21 -0400
-Subject: [PATCH 14/25] ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+Subject: [PATCH 17/28] ARM: dts: qcom: msm8974-hammerhead: add support for GPU
 
 Signed-off-by: Brian Masney <masneyb@onstation.org>
 ---
@@ -9,10 +9,10 @@ Signed-off-by: Brian Masney <masneyb@onstation.org>
  1 file changed, 8 insertions(+)
 
 diff --git a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
-index 3487daf98e81..797a43be844e 100644
+index 32b474bfeec3..ae41081eb4e3 100644
 --- a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
 +++ b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
-@@ -575,6 +575,14 @@ phy@a {
+@@ -646,6 +646,14 @@ phy@a {
  		};
  	};
  

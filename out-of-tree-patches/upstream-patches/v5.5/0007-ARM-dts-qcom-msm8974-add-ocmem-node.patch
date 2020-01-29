@@ -1,7 +1,7 @@
-From 67ab873f258f03ff63dc53072712378af1b7cf8d Mon Sep 17 00:00:00 2001
+From f898cfcb0a702f306bea9961934716a1e08c4da9 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 13 Oct 2019 03:25:50 -0400
-Subject: [PATCH 07/25] ARM: dts: qcom: msm8974: add ocmem node
+Subject: [PATCH 07/28] ARM: dts: qcom: msm8974: add ocmem node
 
 Add ocmem node that is needed in order to support the GPU upstream.
 

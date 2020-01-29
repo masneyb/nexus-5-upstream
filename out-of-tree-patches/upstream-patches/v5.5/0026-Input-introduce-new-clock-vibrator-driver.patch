@@ -1,7 +1,7 @@
-From c39f046726bbfe7b9a55322ba662e02219d97653 Mon Sep 17 00:00:00 2001
+From 5ae2fbf0f0216f9278a431ad7317b61f7790444c Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:30:00 -0500
-Subject: [PATCH 23/25] Input: introduce new clock vibrator driver
+Subject: [PATCH 26/28] Input: introduce new clock vibrator driver
 
 Add support for clock-based vibrator devices where the speed can be
 controlled by changing the duty cycle.

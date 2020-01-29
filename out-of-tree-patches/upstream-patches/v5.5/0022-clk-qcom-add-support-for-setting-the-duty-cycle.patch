@@ -1,7 +1,7 @@
-From 732cc06aa427f7273c8526ba4153a4058550dd0e Mon Sep 17 00:00:00 2001
+From 715eaa195f78f18326b358ff540ee3319f3647a0 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 03:40:40 -0500
-Subject: [PATCH 19/25] clk: qcom: add support for setting the duty cycle
+Subject: [PATCH 22/28] clk: qcom: add support for setting the duty cycle
 
 Add support for setting the duty cycle via the D register for the
 Qualcomm clocks.

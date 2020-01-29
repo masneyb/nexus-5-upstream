@@ -1,7 +1,7 @@
-From f4b456ab1b6db16bfa8e1b92431b8651787c1e9c Mon Sep 17 00:00:00 2001
+From 3e66e4bb3aab641c9770530c03fbb82155f61792 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 17 Nov 2019 05:55:26 -0500
-Subject: [PATCH 04/25] drm/msm/a3xx: set interconnect bandwidth vote
+Subject: [PATCH 04/28] drm/msm/a3xx: set interconnect bandwidth vote
 
 Set the two interconnect paths for the GPU to maximum speed for now to
 work towards getting the GPU working upstream. We can revisit a later

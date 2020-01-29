@@ -1,7 +1,7 @@
-From bfbfbbca5b9d26101acb19856b69e6b516bc0f83 Mon Sep 17 00:00:00 2001
+From 6698db9102a7148d4d62fac904225a9645b5b0ec Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 12 Oct 2019 21:19:47 -0400
-Subject: [PATCH 06/25] ARM: qcom_defconfig: add anx78xx HDMI bridge support
+Subject: [PATCH 06/28] ARM: qcom_defconfig: add anx78xx HDMI bridge support
 
 Add the Analogix anx78xx driver so that the external display over HDMI
 can be used on Nexus 5 phones.

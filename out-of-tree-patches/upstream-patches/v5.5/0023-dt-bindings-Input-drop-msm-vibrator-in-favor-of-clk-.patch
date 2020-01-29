@@ -1,7 +1,7 @@
-From afd18d60c59f4be1e457b9a22f33020827374d11 Mon Sep 17 00:00:00 2001
+From 8fa199dece0540efdfd6b0427fd63049b65babb5 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:32:50 -0500
-Subject: [PATCH 20/25] dt-bindings: Input: drop msm-vibrator in favor of
+Subject: [PATCH 23/28] dt-bindings: Input: drop msm-vibrator in favor of
  clk-vibrator
 
 Let's drop the msm-vibrator bindings so that the more generic

@@ -1,7 +1,7 @@
-From 843fa1a071108205064d47a7336869d27bbe966c Mon Sep 17 00:00:00 2001
+From 61c93395cfc5d347d17868e7f36e6f9fcbb91193 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 17 Nov 2019 05:50:18 -0500
-Subject: [PATCH 03/25] drm/msm/gpu: add support for ocmem interconnect path
+Subject: [PATCH 03/28] drm/msm/gpu: add support for ocmem interconnect path
 
 Some A3xx and all A4xx Adreno GPUs do not have GMEM inside the GPU core
 and must use the On Chip MEMory (OCMEM) in order to be functional.
