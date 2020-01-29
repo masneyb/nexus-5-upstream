@@ -311,7 +311,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [9e0b597534b4 ("dt-bindings: drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9e0b597534b4c065e2c083c7478d6f3175088fdd)
   - [debcd8f954be ("drm/panel: simple: add lg,acx467akm-7 panel")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=debcd8f954be2b1f643e76b2400bc7c3d12b4594)
 
-- <a id="wifi_bt"></a>WiFi - The phone has a
+- <a id="wifi_bt"></a>The phone has a
   [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless and
   bluetooth.
 
