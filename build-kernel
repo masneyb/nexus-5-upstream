@@ -34,9 +34,13 @@
 # to work on the downstream kernel, so you'll need to build a serial cable as described in
 # UART_CABLE.md.
 #
-#   ~/src/nexus-5-upstream/build-kernel ~/src/linux-msm-3.4-hammerhead hammerhead_defconfig \
+#   ~/src/nexus-5-upstream/build-kernel ~/src/linux-msm-3.4-hammerhead "" hammerhead_defconfig \
 #       ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/msm8974-hammerhead-rev-11.dtb ttyHSL0
 #   sudo fastboot boot ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/nexus5-boot.img
+#
+# Note that the optional second argument to build-kernel is a separate directory outside this
+# repository that contains an additional directory to add to the initrd. I use this to add my
+# local WiFi password and bluetooth firmware. See the .gitignore for the exact paths.
 
 set -e
 
@@ -118,6 +122,10 @@ generate_initrd()
 	create_char_device "${INITRD_DIR}"/dev/random 0644 1 8
 	create_char_device "${INITRD_DIR}"/dev/urandom 0644 1 9
 
+	if [ "${EXTRA_INITRD}" != "" ] ; then
+		cp -dpR "${EXTRA_INITRD}"/* "${INITRD_DIR}"
+	fi
+
 	rm -rf "${INITRD_DIR}/lib/modules"
 	make INSTALL_MOD_PATH="${INITRD_DIR}" modules_install || true
 	cd "${INITRD_DIR}"
@@ -126,9 +134,10 @@ generate_initrd()
 }
 
 export KERNEL_SRC="$1"
-export DEFCONFIG="${2:-qcom_defconfig}"
-export DTB="${3:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}"
-export SERIAL_TTY="${4:-ttyMSM0}" # downstream kernel uses ttyHSL0; upstream is ttyMSM0
+export EXTRA_INITRD="$2"
+export DEFCONFIG="${3:-qcom_defconfig}"
+export DTB="${4:-arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dtb}"
+export SERIAL_TTY="${5:-ttyMSM0}" # downstream kernel uses ttyHSL0; upstream is ttyMSM0
 
 if [ "${KERNEL_SRC}" = "" ] ; then
 	echo "$0 <kernel source tree> [ <defconfig> ] [ dtb ] [ serial tty ]"

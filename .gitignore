@@ -1,5 +1,7 @@
 initrd/bin/sh
 initrd/copy-to-root-fs/etc/inittab
+initrd/copy-to-root-fs/etc/wpa_supplicant/wpa_supplicant.conf
+initrd/copy-to-root-fs/lib/firmware/brcm/BCM4335C0.hcd
 initrd/dev/null
 initrd/dev/random
 initrd/dev/urandom
