@@ -109,10 +109,11 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
 
   - [6120e5d821c0 ("dt-bindings: interconnect: qcom: add msm8974 bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6120e5d821c0e3104ddbc2ad5dd126e0c9eb20f2)
   - [4e60a9568dc6 ("interconnect: qcom: add msm8974 driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e60a9568dc6f411d4f631fe33b5553d080b7e8c)
+  - [b435f8b4f6a0 ("dt-bindings: drm/msm/gpu: document second interconnect")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b435f8b4f6a08f5bbf001cfd4bed22070e3774fd)
+  - [00bb9243d346 ("drm/msm/gpu: add support for ocmem interconnect path")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=00bb9243d346cf749919035f2473d30fe9496153)
+  - [d163ba0b65f2 ("drm/msm/a3xx: set interconnect bandwidth vote")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d163ba0b65f2e46d6010625fa6603c93951a010f)
+  - [21f5a6c08b17 ("drm/msm/a4xx: set interconnect bandwidth vote")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21f5a6c08b171b8ffd12d921facfe4597c0aa934)
   - *Queued*: [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
-  - *Queued*: [dt-bindings: drm/msm/gpu: document second interconnect](https://lore.kernel.org/lkml/20191122012645.7430-2-masneyb@onstation.org/)
-  - *Queued*: [drm/msm/a3xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-4-masneyb@onstation.org/)
-  - *Queued*: [drm/msm/a4xx: set interconnect bandwidth vote](https://lore.kernel.org/lkml/20191122012645.7430-5-masneyb@onstation.org/)
   - *Queued*: [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
 
 - <a id="ocmem"></a>The On Chip Memory (OCMEM) allocator allows various clients to allocate memory
