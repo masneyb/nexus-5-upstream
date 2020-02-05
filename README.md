@@ -197,7 +197,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [add5bff4aa76 ("drm/msm/phy/dsi_phy: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=add5bff4aa769108d05fbef0240000e7334a33b9)
   - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
-  - *Queued*: [clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm](https://lore.kernel.org/lkml/20191115123931.18919-1-masneyb@onstation.org/)
+  - [bb9b9cde0fe0 ("clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bb9b9cde0fe009f8cb3862abaafa96302ab4e486)
   - *Pending*: [drm/msm/mdp5: rate limit pp done timeout warnings](https://lore.kernel.org/lkml/20200118204120.1039774-1-masneyb@onstation.org/)
   - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
@@ -316,9 +316,9 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless and
   bluetooth.
 
-  - *Pending*: [ARM: dts: qcom: msm8974: add blsp2_uart10](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-3-masneyb@onstation.org/)
-  - *Pending*: [ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-4-masneyb@onstation.org/)
-  - *Pending*: [ARM: qcom_defconfig: add Broadcom bluetooth options](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-2-masneyb@onstation.org/)
+  - *Queued*: [ARM: dts: qcom: msm8974: add blsp2_uart10](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-3-masneyb@onstation.org/)
+  - *Queued*: [ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-4-masneyb@onstation.org/)
+  - *Queued*: [ARM: qcom_defconfig: add Broadcom bluetooth options](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-2-masneyb@onstation.org/)
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
   - <a id="bisect-wifi"></a>[Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
     that caused WiFi to stop working. This issue was fixed by the patch
