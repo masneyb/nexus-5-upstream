@@ -113,8 +113,8 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [00bb9243d346 ("drm/msm/gpu: add support for ocmem interconnect path")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=00bb9243d346cf749919035f2473d30fe9496153)
   - [d163ba0b65f2 ("drm/msm/a3xx: set interconnect bandwidth vote")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d163ba0b65f2e46d6010625fa6603c93951a010f)
   - [21f5a6c08b17 ("drm/msm/a4xx: set interconnect bandwidth vote")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=21f5a6c08b171b8ffd12d921facfe4597c0aa934)
-  - *Queued*: [ARM: dts: qcom: msm8974: add interconnect nodes](https://lore.kernel.org/lkml/20191024103140.10077-5-masneyb@onstation.org/)
-  - *Queued*: [ARM: qcom_defconfig: add msm8974 interconnect support](https://lore.kernel.org/lkml/20191024103140.10077-2-masneyb@onstation.org/)
+  - [98073faf9f15 ("ARM: dts: qcom: msm8974: add interconnect nodes")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=98073faf9f15681e54cbfd1eb3bd8d5a9dd23ac7)
+  - [ff9f2ad403c2 ("ARM: qcom_defconfig: add msm8974 interconnect support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ff9f2ad403c24874a5765a7ddc965c9517cef181)
 
 - <a id="ocmem"></a>The On Chip Memory (OCMEM) allocator allows various clients to allocate memory
   from OCMEM based on performance, latency and power requirements. This is typically used by the
@@ -125,7 +125,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [88c1e9404f1d ("soc: qcom: add OCMEM driver")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=88c1e9404f1deee02e52d13aae3d9ee2cabd66f5)
   - [26c0b26dcd00 ("drm/msm/gpu: add ocmem init/cleanup functions")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=26c0b26dcd005d9d6de9246737177e7af821859a)
   - [bfcb7e1555ec ("soc: qcom: ocmem: add missing includes")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bfcb7e1555ecc157cea23e35057002e3055e90a6)
-  - [ARM: dts: qcom: msm8974: add ocmem node](https://lore.kernel.org/lkml/20191024103140.10077-4-masneyb@onstation.org/)
+  - [a2cc991ed634 ("ARM: dts: qcom: msm8974: add ocmem node")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a2cc991ed634a3c7d4a55ef78de710a56cf4ee2e)
   - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
   - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
   - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
@@ -212,7 +212,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [2fb658a603ba ("dt-bindings: drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2fb658a603bab4e41834a4f32475bbea9c01cf46)
   - [0273831882c5 ("drm/bridge: analogix-anx78xx: add new variants")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0273831882c5215f49628dcb3cb567b67cd7af39)
   - [2708e876272d ("drm/bridge: analogix-anx78xx: silence -EPROBE_DEFER warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=2708e876272d89bbbff811d12834adbeef85f022)
-  - *Queued*: [ARM: qcom_defconfig: add anx78xx HDMI bridge support](https://lore.kernel.org/lkml/20191024103140.10077-3-masneyb@onstation.org/)
+  - [dd973b89ebba ("ARM: qcom_defconfig: add anx78xx HDMI bridge support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=dd973b89ebba7246bb395b89bfec55deee24af2a)
   - *Needs work*: [drm/bridge: analogix-anx78xx: add support for avdd33 regulator](https://lore.kernel.org/lkml/20191007014509.25180-2-masneyb@onstation.org/)
   - *Needs work*: [drm/msm/hdmi: add msm8974 PLL support](https://lore.kernel.org/lkml/20191007014509.25180-3-masneyb@onstation.org/)
   - *Needs work*: [ARM: dts: qcom: msm8974: add HDMI nodes](https://lore.kernel.org/lkml/20191007014509.25180-5-masneyb@onstation.org/)
