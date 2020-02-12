@@ -282,8 +282,8 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
 
   - [0f681d09e66e ("Input: add new vibrator driver for various MSM SOCs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f681d09e66ea6833e6173180ff3892e9026ab71)
   - *Needs work*: [clk: qcom: add support for setting the duty cycle](https://lore.kernel.org/lkml/20191205002503.13088-2-masneyb@onstation.org/)
-  - *Needs work*: [dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator](https://lore.kernel.org/lkml/20191205002503.13088-3-masneyb@onstation.org/)
-  - *Needs work*: [Input: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-4-masneyb@onstation.org/)
+  - *Pending*: [dt-bindings: Input: remove msm-vibrator](https://lore.kernel.org/lkml/20200211121318.144067-1-masneyb@onstation.org/)
+  - *Pending*: [Input: remove msm-vibrator](https://lore.kernel.org/lkml/20200211121318.144067-2-masneyb@onstation.org/)
   - *Needs work*: [dt-bindings: Input: introduce new clock vibrator bindings](https://lore.kernel.org/lkml/20191205002503.13088-5-masneyb@onstation.org/)
   - *Needs work*: [Input: introduce new clock vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-6-masneyb@onstation.org/)
   - *Needs work*: [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)
