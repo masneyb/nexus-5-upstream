@@ -1,7 +1,7 @@
-From 0b820500479e961edad62e69c50c9ec2372c06db Mon Sep 17 00:00:00 2001
+From 898e3248d5fa19cae8aed45c81026a3cb1c85178 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 18 Jan 2020 15:17:53 -0500
-Subject: [PATCH 15/28] drm/msm/mdp5: rate limit pp done timeout warnings
+Subject: [PATCH 15/29] drm/msm/mdp5: rate limit pp done timeout warnings
 
 Add rate limiting of the 'pp done time out' warnings since these
 warnings can quickly fill the dmesg buffer.

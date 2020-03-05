@@ -1,7 +1,7 @@
-From 8cc3ac3cdb6a996a45a727ea06c66e7fd668c95f Mon Sep 17 00:00:00 2001
+From 1712c6ca2a36f63972d3138bbbe6a89243ae6102 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 5 Oct 2019 20:55:54 -0400
-Subject: [PATCH 01/28] clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc
+Subject: [PATCH 01/29] clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc
  to rpm
 
 gfx3d_clk_src for msm8974 was introduced into the MMCC by commit

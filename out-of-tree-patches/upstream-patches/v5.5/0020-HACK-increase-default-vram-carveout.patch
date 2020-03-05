@@ -1,7 +1,7 @@
-From 90a94e125ad9285cbba4bfb558f54e7214c0e731 Mon Sep 17 00:00:00 2001
+From bc38336ca398d15b6305449ef88a2fd8524b492e Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 5 Jun 2019 21:37:07 -0400
-Subject: [PATCH 20/28] HACK: increase default vram carveout
+Subject: [PATCH 20/29] HACK: increase default vram carveout
 
 This shouldn't be necessary once IOMMU support is in place. Yes, people
 can override this on their kernel command line, but easier to include a

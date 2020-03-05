@@ -1,7 +1,7 @@
-From edd297afe2521ea06d79ec0c5a0aba212861814e Mon Sep 17 00:00:00 2001
+From 273dc5dbc48cff9169c5fb9e90dbb4733e1e5821 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 03:14:33 -0500
-Subject: [PATCH 28/28] ARM: dts: qcom: msm8974-hammerhead: add support for
+Subject: [PATCH 28/29] ARM: dts: qcom: msm8974-hammerhead: add support for
  vibrator
 
 Add support for the vibrator found on the Nexus 5 phone.

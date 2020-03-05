@@ -1,7 +1,7 @@
-From 93ec29260c3a21868d573e56e078fa0276e5ece0 Mon Sep 17 00:00:00 2001
+From f8d4a51f55bd5810845a96f512e541149a6e558e Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:34:55 -0500
-Subject: [PATCH 24/28] Input: drop msm-vibrator in favor of clk-vibrator
+Subject: [PATCH 24/29] Input: drop msm-vibrator in favor of clk-vibrator
  driver
 
 The msm-vibrator driver is directly controlling the duty cycle of a

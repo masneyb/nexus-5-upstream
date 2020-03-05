@@ -1,7 +1,7 @@
-From e1e03dd19420a8b2627a1373751793af949dd752 Mon Sep 17 00:00:00 2001
+From cdc0cf75008e535788eeb2f4d432574da2f92c6c Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 1 Jun 2019 05:15:21 -0400
-Subject: [PATCH 17/28] ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+Subject: [PATCH 17/29] ARM: dts: qcom: msm8974-hammerhead: add support for GPU
 
 Signed-off-by: Brian Masney <masneyb@onstation.org>
 ---

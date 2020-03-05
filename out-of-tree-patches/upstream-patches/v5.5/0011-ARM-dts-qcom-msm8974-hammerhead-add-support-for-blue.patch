@@ -1,7 +1,7 @@
-From 4d71a4c282003897cf707944447c675496bbe412 Mon Sep 17 00:00:00 2001
+From 4f9a1e0104d5e6a18f156668842933881c001306 Mon Sep 17 00:00:00 2001
 From: Jonathan Marek <jonathan@marek.ca>
 Date: Wed, 29 Jan 2020 18:23:17 -0500
-Subject: [PATCH 11/28] ARM: dts: qcom: msm8974-hammerhead: add support for
+Subject: [PATCH 11/29] ARM: dts: qcom: msm8974-hammerhead: add support for
  bluetooth
 
 Add support for the bluetooth found on the Nexus 5 phone.

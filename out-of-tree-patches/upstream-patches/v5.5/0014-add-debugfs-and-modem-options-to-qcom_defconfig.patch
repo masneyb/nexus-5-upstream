@@ -1,7 +1,7 @@
-From 97bf92d112c86994857236adf8a194dc74ae424d Mon Sep 17 00:00:00 2001
+From f1a327410ee1230e424df1cf7e9daf56218c5aa6 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sat, 25 Jan 2020 08:15:31 -0500
-Subject: [PATCH 14/28] add debugfs and modem options to qcom_defconfig
+Subject: [PATCH 14/29] add debugfs and modem options to qcom_defconfig
 
 Signed-off-by: Brian Masney <masneyb@onstation.org>
 ---

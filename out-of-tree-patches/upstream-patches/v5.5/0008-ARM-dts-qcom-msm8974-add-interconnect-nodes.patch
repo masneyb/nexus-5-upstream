@@ -1,7 +1,7 @@
-From bc3558e838521f35625e06e1dfac2ffeb3365ccb Mon Sep 17 00:00:00 2001
+From 049c91328af568f96cd3ad20db3e42f39c62ae03 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 13 Oct 2019 03:29:14 -0400
-Subject: [PATCH 08/28] ARM: dts: qcom: msm8974: add interconnect nodes
+Subject: [PATCH 08/29] ARM: dts: qcom: msm8974: add interconnect nodes
 
 Add interconnect nodes that's needed to support bus scaling.
 

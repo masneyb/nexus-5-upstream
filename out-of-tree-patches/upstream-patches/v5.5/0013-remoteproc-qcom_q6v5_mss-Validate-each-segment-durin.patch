@@ -1,7 +1,7 @@
-From 481fceb28e807deb96be19195ba02b0291bde171 Mon Sep 17 00:00:00 2001
+From a415373ff9ce020322ad4530186a44fa9dfd21a1 Mon Sep 17 00:00:00 2001
 From: Bjorn Andersson <bjorn.andersson@linaro.org>
 Date: Fri, 8 Nov 2019 16:40:33 -0800
-Subject: [PATCH 13/28] remoteproc: qcom_q6v5_mss: Validate each segment during
+Subject: [PATCH 13/29] remoteproc: qcom_q6v5_mss: Validate each segment during
  loading
 
 The code used to sync with the MBA after each segment loaded and this is

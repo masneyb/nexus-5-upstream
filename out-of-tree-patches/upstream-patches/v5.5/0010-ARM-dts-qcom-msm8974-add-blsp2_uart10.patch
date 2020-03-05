@@ -1,7 +1,7 @@
-From 92b8cf316ccbf4567a13c73a735dc3ba6f3103ba Mon Sep 17 00:00:00 2001
+From 436dfcaf3389d08d74bd0a6672a5b927a570e245 Mon Sep 17 00:00:00 2001
 From: Jonathan Marek <jonathan@marek.ca>
 Date: Wed, 29 Jan 2020 18:19:44 -0500
-Subject: [PATCH 10/28] ARM: dts: qcom: msm8974: add blsp2_uart10
+Subject: [PATCH 10/29] ARM: dts: qcom: msm8974: add blsp2_uart10
 
 Add blsp2_uart10 node in order to support bluetooth on the Nexus 5
 phone.

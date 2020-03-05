@@ -1,7 +1,7 @@
-From e50d652dc1e01a5ed72cb347109158e36df8fb50 Mon Sep 17 00:00:00 2001
+From 94c2baa0fbef2c2bc8623a2d8dc717aceb053063 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Sun, 17 Nov 2019 05:43:26 -0500
-Subject: [PATCH 16/28] ARM: dts: qcom: msm8974: add gpu support
+Subject: [PATCH 16/29] ARM: dts: qcom: msm8974: add gpu support
 
 Add support for the a3xx GPU
 

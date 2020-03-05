@@ -1,7 +1,7 @@
-From 311a3cc683201679880b92fdd1a398a199998e37 Mon Sep 17 00:00:00 2001
+From 9ba78f3c68529a3f92cd4ca1d01618092eaff203 Mon Sep 17 00:00:00 2001
 From: Jonathan Marek <jonathan@marek.ca>
 Date: Sat, 5 Oct 2019 21:15:07 -0400
-Subject: [PATCH 18/28] HACK: delay rpm init
+Subject: [PATCH 18/29] HACK: delay rpm init
 
 Delay RPM init. This is a hack that somehow fixes some problems.
 Hopefully the need for this patches goes away once the IOMMU is

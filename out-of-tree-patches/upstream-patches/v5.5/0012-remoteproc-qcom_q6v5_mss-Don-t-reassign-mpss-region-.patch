@@ -1,7 +1,7 @@
-From 8c9797aa17893ba080e732ae753f4be6145dfa8a Mon Sep 17 00:00:00 2001
+From 1388975a1d7236a4e452c0d8d6d0e4a5678056ee Mon Sep 17 00:00:00 2001
 From: Bjorn Andersson <bjorn.andersson@linaro.org>
 Date: Fri, 8 Nov 2019 16:40:32 -0800
-Subject: [PATCH 12/28] remoteproc: qcom_q6v5_mss: Don't reassign mpss region
+Subject: [PATCH 12/29] remoteproc: qcom_q6v5_mss: Don't reassign mpss region
  on shutdown
 
 Trying to reclaim mpss memory while the mba is not running causes the

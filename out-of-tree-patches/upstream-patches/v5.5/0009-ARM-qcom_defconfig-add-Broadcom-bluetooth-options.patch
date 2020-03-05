@@ -1,7 +1,7 @@
-From a6b3e40cac98f6886672ff7c14768adffb9d4bea Mon Sep 17 00:00:00 2001
+From cb2f9a0723b5ede4b5ad85bfa7d50691c9fb5f61 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 29 Jan 2020 18:19:22 -0500
-Subject: [PATCH 09/28] ARM: qcom_defconfig: add Broadcom bluetooth options
+Subject: [PATCH 09/29] ARM: qcom_defconfig: add Broadcom bluetooth options
 
 Add Broadcom bluetooth options and serial bus in order to support
 Bluetooth on the Nexus 5 phone.

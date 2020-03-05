@@ -1,7 +1,7 @@
-From edd297afe2521ea06d79ec0c5a0aba212861814e Mon Sep 17 00:00:00 2001
+From cb12552dfc7788174d16ccecbefbcb1e43ec2765 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
-Date: Wed, 29 Jan 2020 18:27:02 -0500
-Subject: [PATCH 00/28] qcom: Nexus 5 out-of-tree patches for v5.5
+Date: Wed, 4 Mar 2020 19:31:40 -0500
+Subject: [PATCH 00/29] qcom: Nexus 5 out-of-tree patches for v5.5
 
 Here's my v5.5 patch series with my out-of-tree patches for the Nexus 5
 and other msm8974-related systems. This gets the modem, GPU, bluetooth,
@@ -26,11 +26,14 @@ I'm waiting for someone from Qualcomm to post support for setting the
 clock duty cycle for the Qualcomm clocks since the m, n, and d clock
 values are undocumented.
 
+Patch 29 reverts the async commit support in the MSM drvier since that
+causes some display problems on the old command-mode panels.
+
 Bjorn Andersson (2):
   remoteproc: qcom_q6v5_mss: Don't reassign mpss region on shutdown
   remoteproc: qcom_q6v5_mss: Validate each segment during loading
 
-Brian Masney (23):
+Brian Masney (24):
   clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm
   dt-bindings: drm/msm/gpu: document second interconnect
   drm/msm/gpu: add support for ocmem interconnect path
@@ -54,6 +57,7 @@ Brian Masney (23):
   Input: introduce new clock vibrator driver
   ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver
   ARM: dts: qcom: msm8974-hammerhead: add support for vibrator
+  drm/msm: revert async commit support
 
 Jonathan Marek (3):
   ARM: dts: qcom: msm8974: add blsp2_uart10
@@ -61,27 +65,40 @@ Jonathan Marek (3):
   HACK: delay rpm init
 
  .../devicetree/bindings/display/msm/gpu.txt   |   6 +-
- .../bindings/input/clk-vibrator.yaml          |  60 ++++++++
- .../bindings/input/msm-vibrator.txt           |  36 -----
- .../qcom-msm8974-lge-nexus5-hammerhead.dts    | 109 ++++++++++++++
- arch/arm/boot/dts/qcom-msm8974.dtsi           | 131 +++++++++++++++++
+ .../bindings/input/clk-vibrator.yaml          |  60 ++++++
+ .../bindings/input/msm-vibrator.txt           |  36 ----
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    | 109 +++++++++++
+ arch/arm/boot/dts/qcom-msm8974.dtsi           | 131 +++++++++++++
  arch/arm/configs/qcom_defconfig               |  16 +-
  drivers/clk/qcom/clk-rcg.h                    |   4 +
- drivers/clk/qcom/clk-rcg2.c                   |  61 +++++++-
+ drivers/clk/qcom/clk-rcg2.c                   |  61 +++++-
  drivers/clk/qcom/clk-smd-rpm.c                |   6 +
  drivers/clk/qcom/mmcc-msm8974.c               |  13 --
+ drivers/gpu/drm/msm/Makefile                  |   1 -
  drivers/gpu/drm/msm/adreno/a3xx_gpu.c         |  10 +-
  drivers/gpu/drm/msm/adreno/adreno_gpu.c       |  14 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c      |  13 ++
+ drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c   |   7 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.h   |   5 -
+ drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c       |  46 ++---
  drivers/gpu/drm/msm/disp/mdp5/mdp5_crtc.c     |   4 +-
- drivers/gpu/drm/msm/msm_drv.c                 |  10 +-
+ drivers/gpu/drm/msm/msm_atomic.c              | 179 +-----------------
+ drivers/gpu/drm/msm/msm_atomic_trace.h        | 110 -----------
+ drivers/gpu/drm/msm/msm_atomic_tracepoints.c  |   3 -
+ drivers/gpu/drm/msm/msm_drv.c                 |  11 +-
+ drivers/gpu/drm/msm/msm_drv.h                 |   4 -
  drivers/gpu/drm/msm/msm_gpu.h                 |   7 +
- drivers/input/misc/Kconfig                    |  20 +--
+ drivers/gpu/drm/msm/msm_gpu_trace.h           |   2 +-
+ drivers/gpu/drm/msm/msm_kms.h                 |  53 +-----
+ drivers/input/misc/Kconfig                    |  20 +-
  drivers/input/misc/Makefile                   |   2 +-
- .../misc/{msm-vibrator.c => clk-vibrator.c}   | 138 +++++++-----------
- drivers/remoteproc/qcom_q6v5_mss.c            |  92 +++++++-----
- 19 files changed, 545 insertions(+), 194 deletions(-)
+ .../misc/{msm-vibrator.c => clk-vibrator.c}   | 138 +++++---------
+ drivers/remoteproc/qcom_q6v5_mss.c            |  92 +++++----
+ 30 files changed, 592 insertions(+), 571 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/input/clk-vibrator.yaml
  delete mode 100644 Documentation/devicetree/bindings/input/msm-vibrator.txt
+ delete mode 100644 drivers/gpu/drm/msm/msm_atomic_trace.h
+ delete mode 100644 drivers/gpu/drm/msm/msm_atomic_tracepoints.c
  rename drivers/input/misc/{msm-vibrator.c => clk-vibrator.c} (51%)
 
 -- 

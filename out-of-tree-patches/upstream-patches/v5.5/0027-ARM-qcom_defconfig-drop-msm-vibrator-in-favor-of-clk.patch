@@ -1,7 +1,7 @@
-From c150c8cc5e168cb2cb2750a4813e787e37553609 Mon Sep 17 00:00:00 2001
+From 835572c244f714795edfc116a67a808de245e787 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:16:07 -0500
-Subject: [PATCH 27/28] ARM: qcom_defconfig: drop msm-vibrator in favor of
+Subject: [PATCH 27/29] ARM: qcom_defconfig: drop msm-vibrator in favor of
  clk-vibrator driver
 
 The msm-vibrator driver no longer exists, so let's enable the more
