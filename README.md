@@ -129,6 +129,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
   - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
   - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
+  - *Pending*: [dt-bindings: display: msm: gmu: move sram property to gpu bindings](https://lore.kernel.org/lkml/20200309111804.188162-1-masneyb@onstation.org/)
 
 - <a id="gpio-hierarchy"></a>Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and
   ssbi-gpio) so that device tree consumers can request an IRQ directly from the GPIO block rather
