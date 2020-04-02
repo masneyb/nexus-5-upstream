@@ -129,7 +129,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [b2181be1cfb8 ("ARM: qcom_defconfig: add ocmem support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b2181be1cfb81da3fad0f8b6994b2e714ae66876)
   - [b0a1614fb1f5 ("firmware: qcom: scm: add OCMEM lock/unlock interface")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b0a1614fb1f58520938968ebe1f4f11bcf34839e)
   - [0434a4061471 ("firmware: qcom: scm: add support to restore secure config to qcm_scm-32")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0434a4061471a9afc2b2061add496e58ba4bb92d)
-  - *Pending*: [dt-bindings: display: msm: gmu: move sram property to gpu bindings](https://lore.kernel.org/lkml/20200309111804.188162-1-masneyb@onstation.org/)
+  - [00d9220ec5ed ("dt-bindings: display: msm: gmu: move sram property to gpu bindings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=00d9220ec5ed3513905cfde94bb4337633a061e3)
 
 - <a id="gpio-hierarchy"></a>Hierarchical IRQ chip support for all Qualcomm platforms (spmi-gpio and
   ssbi-gpio) so that device tree consumers can request an IRQ directly from the GPIO block rather
@@ -199,7 +199,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [fd6c798b58e0 ("drm/msm/hdmi: silence -EPROBE_DEFER warning")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fd6c798b58e0d6adaf336a0ddc91f127ff82a75d)
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
   - [bb9b9cde0fe0 ("clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bb9b9cde0fe009f8cb3862abaafa96302ab4e486)
-  - *Queued*: [drm/msm/mdp5: rate limit pp done timeout warnings](https://lore.kernel.org/lkml/20200118204120.1039774-1-masneyb@onstation.org/)
+  - [ef8c9809acb0 ("drm/msm/mdp5: rate limit pp done timeout warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef8c9809acb0805c991bba8bdd4749fc46d44a98)
   - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
 
 - <a id="hdmi"></a>An external monitor can be hooked up via the
