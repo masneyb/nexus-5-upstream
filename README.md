@@ -319,9 +319,9 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   [Broadcom (now Cypress) 4339](http://www.cypress.com/file/298016/download) for wireless and
   bluetooth.
 
-  - *Queued*: [ARM: dts: qcom: msm8974: add blsp2_uart10](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-3-masneyb@onstation.org/)
-  - *Queued*: [ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-4-masneyb@onstation.org/)
-  - *Queued*: [ARM: qcom_defconfig: add Broadcom bluetooth options](https://lore.kernel.org/linux-arm-msm/20200129232031.34538-2-masneyb@onstation.org/)
+  - [726a117628d6 ("ARM: dts: qcom: msm8974: add blsp2_uart10")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=726a117628d6965d38182e5313df7d3033295dfb)
+  - [231cb93c06ac ("ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=231cb93c06aced94150165d64d490359f7ea8a59)
+  - [ee43b5ab850f ("ARM: qcom_defconfig: add Broadcom bluetooth options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ee43b5ab850f901217857d06f8e3c6cc5154fa03)
   - [ec4c6c57af57 ("ARM: dts: qcom: msm8974-hammerhead: add WiFi support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ec4c6c57af576e10c70547b782db04eb3602f5f4)
   - <a id="bisect-wifi"></a>[Bisected an issue in 5.2rc1](https://lore.kernel.org/lkml/20190524111053.12228-1-masneyb@onstation.org/)
     that caused WiFi to stop working. This issue was fixed by the patch
