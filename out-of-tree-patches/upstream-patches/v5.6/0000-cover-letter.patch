@@ -1,0 +1,86 @@
+From 6492858d6e15dbe2b06d4129158bdc52c161af60 Mon Sep 17 00:00:00 2001
+From: Brian Masney <bmasney@redhat.com>
+Date: Fri, 3 Apr 2020 19:47:29 -0400
+Subject: [PATCH 00/20] qcom: Nexus 5 out-of-tree patches for v5.6
+
+Here's my v5.6 patch series with my out-of-tree patches for the Nexus 5
+and other msm8974-related systems. This gets the modem, GPU, and
+vibrator working. On patches marked as needing work, see the thread on
+the linux-arm-msm mailinglist.
+
+Patches 1-3 are to get the bluetooth working and are in 5.7rc1.
+
+Patches 4-6 are to get the modem working on msm8974 and are in 5.7rc1.
+
+Patch 7 and 8 requires IOMMU support. Hopefully patches 9-12 will no
+longer be needed once IOMMU support is in place.
+
+Patches 13-19 are to get the vibrator working. This one needs some work.
+I'm waiting for someone from Qualcomm to post support for setting the
+clock duty cycle for the Qualcomm clocks since the m, n, and d clock
+values are undocumented.
+
+Patch 20 reverts the async commit support in the MSM drvier since that
+causes some display problems on the old command-mode panels.
+
+Bjorn Andersson (2):
+  remoteproc: qcom_q6v5_mss: Don't reassign mpss region on shutdown
+  remoteproc: qcom_q6v5_mss: Validate each segment during loading
+
+Brian Masney (15):
+  ARM: qcom_defconfig: add Broadcom bluetooth options
+  add debugfs and modem options to qcom_defconfig
+  ARM: dts: qcom: msm8974: add gpu support
+  ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+  HACK: init vram first
+  HACK: increase default vram carveout
+  HACK: allow running without IOMMU
+  clk: qcom: add support for setting the duty cycle
+  dt-bindings: Input: drop msm-vibrator in favor of clk-vibrator
+  Input: drop msm-vibrator in favor of clk-vibrator driver
+  dt-bindings: Input: introduce new clock vibrator bindings
+  Input: introduce new clock vibrator driver
+  ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver
+  ARM: dts: qcom: msm8974-hammerhead: add support for vibrator
+  drm/msm: revert async commit support
+
+Jonathan Marek (3):
+  ARM: dts: qcom: msm8974: add blsp2_uart10
+  ARM: dts: qcom: msm8974-hammerhead: add support for bluetooth
+  HACK: delay rpm init
+
+ .../bindings/input/clk-vibrator.yaml          |  60 ++++++
+ .../bindings/input/msm-vibrator.txt           |  36 ----
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    | 109 +++++++++++
+ arch/arm/boot/dts/qcom-msm8974.dtsi           |  54 ++++++
+ arch/arm/configs/qcom_defconfig               |  12 +-
+ drivers/clk/qcom/clk-rcg.h                    |   4 +
+ drivers/clk/qcom/clk-rcg2.c                   |  61 +++++-
+ drivers/clk/qcom/clk-smd-rpm.c                |   4 +
+ drivers/gpu/drm/msm/Makefile                  |   1 -
+ drivers/gpu/drm/msm/adreno/a3xx_gpu.c         |   2 -
+ drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c      |  13 ++
+ drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.c   |   7 +-
+ drivers/gpu/drm/msm/disp/dpu1/dpu_encoder.h   |   5 -
+ drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c       |  46 ++---
+ drivers/gpu/drm/msm/msm_atomic.c              | 179 +-----------------
+ drivers/gpu/drm/msm/msm_atomic_trace.h        | 110 -----------
+ drivers/gpu/drm/msm/msm_atomic_tracepoints.c  |   3 -
+ drivers/gpu/drm/msm/msm_drv.c                 |  11 +-
+ drivers/gpu/drm/msm/msm_drv.h                 |   4 -
+ drivers/gpu/drm/msm/msm_gpu_trace.h           |   2 +-
+ drivers/gpu/drm/msm/msm_kms.h                 |  53 +-----
+ drivers/input/misc/Kconfig                    |  20 +-
+ drivers/input/misc/Makefile                   |   2 +-
+ .../misc/{msm-vibrator.c => clk-vibrator.c}   | 138 +++++---------
+ drivers/remoteproc/qcom_q6v5_mss.c            |  92 +++++----
+ 25 files changed, 474 insertions(+), 554 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/input/clk-vibrator.yaml
+ delete mode 100644 Documentation/devicetree/bindings/input/msm-vibrator.txt
+ delete mode 100644 drivers/gpu/drm/msm/msm_atomic_trace.h
+ delete mode 100644 drivers/gpu/drm/msm/msm_atomic_tracepoints.c
+ rename drivers/input/misc/{msm-vibrator.c => clk-vibrator.c} (51%)
+
+-- 
+2.25.1
+

@@ -1,0 +1,38 @@
+From 765a4d5c9956aec4aa1c301062c843bb54d29af9 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Wed, 29 Jan 2020 18:19:22 -0500
+Subject: [PATCH 01/20] ARM: qcom_defconfig: add Broadcom bluetooth options
+
+Add Broadcom bluetooth options and serial bus in order to support
+Bluetooth on the Nexus 5 phone.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/configs/qcom_defconfig | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index cdc75ef7d529..a00765b7225f 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -50,6 +50,9 @@ CONFIG_IP_PNP_DHCP=y
+ # CONFIG_INET_XFRM_MODE_TUNNEL is not set
+ # CONFIG_INET_XFRM_MODE_BEET is not set
+ # CONFIG_IPV6 is not set
++CONFIG_BT=m
++CONFIG_BT_HCIUART=m
++CONFIG_BT_HCIUART_BCM=y
+ CONFIG_CFG80211=m
+ CONFIG_MAC80211=m
+ CONFIG_RFKILL=y
+@@ -111,6 +114,7 @@ CONFIG_SERIO_LIBPS2=y
+ # CONFIG_LEGACY_PTYS is not set
+ CONFIG_SERIAL_MSM=y
+ CONFIG_SERIAL_MSM_CONSOLE=y
++CONFIG_SERIAL_DEV_BUS=y
+ CONFIG_HW_RANDOM=y
+ CONFIG_I2C=y
+ CONFIG_I2C_CHARDEV=y
+-- 
+2.25.1
+

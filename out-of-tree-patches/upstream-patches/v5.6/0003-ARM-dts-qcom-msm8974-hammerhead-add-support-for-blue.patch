@@ -1,0 +1,115 @@
+From 18541047ac0db1b2a243bdddf6411f3d9f135361 Mon Sep 17 00:00:00 2001
+From: Jonathan Marek <jonathan@marek.ca>
+Date: Wed, 29 Jan 2020 18:23:17 -0500
+Subject: [PATCH 03/20] ARM: dts: qcom: msm8974-hammerhead: add support for
+ bluetooth
+
+Add support for the bluetooth found on the Nexus 5 phone.
+
+Signed-off-by: Jonathan Marek <jonathan@marek.ca>
+[masneyb@onstation.org: formatting cleanups; patch extracted from
+ much larger out of tree patch.]
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+index 3487daf98e81..32b474bfeec3 100644
+--- a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
++++ b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+@@ -12,6 +12,7 @@ / {
+ 
+ 	aliases {
+ 		serial0 = &blsp1_uart1;
++		serial1 = &blsp2_uart10;
+ 	};
+ 
+ 	chosen {
+@@ -355,6 +356,57 @@ te {
+ 				bias-disable;
+ 			};
+ 		};
++
++		bt_pin: bt {
++			hostwake {
++				pins = "gpio42";
++				function = "gpio";
++			};
++
++			devwake {
++				pins = "gpio62";
++				function = "gpio";
++			};
++
++			shutdown {
++				pins = "gpio41";
++				function = "gpio";
++			};
++		};
++
++		blsp2_uart10_pin_a: blsp2-uart10-pin-active {
++			tx {
++				pins = "gpio53";
++				function = "blsp_uart10";
++
++				drive-strength = <2>;
++				bias-disable;
++			};
++
++			rx {
++				pins = "gpio54";
++				function = "blsp_uart10";
++
++				drive-strength = <2>;
++				bias-pull-up;
++			};
++
++			cts {
++				pins = "gpio55";
++				function = "blsp_uart10";
++
++				drive-strength = <2>;
++				bias-pull-up;
++			};
++
++			rts {
++				pins = "gpio56";
++				function = "blsp_uart10";
++
++				drive-strength = <2>;
++				bias-disable;
++			};
++		};
+ 	};
+ 
+ 	sdhci@f9824900 {
+@@ -418,6 +470,25 @@ volume-down {
+ 		};
+ 	};
+ 
++	serial@f9960000 {
++		status = "ok";
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&blsp2_uart10_pin_a>;
++
++		bluetooth {
++			compatible = "brcm,bcm43438-bt";
++			max-speed = <3000000>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&bt_pin>;
++
++			host-wakeup-gpios = <&msmgpio 42 GPIO_ACTIVE_HIGH>;
++			device-wakeup-gpios = <&msmgpio 62 GPIO_ACTIVE_HIGH>;
++			shutdown-gpios = <&msmgpio 41 GPIO_ACTIVE_HIGH>;
++		};
++	};
++
+ 	i2c@f9967000 {
+ 		status = "ok";
+ 		pinctrl-names = "default";
+-- 
+2.25.1
+

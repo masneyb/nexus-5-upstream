@@ -1,0 +1,27 @@
+From 4b9bdecc2a01515c62bb0f209303bfb4191d0a68 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sat, 25 Jan 2020 08:15:31 -0500
+Subject: [PATCH 06/20] add debugfs and modem options to qcom_defconfig
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/configs/qcom_defconfig | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index a00765b7225f..4b1a9c94f892 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -281,3 +281,9 @@ CONFIG_DYNAMIC_DEBUG=y
+ CONFIG_DEBUG_INFO=y
+ CONFIG_MAGIC_SYSRQ=y
+ # CONFIG_SCHED_DEBUG is not set
++
++CONFIG_DEBUG_FS=y
++CONFIG_QCOM_Q6V5_MSS=m
++CONFIG_QCOM_Q6V5_PAS=m
++CONFIG_QRTR=m
++CONFIG_QRTR_SMD=m
+-- 
+2.25.1
+

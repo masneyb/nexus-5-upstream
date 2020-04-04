@@ -1,0 +1,71 @@
+From 8d5227f9c5287fd3264d0203ed13ae2e4c63d882 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 17 Nov 2019 05:43:26 -0500
+Subject: [PATCH 07/20] ARM: dts: qcom: msm8974: add gpu support
+
+Add support for the a3xx GPU
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/boot/dts/qcom-msm8974.dtsi | 45 +++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974.dtsi b/arch/arm/boot/dts/qcom-msm8974.dtsi
+index f8e093179c3f..4ad65eb1a354 100644
+--- a/arch/arm/boot/dts/qcom-msm8974.dtsi
++++ b/arch/arm/boot/dts/qcom-msm8974.dtsi
+@@ -1387,6 +1387,51 @@ cnoc: interconnect@fc480000 {
+ 			         <&rpmcc RPM_SMD_CNOC_A_CLK>;
+ 		};
+ 
++		gpu_opp_table: opp_table {
++			status = "disabled";
++
++			compatible = "operating-points-v2";
++
++			opp-800000000 {
++				opp-hz = /bits/ 64 <800000000>;
++			};
++
++			opp-500000000 {
++				opp-hz = /bits/ 64 <500000000>;
++			};
++
++			opp-275000000 {
++				opp-hz = /bits/ 64 <275000000>;
++			};
++		};
++
++		gpu: adreno@fdb00000 {
++			status = "disabled";
++
++			compatible = "qcom,adreno-330.2",
++			             "qcom,adreno";
++			reg = <0xfdb00000 0x10000>;
++			reg-names = "kgsl_3d0_reg_memory";
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "kgsl_3d0_irq";
++			clock-names = "core",
++			              "iface",
++			              "mem_iface";
++			clocks = <&mmcc OXILI_GFX3D_CLK>,
++			         <&mmcc OXILICX_AHB_CLK>,
++			         <&mmcc OXILICX_AXI_CLK>;
++			sram = <&gmu_sram>;
++			power-domains = <&mmcc OXILICX_GDSC>;
++			operating-points-v2 = <&gpu_opp_table>;
++
++			interconnects = <&mmssnoc MNOC_MAS_GRAPHICS_3D &bimc BIMC_SLV_EBI_CH0>,
++			                <&ocmemnoc OCMEM_VNOC_MAS_GFX3D &ocmemnoc OCMEM_SLV_OCMEM>;
++			interconnect-names = "gfx-mem",
++			                     "ocmem";
++
++			// iommus = <&gpu_iommu 0>;
++		};
++
+ 		mdss: mdss@fd900000 {
+ 			status = "disabled";
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,26 @@
+From 5f6d57f78823c628959ac3c5e4fdd130b3b3cc11 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Fri, 21 Jun 2019 06:45:28 -0400
+Subject: [PATCH 12/20] HACK: allow running without IOMMU
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ drivers/gpu/drm/msm/adreno/a3xx_gpu.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/msm/adreno/a3xx_gpu.c b/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
+index b67f88872726..eff0ecd4e81a 100644
+--- a/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
++++ b/drivers/gpu/drm/msm/adreno/a3xx_gpu.c
+@@ -502,8 +502,6 @@ struct msm_gpu *a3xx_gpu_init(struct drm_device *dev)
+ 		 * implement a cmdstream validator.
+ 		 */
+ 		DRM_DEV_ERROR(dev->dev, "No memory protection without IOMMU\n");
+-		ret = -ENXIO;
+-		goto fail;
+ 	}
+ 
+ 	/*
+-- 
+2.25.1
+

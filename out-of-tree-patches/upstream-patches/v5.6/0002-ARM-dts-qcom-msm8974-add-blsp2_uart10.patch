@@ -1,0 +1,39 @@
+From 938300cc95125bfa248aaba85e466f81d71e80a6 Mon Sep 17 00:00:00 2001
+From: Jonathan Marek <jonathan@marek.ca>
+Date: Wed, 29 Jan 2020 18:19:44 -0500
+Subject: [PATCH 02/20] ARM: dts: qcom: msm8974: add blsp2_uart10
+
+Add blsp2_uart10 node in order to support bluetooth on the Nexus 5
+phone.
+
+Signed-off-by: Jonathan Marek <jonathan@marek.ca>
+[masneyb@onstation.org: use constants in interrupts property; patch
+ extracted from much larger out of tree patch.]
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/boot/dts/qcom-msm8974.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974.dtsi b/arch/arm/boot/dts/qcom-msm8974.dtsi
+index 4b161b809dd5..f8e093179c3f 100644
+--- a/arch/arm/boot/dts/qcom-msm8974.dtsi
++++ b/arch/arm/boot/dts/qcom-msm8974.dtsi
+@@ -715,6 +715,15 @@ blsp1_uart2: serial@f991e000 {
+ 			status = "disabled";
+ 		};
+ 
++		blsp2_uart10: serial@f9960000 {
++			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
++			reg = <0xf9960000 0x1000>;
++			interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&gcc GCC_BLSP2_UART4_APPS_CLK>, <&gcc GCC_BLSP2_AHB_CLK>;
++			clock-names = "core", "iface";
++			status = "disabled";
++		};
++
+ 		sdhci@f9824900 {
+ 			compatible = "qcom,msm8974-sdhci", "qcom,sdhci-msm-v4";
+ 			reg = <0xf9824900 0x11c>, <0xf9824000 0x800>;
+-- 
+2.25.1
+
