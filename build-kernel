@@ -25,7 +25,7 @@
 # Install postmarketOS user space on the phone as described at
 # https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)
 #
-# Build and boot the upstream kernel:
+# Build and boot the upstream kernel (Use absolute paths!):
 #
 #   ~/src/nexus-5-upstream/build-kernel ~/src/linux
 #   sudo fastboot boot ~/src/linux/arch/arm/boot/nexus5-boot.img
