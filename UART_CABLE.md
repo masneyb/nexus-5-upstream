@@ -23,14 +23,14 @@ phone.
 
 USB        |                   | Headphone
 -----------|-------------------|------------------
-5V         | Voltage Regulator | TIP (3.3V)
+RX         |                   | TIP (TX 1.8V)
 TX (3.3V)  | Voltage Divider   | Ring 1 (RX 1.8V)
-RX         |                   | Ring 2 (TX 1.8V)
-GND        |                   | Sleeve
+GND        |                   | Ring 2
+5V         | Voltage Regulator | Sleeve (3.3V)
 
-Version 1 of my cable used a voltage divider for the 3.3V on the tip of the headphone jack, however
+Version 1 of my cable used a voltage divider for the 3.3V on the sleeve of the headphone jack, however
 I moved to the 3.3V voltage regulator because the USB-C on my laptop puts out 5.2V, and the USB-A
-puts out 5.0V. The phone expects close to 3.3V on the tip pin in order to enable the serial console
+puts out 5.0V. The phone expects close to 3.3V on the sleeve pin in order to enable the serial console
 on startup and this slight voltage difference was enough to cause the serial console to not work.
 
 ## Booting the phone
