@@ -30,10 +30,12 @@
 #   ~/src/nexus-5-upstream/build-kernel ~/src/linux
 #   sudo fastboot boot ~/src/linux/arch/arm/boot/nexus5-boot.img
 #
-# Build and boot the downstream kernel. Note that I haven't been able to get the framebuffer
-# to work on the downstream kernel, so you'll need to build a serial cable as described in
-# UART_CABLE.md.
+# Build and boot the downstream kernel https://github.com/AICP/kernel_lge_hammerhead. Note that
+# I haven't been able to get the framebuffer to work on the downstream kernel, so you'll need
+# to build a serial cable as described in UART_CABLE.md. You can clone the Raspberry Pi tools
+# repo at https://github.com/raspberrypi/tools in order to get a suitable cross compiler.
 #
+#   export CROSS_COMPILE=/path/to/rpi/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-
 #   ~/src/nexus-5-upstream/build-kernel ~/src/linux-msm-3.4-hammerhead "" hammerhead_defconfig \
 #       ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/msm8974-hammerhead-rev-11.dtb ttyHSL0
 #   sudo fastboot boot ~/src/linux-msm-3.4-hammerhead/arch/arm/boot/nexus5-boot.img
