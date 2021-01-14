@@ -23,10 +23,6 @@ have any updates to this list. Feel free to pick up an item on this list if you'
   that already works but still needs a lot of clean up.
 - The front LED appears to be supported by an out-of-tree patch with the
   [Qualcomm Light Pulse Generator (LPG) driver](https://lkml.org/lkml/2017/11/15/26).
-- Battery - Appears to be supported by the
-  [Maxim ModelGauge ICs gauge driver](https://lore.kernel.org/patchwork/patch/437579/). Look at the
-  [PM8941 Battery Monitoring System](https://lore.kernel.org/lkml/20180614151435.6471-2-ctatlor97@gmail.com/)
-  as well.
 - CPUFreq support for msm8974. See [this message](https://lore.kernel.org/lkml/20190812152826.GA7958@centauri/)
   for more details. The referenced patch in linux-next is titled
   'cpufreq: qcom: Re-organise kryo cpufreq to use it for other nvmem based qcom socs'.
