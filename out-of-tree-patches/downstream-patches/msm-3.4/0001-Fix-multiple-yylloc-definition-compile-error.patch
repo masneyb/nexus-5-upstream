@@ -1,0 +1,36 @@
+From 35b83d4af9b417ee75e59f8053dfc002e16cc4f6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?=
+ <nfraprado@protonmail.com>
+Date: Thu, 5 Nov 2020 12:44:19 -0300
+Subject: [PATCH] Fix multiple yylloc definition compile error
+
+When compiling the downstream kernel the following error occurs:
+
+  HOSTLD  scripts/dtc/dtc
+/usr/bin/ld: scripts/dtc/dtc-parser.tab.o:(.bss+0x50): multiple definition of `yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [scripts/Makefile.host:127: scripts/dtc/dtc] Error 1
+make[1]: *** [scripts/Makefile.build:443: scripts/dtc] Error 2
+
+Tested on Arch Linux with kernel 5.9.3, GCC 10.2.0 and GNU ld (binutils)
+2.35.1.
+---
+ scripts/dtc/dtc-parser.y | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/dtc/dtc-parser.y b/scripts/dtc/dtc-parser.y
+index f412460f94d7..24ca3eb42564 100644
+--- a/scripts/dtc/dtc-parser.y
++++ b/scripts/dtc/dtc-parser.y
+@@ -24,7 +24,7 @@
+ #include "dtc.h"
+ #include "srcpos.h"
+ 
+-YYLTYPE yylloc;
++extern YYLTYPE yylloc;
+ 
+ extern int yylex(void);
+ extern void print_error(char const *fmt, ...);
+-- 
+2.29.2
+

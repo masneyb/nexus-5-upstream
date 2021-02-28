@@ -18,15 +18,11 @@ have any updates to this list. Feel free to pick up an item on this list if you'
 - GPS - Patch for gpsd is in [this tree](https://github.com/andersson/gpsd/commits/master) for the
   Qualcomm PDS service support. Start gpsd with `sudo gpsd -N -D9 -F /var/run/gpsd.sock` and
   connect to it with `sudo gpsdctl add pds://any`, and test with `sudo gpsmon`.
-- The rear flashlight is supported in the downstream Linux kernel with the
-  [drivers/leds/leds-qpnp.c](https://github.com/AICP/kernel_lge_hammerhead/blob/n7.1/drivers/leds/leds-qpnp.c)
-  driver and referred to as torch in that code. Likely requires a new driver upstream.
+- Rear flashlight - [Nícolas](https://github.com/nfraprado) is currently working on upstreaming the driver.
+  There is an [RFC PATCH](https://lore.kernel.org/linux-arm-msm/20201106165737.1029106-1-nfraprado@protonmail.com/T/#md240cd09d8860b9eb1dcf641366a454d14a73c02)
+  that already works but still needs a lot of clean up.
 - The front LED appears to be supported by an out-of-tree patch with the
   [Qualcomm Light Pulse Generator (LPG) driver](https://lkml.org/lkml/2017/11/15/26).
-- Battery - Appears to be supported by the
-  [Maxim ModelGauge ICs gauge driver](https://lore.kernel.org/patchwork/patch/437579/). Look at the
-  [PM8941 Battery Monitoring System](https://lore.kernel.org/lkml/20180614151435.6471-2-ctatlor97@gmail.com/)
-  as well.
 - CPUFreq support for msm8974. See [this message](https://lore.kernel.org/lkml/20190812152826.GA7958@centauri/)
   for more details. The referenced patch in linux-next is titled
   'cpufreq: qcom: Re-organise kryo cpufreq to use it for other nvmem based qcom socs'.

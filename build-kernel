@@ -159,6 +159,9 @@ abootimg --create "${ABOOT_IMG}" -f "${BOOT_CFG}" -k "${ZIMAGE_DTB}" -r "${INITR
 
 rm -f "${BOOT_CFG}" "${INITRD}" "${ZIMAGE_DTB}"
 
+ls -lh "${ABOOT_IMG}"
+echo "Hint: If the image above is too big, then be sure that CONFIG_MEDIA_SUPPORT_FILTER"
+echo "is enabled."
 echo ""
 echo "Run to boot the kernel without flashing the boot partition:"
 echo "    sudo fastboot boot ${ABOOT_IMG}"

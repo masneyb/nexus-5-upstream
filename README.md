@@ -17,7 +17,7 @@ onto newer upstream LTS kernel releases.
 
 The following components work upstream without any additional patches: display, backlight,
 touchscreen, USB, WiFi, charger, gyroscope / accelerometer, magnetometer,
-temperature / humidity / barometer, proximity / ambient light sensor (ALS), serial console.
+temperature / humidity / barometer, proximity / ambient light sensor (ALS), serial console, battery.
 
 My [linux tree on GitHub](https://github.com/masneyb/linux) contains work-in-progress patches
 that adds support for the GPU, modem, bluetooth, and vibrator. See my
