@@ -1,0 +1,36 @@
+From 28261a9fe8b68205297da3b81ba0d6db443c0bb5 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 28 Feb 2021 07:03:23 -0500
+Subject: [PATCH 6/9] disable CONFIG_MEDIA_SUPPORT
+
+This is disabled for my local testing due to the way that I do
+development on the Nexus 5. For my local testing, I build the
+kernel and modules together, and copy all of the built modules
+into the initramfs. My custom initramfs copies the modules into the root
+filesystem of the phone.
+
+The option CONFIG_MEDIA_SUPPORT enables a ton of kernel modules and it
+makes the combined kernel/initramfs too big and causes the phone to not
+even start booting the kernel.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/configs/qcom_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index ab27acaf9634..299557f78e7c 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -155,7 +155,7 @@ CONFIG_REGULATOR_QCOM_RPM=y
+ CONFIG_REGULATOR_QCOM_SMD_RPM=y
+ CONFIG_REGULATOR_QCOM_SPMI=y
+ CONFIG_REGULATOR_QCOM_RPMH=y
+-CONFIG_MEDIA_SUPPORT=y
++#CONFIG_MEDIA_SUPPORT=y
+ CONFIG_DRM=y
+ CONFIG_DRM_MSM=m
+ CONFIG_DRM_PANEL_SIMPLE=y
+-- 
+2.29.2
+

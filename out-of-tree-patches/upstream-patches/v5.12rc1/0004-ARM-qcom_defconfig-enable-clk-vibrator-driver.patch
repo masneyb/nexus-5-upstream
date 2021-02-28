@@ -1,0 +1,25 @@
+From 3bd52a6bff04e411498a7d109e4a1e210159fb84 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 28 Feb 2021 07:17:12 -0500
+Subject: [PATCH 4/9] ARM: qcom_defconfig: enable clk-vibrator driver
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/configs/qcom_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index 3f36887e8333..ab27acaf9634 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -104,6 +104,7 @@ CONFIG_KEYBOARD_PMIC8XXX=y
+ CONFIG_INPUT_JOYSTICK=y
+ CONFIG_INPUT_TOUCHSCREEN=y
+ CONFIG_INPUT_MISC=y
++CONFIG_INPUT_CLK_VIBRATOR=m
+ CONFIG_INPUT_MSM_VIBRATOR=m
+ CONFIG_INPUT_PM8941_PWRKEY=m
+ CONFIG_INPUT_PM8XXX_VIBRATOR=y
+-- 
+2.29.2
+

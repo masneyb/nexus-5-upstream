@@ -92,7 +92,7 @@ generate_boot_cfg()
 	secondaddr = 0xf00000
 	tagsaddr = 0x2700000
 	name = 
-	cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 rootwait PMOS_NO_OUTPUT_REDIRECT
+	cmdline = console=tty0 console=${SERIAL_TTY},115200,n8 msm.allow_vram_carveout msm.vram=192m rootwait PMOS_NO_OUTPUT_REDIRECT
 __EOF__
 }
 

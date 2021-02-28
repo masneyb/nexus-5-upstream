@@ -1,0 +1,30 @@
+From dd9b36a84928cbb5198004a0a0589f941e413549 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 28 Feb 2021 06:01:23 -0500
+Subject: [PATCH 8/9] ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+
+Enable the GPU DTS node for the Nexus 5 phone.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+index a0fa57d90dd5..eca15c032f10 100644
+--- a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
++++ b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+@@ -739,6 +739,10 @@ dsi-phy@fd922a00 {
+ 			vddio-supply = <&pm8941_l12>;
+ 		};
+ 	};
++
++	adreno@fdb00000 {
++		status = "okay";
++	};
+ };
+ 
+ &spmi_bus {
+-- 
+2.29.2
+

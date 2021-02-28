@@ -31,6 +31,10 @@ isn't fully working yet with these patches.
 See the [TODO list](TODO.md) for information about other components and links to some out-of-tree
 patches.
 
+Note that the kernel command line arguments `msm.allow_vram_carveout msm.vram=192m` must be passed
+used in order for the display to work properly. These options are present in my
+[build-kernel](build-kernel) script.
+
 ## Phone user space
 
 I've been running [postmarketOS](https://postmarketos.org/) on the phone. Follow the instructions
@@ -200,7 +204,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [ef7a5baf64ce ("ARM: qcom_defconfig: add display-related options")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef7a5baf64ce83c04b2ced044ded31528820fef7)
   - [bb9b9cde0fe0 ("clk: qcom: mmcc8974: move gfx3d_clk_src from the mmcc to rpm")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bb9b9cde0fe009f8cb3862abaafa96302ab4e486)
   - [ef8c9809acb0 ("drm/msm/mdp5: rate limit pp done timeout warnings")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=ef8c9809acb0805c991bba8bdd4749fc46d44a98)
-  - *Needs work*: [drm/msm/mdp5: enable autorefresh](https://lore.kernel.org/lkml/20191230020053.26016-2-masneyb@onstation.org/)
+  - [fe079442db63 ("ARM: dts: qcom: msm8974: add gpu support")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fe079442db63a712fb5e66456e6d034d74c156b5)
 
 - <a id="hdmi"></a>An external monitor can be hooked up via the
   [Analogix 7808 HDMI bridge](https://www.analogix.com/en/system/files/ANX7808_product_brief.pdf)
@@ -281,10 +285,6 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   [rumble-test.c](https://git.collabora.com/cgit/user/sre/rumble-test.git/plain/rumble-test.c) to
   test the driver.
 
-  - [0f681d09e66e ("Input: add new vibrator driver for various MSM SOCs")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=0f681d09e66ea6833e6173180ff3892e9026ab71)
-  - *Needs work*: [clk: qcom: add support for setting the duty cycle](https://lore.kernel.org/lkml/20191205002503.13088-2-masneyb@onstation.org/)
-  - *Pending*: [dt-bindings: Input: remove msm-vibrator](https://lore.kernel.org/lkml/20200211121318.144067-1-masneyb@onstation.org/)
-  - *Pending*: [Input: remove msm-vibrator](https://lore.kernel.org/lkml/20200211121318.144067-2-masneyb@onstation.org/)
   - *Needs work*: [dt-bindings: Input: introduce new clock vibrator bindings](https://lore.kernel.org/lkml/20191205002503.13088-5-masneyb@onstation.org/)
   - *Needs work*: [Input: introduce new clock vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-6-masneyb@onstation.org/)
   - *Needs work*: [ARM: qcom_defconfig: drop msm-vibrator in favor of clk-vibrator driver](https://lore.kernel.org/lkml/20191205002503.13088-7-masneyb@onstation.org/)

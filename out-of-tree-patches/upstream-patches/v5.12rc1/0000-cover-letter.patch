@@ -1,0 +1,53 @@
+From 5299bd38fc76f7bd746f25164650d216a77523fe Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Sun, 28 Feb 2021 07:21:50 -0500
+Subject: [PATCH 0/9] qcom: Nexus 5 out-of-tree patches for v5.6
+
+Here's my v5.12 patch series with my out-of-tree patches for the Nexus 5
+phone.
+
+- Patches 1-5 are to get the vibrator working. I'm waiting for someone
+  from Qualcomm to post support for setting the clock duty cycle for
+  the Qualcomm clocks since the m, n, and d clock values are
+  undocumented.
+
+- Patch 6 CONFIG_MEDIA_SUPPORT is a hack to support that way that I do
+  kernel development for this project.
+
+- Patch 7 needs more investigation why delaying rpm init fixes some boot
+  issues.
+
+- Patch 8 enables the GPU for the Nexus 5. The issue related to patch 7
+  needs to be fixed before this patch can go upstream.
+
+- Patch 9 enabled debugfs and the modem in qcom_defconfig.
+
+Brian Masney (8):
+  clk: qcom: add support for setting the duty cycle
+  dt-bindings: Input: introduce new clock vibrator bindings
+  Input: introduce new clock vibrator driver
+  ARM: qcom_defconfig: enable clk-vibrator driver
+  ARM: dts: qcom: msm8974-hammerhead: add support for vibrator
+  disable CONFIG_MEDIA_SUPPORT
+  ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+  add debugfs and modem options to qcom_defconfig
+
+Jonathan Marek (1):
+  HACK: delay rpm init
+
+ .../bindings/input/clk-vibrator.yaml          |  60 +++++
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    |  34 +++
+ arch/arm/configs/qcom_defconfig               |   7 +-
+ drivers/clk/qcom/clk-rcg.h                    |   4 +
+ drivers/clk/qcom/clk-rcg2.c                   |  61 ++++-
+ drivers/clk/qcom/clk-smd-rpm.c                |   4 +
+ drivers/input/misc/Kconfig                    |  10 +
+ drivers/input/misc/Makefile                   |   1 +
+ drivers/input/misc/clk-vibrator.c             | 245 ++++++++++++++++++
+ 9 files changed, 423 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/input/clk-vibrator.yaml
+ create mode 100644 drivers/input/misc/clk-vibrator.c
+
+-- 
+2.29.2
+
