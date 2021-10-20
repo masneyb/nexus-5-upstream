@@ -1,0 +1,143 @@
+ node                                  tag          avg         peak
+--------------------------------------------------------------------
+mas_ampss_m0                                          0            0
+mas_ampss_m1                                          0            0
+mas_mss_proc                                          0            0
+bimc_to_mnoc                                          0      6400000
+  fdb00000.adreno                        0            0      2560000
+  fd900100.mdp                           0            0      6400000
+bimc_to_snoc                                          0            0
+slv_ebi_ch0                                           0      6400000
+  fdb00000.adreno                        0            0      2560000
+  fd900100.mdp                           0            0      6400000
+slv_ampss_l2                                          0            0
+mas_lpass_ahb                                         0            0
+mas_qdss_bam                                          0            0
+mas_snoc_cfg                                          0            0
+snoc_to_bimc                                          0            0
+snoc_to_cnoc                                          0            0
+snoc_to_pnoc                                          0            0
+snoc_to_ocmem_vnoc                                    0            0
+mas_crypto_core0                                      0            0
+mas_crypto_core1                                      0            0
+mas_lpass_proc                                        0            0
+mas_mss                                               0            0
+mas_mss_nav                                           0            0
+mas_ocmem_dma                                         0            0
+mas_wcss                                              0            0
+mas_qdss_etr                                          0            0
+mas_usb3                                              0            0
+slv_ampss                                             0            0
+slv_lpass                                             0            0
+slv_usb3                                              0            0
+slv_wcss                                              0            0
+slv_ocimem                                            0            0
+slv_snoc_ocmem                                        0            0
+slv_service_snoc                                      0            0
+slv_qdss_stm                                          0            0
+mas_pnoc_cfg                                          0            0
+mas_sdcc_1                                            0            0
+mas_sdcc_3                                            0            0
+mas_sdcc_4                                            0            0
+mas_sdcc_2                                            0            0
+mas_tsif                                              0            0
+mas_bam_dma                                           0            0
+mas_blsp_2                                            0            0
+mas_usb_hsic                                          0            0
+mas_blsp_1                                            0            0
+mas_usb_hs                                            0            0
+pnoc_to_snoc                                          0            0
+slv_sdcc_1                                            0            0
+slv_sdcc_3                                            0            0
+slv_sdcc_2                                            0            0
+slv_sdcc_4                                            0            0
+slv_tsif                                              0            0
+slv_bam_dma                                           0            0
+slv_blsp_2                                            0            0
+slv_usb_hsic                                          0            0
+slv_blsp_1                                            0            0
+slv_usb_hs                                            0            0
+slv_pdm                                               0            0
+slv_periph_apu_cfg                                    0            0
+slv_pnoc_mpu_cfg                                      0            0
+slv_prng                                              0            0
+slv_service_pnoc                                      0            0
+ocmem_noc_to_ocmem_vnoc                               0      2560000
+  fdb00000.adreno                        0            0      2560000
+mas_jpeg_ocmem                                        0            0
+mas_mdp_ocmem                                         0            0
+mas_video_p0_ocmem                                    0            0
+mas_video_p1_ocmem                                    0            0
+mas_vfe_ocmem                                         0            0
+mas_cnoc_onoc_cfg                                     0            0
+slv_service_onoc                                      0            0
+ocmem_vnoc_to_snoc                                    0            0
+ocmem_vnoc_to_onoc                                    0      2560000
+  fdb00000.adreno                        0            0      2560000
+mas_v_ocmem_gfx3d                                     0      2560000
+  fdb00000.adreno                        0            0      2560000
+slv_ocmem                                             0      2560000
+  fdb00000.adreno                        0            0      2560000
+mas_graphics_3d                                       0      2560000
+  fdb00000.adreno                        0            0      2560000
+mas_jpeg                                              0            0
+mas_mdp_port0                                         0      6400000
+  fd900100.mdp                           0            0      6400000
+mas_video_p0                                          0            0
+mas_video_p1                                          0            0
+mas_vfe                                               0            0
+mnoc_to_cnoc                                          0            0
+mnoc_to_bimc                                          0      6400000
+  fdb00000.adreno                        0            0      2560000
+  fd900100.mdp                           0            0      6400000
+slv_camera_cfg                                        0            0
+slv_display_cfg                                       0            0
+slv_ocmem_cfg                                         0            0
+slv_cpr_cfg                                           0            0
+slv_cpr_xpu_cfg                                       0            0
+slv_misc_cfg                                          0            0
+slv_misc_xpu_cfg                                      0            0
+slv_venus_cfg                                         0            0
+slv_graphics_3d_cfg                                   0            0
+slv_mmss_clk_cfg                                      0            0
+slv_mmss_clk_xpu_cfg                                  0            0
+slv_mnoc_mpu_cfg                                      0            0
+slv_onoc_mpu_cfg                                      0            0
+slv_service_mnoc                                      0            0
+mas_rpm_inst                                          0            0
+mas_rpm_data                                          0            0
+mas_rpm_sys                                           0            0
+mas_dehr                                              0            0
+mas_qdss_dap                                          0            0
+mas_spdm                                              0            0
+mas_tic                                               0            0
+slv_clk_ctl                                           0            0
+slv_cnoc_mss                                          0            0
+slv_security                                          0            0
+slv_tcsr                                              0            0
+slv_tlmm                                              0            0
+slv_crypto_0_cfg                                      0            0
+slv_crypto_1_cfg                                      0            0
+slv_imem_cfg                                          0            0
+slv_message_ram                                       0            0
+slv_bimc_cfg                                          0            0
+slv_boot_rom                                          0            0
+slv_pmic_arb                                          0            0
+slv_spdm_wrapper                                      0            0
+slv_dehr_cfg                                          0            0
+slv_mpm                                               0            0
+slv_qdss_cfg                                          0            0
+slv_rbcpr_cfg                                         0            0
+slv_rbcpr_qdss_apu_cfg                                0            0
+cnoc_to_snoc                                          0            0
+slv_cnoc_onoc_cfg                                     0            0
+slv_cnoc_mnoc_mmss_cfg                                0            0
+slv_cnoc_mnoc_cfg                                     0            0
+slv_pnoc_cfg                                          0            0
+slv_snoc_mpu_cfg                                      0            0
+slv_snoc_cfg                                          0            0
+slv_ebi1_dll_cfg                                      0            0
+slv_phy_apu_cfg                                       0            0
+slv_ebi1_phy_cfg                                      0            0
+slv_rpm                                               0            0
+slv_service_cnoc                                      0            0

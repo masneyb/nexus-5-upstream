@@ -1,0 +1,439 @@
+digraph {
+        rankdir = LR
+        node [shape = record]
+        subgraph cluster_1 {
+                label = "fc380000.interconnect"
+                "1:mas_ampss_m0" [label="1:mas_ampss_m0
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "2:mas_ampss_m1" [label="2:mas_ampss_m1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "3:mas_mss_proc" [label="3:mas_mss_proc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "4:bimc_to_mnoc" [label="4:bimc_to_mnoc
+                        |avg_bw=0kBps
+                        |peak_bw=6400000kBps"]
+                "5:bimc_to_snoc" [label="5:bimc_to_snoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "6:slv_ebi_ch0" [label="6:slv_ebi_ch0
+                        |avg_bw=0kBps
+                        |peak_bw=6400000kBps"]
+                "7:slv_ampss_l2" [label="7:slv_ampss_l2
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "4:bimc_to_mnoc" -> "6:slv_ebi_ch0"
+                "5:bimc_to_snoc" -> "6:slv_ebi_ch0"
+                "5:bimc_to_snoc" -> "1:mas_ampss_m0"
+        }
+        subgraph cluster_2 {
+                label = "fc460000.interconnect"
+                "106:mas_lpass_ahb" [label="106:mas_lpass_ahb
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "107:mas_qdss_bam" [label="107:mas_qdss_bam
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "108:mas_snoc_cfg" [label="108:mas_snoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "109:snoc_to_bimc" [label="109:snoc_to_bimc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "110:snoc_to_cnoc" [label="110:snoc_to_cnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "111:snoc_to_pnoc" [label="111:snoc_to_pnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "112:snoc_to_ocmem_vnoc" [label="112:snoc_to_ocmem_vnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "113:mas_crypto_core0" [label="113:mas_crypto_core0
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "114:mas_crypto_core1" [label="114:mas_crypto_core1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "115:mas_lpass_proc" [label="115:mas_lpass_proc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "116:mas_mss" [label="116:mas_mss
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "117:mas_mss_nav" [label="117:mas_mss_nav
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "118:mas_ocmem_dma" [label="118:mas_ocmem_dma
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "119:mas_wcss" [label="119:mas_wcss
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "120:mas_qdss_etr" [label="120:mas_qdss_etr
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "121:mas_usb3" [label="121:mas_usb3
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "122:slv_ampss" [label="122:slv_ampss
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "123:slv_lpass" [label="123:slv_lpass
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "124:slv_usb3" [label="124:slv_usb3
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "125:slv_wcss" [label="125:slv_wcss
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "126:slv_ocimem" [label="126:slv_ocimem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "127:slv_snoc_ocmem" [label="127:slv_snoc_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "128:slv_service_snoc" [label="128:slv_service_snoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "129:slv_qdss_stm" [label="129:slv_qdss_stm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "113:mas_crypto_core0" -> "109:snoc_to_bimc"
+                "115:mas_lpass_proc" -> "112:snoc_to_ocmem_vnoc"
+                "121:mas_usb3" -> "109:snoc_to_bimc"
+        }
+        subgraph cluster_3 {
+                label = "fc468000.interconnect"
+                "79:mas_pnoc_cfg" [label="79:mas_pnoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "80:mas_sdcc_1" [label="80:mas_sdcc_1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "81:mas_sdcc_3" [label="81:mas_sdcc_3
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "82:mas_sdcc_4" [label="82:mas_sdcc_4
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "83:mas_sdcc_2" [label="83:mas_sdcc_2
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "84:mas_tsif" [label="84:mas_tsif
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "85:mas_bam_dma" [label="85:mas_bam_dma
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "86:mas_blsp_2" [label="86:mas_blsp_2
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "87:mas_usb_hsic" [label="87:mas_usb_hsic
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "88:mas_blsp_1" [label="88:mas_blsp_1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "89:mas_usb_hs" [label="89:mas_usb_hs
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "90:pnoc_to_snoc" [label="90:pnoc_to_snoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "91:slv_sdcc_1" [label="91:slv_sdcc_1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "92:slv_sdcc_3" [label="92:slv_sdcc_3
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "93:slv_sdcc_2" [label="93:slv_sdcc_2
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "94:slv_sdcc_4" [label="94:slv_sdcc_4
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "95:slv_tsif" [label="95:slv_tsif
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "96:slv_bam_dma" [label="96:slv_bam_dma
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "97:slv_blsp_2" [label="97:slv_blsp_2
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "98:slv_usb_hsic" [label="98:slv_usb_hsic
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "99:slv_blsp_1" [label="99:slv_blsp_1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "100:slv_usb_hs" [label="100:slv_usb_hs
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "101:slv_pdm" [label="101:slv_pdm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "102:slv_periph_apu_cfg" [label="102:slv_periph_apu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "103:slv_pnoc_mpu_cfg" [label="103:slv_pnoc_mpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "104:slv_prng" [label="104:slv_prng
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "105:slv_service_pnoc" [label="105:slv_service_pnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "80:mas_sdcc_1" -> "90:pnoc_to_snoc"
+                "81:mas_sdcc_3" -> "90:pnoc_to_snoc"
+                "82:mas_sdcc_4" -> "90:pnoc_to_snoc"
+                "83:mas_sdcc_2" -> "90:pnoc_to_snoc"
+                "84:mas_tsif" -> "90:pnoc_to_snoc"
+                "86:mas_blsp_2" -> "90:pnoc_to_snoc"
+                "87:mas_usb_hsic" -> "90:pnoc_to_snoc"
+                "88:mas_blsp_1" -> "90:pnoc_to_snoc"
+                "89:mas_usb_hs" -> "90:pnoc_to_snoc"
+                "90:pnoc_to_snoc" -> "104:slv_prng"
+                "104:slv_prng" -> "90:pnoc_to_snoc"
+        }
+        subgraph cluster_4 {
+                label = "fc470000.interconnect"
+                "67:ocmem_noc_to_ocmem_vnoc" [label="67:ocmem_noc_to_ocmem_vnoc
+                        |avg_bw=0kBps
+                        |peak_bw=2560000kBps"]
+                "68:mas_jpeg_ocmem" [label="68:mas_jpeg_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "69:mas_mdp_ocmem" [label="69:mas_mdp_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "70:mas_video_p0_ocmem" [label="70:mas_video_p0_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "71:mas_video_p1_ocmem" [label="71:mas_video_p1_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "72:mas_vfe_ocmem" [label="72:mas_vfe_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "73:mas_cnoc_onoc_cfg" [label="73:mas_cnoc_onoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "74:slv_service_onoc" [label="74:slv_service_onoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "75:ocmem_vnoc_to_snoc" [label="75:ocmem_vnoc_to_snoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "76:ocmem_vnoc_to_onoc" [label="76:ocmem_vnoc_to_onoc
+                        |avg_bw=0kBps
+                        |peak_bw=2560000kBps"]
+                "77:mas_v_ocmem_gfx3d" [label="77:mas_v_ocmem_gfx3d
+                        |avg_bw=0kBps
+                        |peak_bw=2560000kBps"]
+                "78:slv_ocmem" [label="78:slv_ocmem
+                        |avg_bw=0kBps
+                        |peak_bw=2560000kBps"]
+                "67:ocmem_noc_to_ocmem_vnoc" -> "78:slv_ocmem"
+                "76:ocmem_vnoc_to_onoc" -> "67:ocmem_noc_to_ocmem_vnoc"
+                "77:mas_v_ocmem_gfx3d" -> "76:ocmem_vnoc_to_onoc"
+        }
+        subgraph cluster_5 {
+                label = "fc478000.interconnect"
+                "45:mas_graphics_3d" [label="45:mas_graphics_3d
+                        |avg_bw=0kBps
+                        |peak_bw=2560000kBps"]
+                "46:mas_jpeg" [label="46:mas_jpeg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "47:mas_mdp_port0" [label="47:mas_mdp_port0
+                        |avg_bw=0kBps
+                        |peak_bw=6400000kBps"]
+                "48:mas_video_p0" [label="48:mas_video_p0
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "49:mas_video_p1" [label="49:mas_video_p1
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "50:mas_vfe" [label="50:mas_vfe
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "51:mnoc_to_cnoc" [label="51:mnoc_to_cnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "52:mnoc_to_bimc" [label="52:mnoc_to_bimc
+                        |avg_bw=0kBps
+                        |peak_bw=6400000kBps"]
+                "53:slv_camera_cfg" [label="53:slv_camera_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "54:slv_display_cfg" [label="54:slv_display_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "55:slv_ocmem_cfg" [label="55:slv_ocmem_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "56:slv_cpr_cfg" [label="56:slv_cpr_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "57:slv_cpr_xpu_cfg" [label="57:slv_cpr_xpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "58:slv_misc_cfg" [label="58:slv_misc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "59:slv_misc_xpu_cfg" [label="59:slv_misc_xpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "60:slv_venus_cfg" [label="60:slv_venus_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "61:slv_graphics_3d_cfg" [label="61:slv_graphics_3d_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "62:slv_mmss_clk_cfg" [label="62:slv_mmss_clk_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "63:slv_mmss_clk_xpu_cfg" [label="63:slv_mmss_clk_xpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "64:slv_mnoc_mpu_cfg" [label="64:slv_mnoc_mpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "65:slv_onoc_mpu_cfg" [label="65:slv_onoc_mpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "66:slv_service_mnoc" [label="66:slv_service_mnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "45:mas_graphics_3d" -> "52:mnoc_to_bimc"
+                "46:mas_jpeg" -> "52:mnoc_to_bimc"
+                "47:mas_mdp_port0" -> "52:mnoc_to_bimc"
+                "50:mas_vfe" -> "52:mnoc_to_bimc"
+        }
+        subgraph cluster_6 {
+                label = "fc480000.interconnect"
+                "8:mas_rpm_inst" [label="8:mas_rpm_inst
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "9:mas_rpm_data" [label="9:mas_rpm_data
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "10:mas_rpm_sys" [label="10:mas_rpm_sys
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "11:mas_dehr" [label="11:mas_dehr
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "12:mas_qdss_dap" [label="12:mas_qdss_dap
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "13:mas_spdm" [label="13:mas_spdm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "14:mas_tic" [label="14:mas_tic
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "15:slv_clk_ctl" [label="15:slv_clk_ctl
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "16:slv_cnoc_mss" [label="16:slv_cnoc_mss
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "17:slv_security" [label="17:slv_security
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "18:slv_tcsr" [label="18:slv_tcsr
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "19:slv_tlmm" [label="19:slv_tlmm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "20:slv_crypto_0_cfg" [label="20:slv_crypto_0_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "21:slv_crypto_1_cfg" [label="21:slv_crypto_1_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "22:slv_imem_cfg" [label="22:slv_imem_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "23:slv_message_ram" [label="23:slv_message_ram
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "24:slv_bimc_cfg" [label="24:slv_bimc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "25:slv_boot_rom" [label="25:slv_boot_rom
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "26:slv_pmic_arb" [label="26:slv_pmic_arb
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "27:slv_spdm_wrapper" [label="27:slv_spdm_wrapper
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "28:slv_dehr_cfg" [label="28:slv_dehr_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "29:slv_mpm" [label="29:slv_mpm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "30:slv_qdss_cfg" [label="30:slv_qdss_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "31:slv_rbcpr_cfg" [label="31:slv_rbcpr_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "32:slv_rbcpr_qdss_apu_cfg" [label="32:slv_rbcpr_qdss_apu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "33:cnoc_to_snoc" [label="33:cnoc_to_snoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "34:slv_cnoc_onoc_cfg" [label="34:slv_cnoc_onoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "35:slv_cnoc_mnoc_mmss_cfg" [label="35:slv_cnoc_mnoc_mmss_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "36:slv_cnoc_mnoc_cfg" [label="36:slv_cnoc_mnoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "37:slv_pnoc_cfg" [label="37:slv_pnoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "38:slv_snoc_mpu_cfg" [label="38:slv_snoc_mpu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "39:slv_snoc_cfg" [label="39:slv_snoc_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "40:slv_ebi1_dll_cfg" [label="40:slv_ebi1_dll_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "41:slv_phy_apu_cfg" [label="41:slv_phy_apu_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "42:slv_ebi1_phy_cfg" [label="42:slv_ebi1_phy_cfg
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "43:slv_rpm" [label="43:slv_rpm
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+                "44:slv_service_cnoc" [label="44:slv_service_cnoc
+                        |avg_bw=0kBps
+                        |peak_bw=0kBps"]
+        }
+        "5:bimc_to_snoc" -> "109:snoc_to_bimc"
+        "109:snoc_to_bimc" -> "5:bimc_to_snoc"
+        "111:snoc_to_pnoc" -> "90:pnoc_to_snoc"
+        "112:snoc_to_ocmem_vnoc" -> "76:ocmem_vnoc_to_onoc"
+        "90:pnoc_to_snoc" -> "111:snoc_to_pnoc"
+        "52:mnoc_to_bimc" -> "4:bimc_to_mnoc"
+}

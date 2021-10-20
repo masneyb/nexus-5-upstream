@@ -1,0 +1,117 @@
+ regulator                      use open bypass  opmode voltage current     min     max
+---------------------------------------------------------------------------------------
+ regulator-dummy                  9   50      0 unknown     0mV     0mA     0mV     0mV 
+    fdb00000.adreno-vddcx         0                                 0mA     0mV     0mV
+    fdb00000.adreno-vdd           0                                 0mA     0mV     0mV
+    fd922800.dsi.0-power          1                                 0mA     0mV     0mV
+    fd922800.dsi-gdsc             1                                 0mA     0mV     0mV
+    serial0-0-vddio               1                                 0mA     0mV     0mV
+    serial0-0-vbat                1                                 0mA     0mV     0mV
+    adsp-pil-px                   0                                 0mA     0mV     0mV
+    s1                            0    0      0  normal  1300mV     0mA     0mV     0mV 
+    s2                            0    0      0    fast  2150mV     0mA     0mV     0mV 
+    s3                            0    0      0  normal  1800mV     0mA     0mV     0mV 
+    l1                            0    0      0  normal     0mV     0mA     0mV     0mV 
+    l2                            0    0      0    idle  1200mV     0mA     0mV     0mV 
+    l3                            0    0      0  normal  1200mV     0mA     0mV     0mV 
+    l4                            0    0      0  normal     0mV     0mA     0mV     0mV 
+    l5                            0    0      0 unknown  1740mV     0mA     0mV     0mV 
+    l6                            0    0      0  normal  1800mV     0mA     0mV     0mV 
+    l7                            0    0      0 unknown  1740mV     0mA     0mV     0mV 
+    l8                            0    0      0    idle  1800mV     0mA     0mV     0mV 
+    l9                            0    0      0    idle  3000mV     0mA     0mV     0mV 
+    l10                           0    0      0  normal  1800mV     0mA     0mV     0mV 
+    l11                           0    0      0  normal     0mV     0mA     0mV     0mV 
+    l12                           0    0      0  normal  1800mV     0mA     0mV     0mV 
+    l13                           0    0      0    idle  1800mV     0mA     0mV     0mV 
+    l14                           0    0      0  normal  1800mV     0mA     0mV     0mV 
+    l15                           0    0      0  normal  2050mV     0mA     0mV     0mV 
+    l16                           0    0      0  normal  2800mV     0mA     0mV     0mV 
+    l17                           0    0      0    idle  2850mV     0mA     0mV     0mV 
+    l18                           0    0      0  normal  2850mV     0mA     0mV     0mV 
+    l19                           0    0      0  normal  3300mV     0mA     0mV     0mV 
+    l20                           0    0      0  normal  2950mV     0mA     0mV     0mV 
+    l21                           0    0      0    idle  2950mV     0mA     0mV     0mV 
+    l22                           0    0      0    idle  3100mV     0mA     0mV     0mV 
+    l23                           0    0      0  normal  3000mV     0mA     0mV     0mV 
+    l24                           0    0      0    idle  3075mV     0mA     0mV     0mV 
+    lvs1                          0    0      0    fast     0mV     0mA     0mV     0mV 
+    lvs2                          0    0      0    fast     0mV     0mA     0mV     0mV 
+    lvs3                          0    0      0    fast     0mV     0mA     0mV     0mV 
+    s1                            0    1      0 unknown   675mV     0mA   675mV  1050mV 
+       fc880000.remoteproc-mx     0                                 0mA   675mV  1050mV
+    s2                            0    2      0 unknown   500mV     0mA   500mV  1050mV 
+       fc880000.remoteproc-cx     0                                 0mA     0mV     0mV
+       adsp-pil-cx                0                               100mA*    0mV     0mV
+    s3                            1    1      0 unknown  1050mV     0mA  1050mV  1050mV 
+       fc880000.remoteproc-mss    1                               100mA  1050mV 2147483mV
+    s4                            0    0      0 unknown   815mV     0mA   815mV   900mV 
+    s5                            0    0      0 unknown     0mV     0mA     0mV     0mV 
+    s6                            0    0      0 unknown     0mV     0mA     0mV     0mV 
+    s7                            0    0      0 unknown     0mV     0mA     0mV     0mV 
+    s8                            0    0      0 unknown     0mV     0mA     0mV     0mV 
+    s1                            2    4      0 unknown  1300mV     0mA  1300mV  1300mV 
+       l1                         1    0      0 unknown  1225mV     0mA  1225mV  1225mV 
+       l3                         0    0      0 unknown  1225mV     0mA  1225mV  1225mV 
+       l4                         0    0      0 unknown  1225mV     0mA  1225mV  1225mV 
+       l11                        0    0      0 unknown  1300mV     0mA  1300mV  1300mV 
+    s2                            1    6      0 unknown  2150mV     0mA  2150mV  2150mV 
+       l5                         0    0      0 unknown  1800mV     0mA  1800mV  1800mV 
+       l6                         0    1      0 unknown  1800mV     0mA  1800mV  1800mV 
+          ci_hdrc.0.ulpi-v1p8     0                                 0mA     0mV     0mV
+       l7                         0    0      0 unknown  1800mV     0mA  1800mV  1800mV 
+       l12                        3    3      0 unknown  1800mV     0mA  1800mV  1800mV 
+          fd922800.dsi-vddio      1                               100mA     0mV     0mV
+          fd922a00.dsi-phy-vddio   1                               100mA     0mV     0mV
+          fc880000.remoteproc-pll   0                                 0mA     0mV     0mV
+       l14                        0    0      0 unknown  1800mV     0mA  1800mV  1800mV 
+       l15                        0    0      0 unknown  2050mV     0mA  2050mV  2050mV 
+    s3                            6    6      0 unknown  1800mV     0mA  1800mV  1800mV 
+       f9824900.sdhci-vqmmc       1                                 0mA     0mV     0mV
+       f98a4900.sdhci-vqmmc       1                                 0mA     0mV     0mV
+       l2                         1    1      0 unknown  1200mV     0mA  1200mV  1200mV 
+          fd922800.dsi-vdda       1                               100mA     0mV     0mV
+       lvs1                       1    4      0 unknown  1800mV     0mA     0mV     0mV 
+          5-0076-vdda             0                                 0mA     0mV     0mV
+          5-000f-vid              0                                 0mA     0mV     0mV
+          4-0068-vddio            0                                 0mA     0mV     0mV
+          2-0039-vddio            1                                 0mA     0mV     0mV
+       lvs2                       0    0      0 unknown  1800mV     0mA     0mV     0mV 
+       lvs3                       3    3      0 unknown  1800mV     0mA     0mV     0mV 
+          fd922800.dsi-vdd        1                               150mA     0mV     0mV
+          fd900000.mdss-vdd       1                                 0mA     0mV     0mV
+          1-0070-vio              1                                 0mA     0mV     0mV
+    5vs1                          0    0      0 unknown     0mV     0mA     0mV     0mV 
+    5vs2                          0    0      0 unknown     0mV     0mA     0mV     0mV 
+ vph-pwr                          1    4      0 unknown  3600mV     0mA  3600mV  3600mV 
+    l8                            0    0      0 unknown  1800mV     0mA  1800mV  1800mV 
+    l16                           0    0      0 unknown  2700mV     0mA  2700mV  2700mV 
+    l18                           0    0      0 unknown  2850mV     0mA  2850mV  2850mV 
+    l19                           0    1      0 unknown  3000mV     0mA  3000mV  3300mV 
+       vibrator-vcc               0                                 0mA     0mV     0mV
+ s4                               0    2      0 unknown  5000mV     0mA  5000mV  5000mV 
+    5vs1                          0    1      0  normal  5000mV     0mA     0mV     0mV 
+       otg-vbus                   0    0      0 unknown  5000mV     0mA     0mV     0mV 
+    5vs2                          0    0      0  normal  5000mV     0mA     0mV     0mV 
+ vreg-boost                       4    9      0 unknown  3150mV     0mA  3150mV  3150mV 
+    l9                            0    0      0 unknown  1800mV     0mA  1800mV  2950mV 
+    l10                           0    0      0 unknown  1800mV     0mA  1800mV  2950mV 
+    l13                           0    0      0 unknown  1800mV     0mA  1800mV  2950mV 
+    l17                           2    4      0 unknown  2850mV     0mA  2850mV  2850mV 
+       5-0076-vddd                0                                 0mA     0mV     0mV
+       5-000f-vdd                 0                                 0mA     0mV     0mV
+       4-0068-vdd                 1                                 0mA     0mV     0mV
+       2-0039-vdd                 1                                 0mA     0mV     0mV
+    l20                           1    1      0 unknown  2950mV     0mA  2950mV  2950mV 
+       f9824900.sdhci-vmmc        1                                 0mA  2900mV  3000mV
+    l21                           0    0      0 unknown  2950mV     0mA  2950mV  2950mV 
+    l22                           1    1      0 unknown  3000mV     0mA  3000mV  3300mV 
+       1-0070-vdd                 1                                 0mA     0mV     0mV
+    l23                           0    0      0 unknown  3000mV     0mA  3000mV  3000mV 
+    l24                           0    1      0 unknown  3075mV     0mA  3075mV  3075mV 
+       ci_hdrc.0.ulpi-v3p3        0                                 0mA     0mV     0mV
+ wl-reg                           1    1      0 unknown  3300mV     0mA  3300mV  3300mV 
+    f98a4900.sdhci-vmmc           1                                 0mA  3300mV  3400mV
+ s4                               0    0      0 unknown     0mV     0mA     0mV     0mV 
+ usb_otg_vbus                     0    1      0 unknown  5000mV     0mA     0mV     0mV 
+    f9a55000.usb-vbus             0                                 0mA     0mV     0mV
