@@ -287,6 +287,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   hardware and would return zeros.
 
   - *Pending*: [crypto: qcom-rng: ensure buffer for generate is completely filled](https://lore.kernel.org/lkml/20220310232459.749638-1-bmasney@redhat.com/)
+  - *Pending*: [ARM: qcom_defconfig: enable options for Qualcomm random number generator](https://lore.kernel.org/lkml/20220311154919.1797920-2-bmasney@redhat.com/)
 
 - <a id="vibrator"></a>Add support for clock-based vibrator devices where the speed can be
   controlled by changing the duty cycle. Use
@@ -350,6 +351,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
     [fa94e48e13a1a ("regulator: core: Apply system load even if no consumer loads"](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa94e48e13a1).
 
 - [acd92c5a1149 ("ARM: qcom_defconfig: add options for LG Nexus 5 phone")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=acd92c5a11493bdf137aba6e21e865331d7d90d7)
+- *Pending*: [ARM: qcom_defconfig: enable debug fs support](https://lore.kernel.org/lkml/20220311154919.1797920-3-bmasney@redhat.com/)
 
 ## Other resources
 
