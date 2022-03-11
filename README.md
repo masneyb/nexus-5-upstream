@@ -88,6 +88,8 @@ The following is a summary of my upstream Linux kernel contributions as part of 
   brightness level via sysfs. [Patches](#lm3630a)
 - Added extcon support to the existing bq24190_charger driver upstream, and support for USB OTG
   to device tree. [Patches](#bq24192)
+- Found and fixed an issue with the qcom-crypto.c driver not waiting for availablity of randomness
+  from the hardware and would return zeros. [Patches](#crypto)
 - Work in progress patches to get the vibrator supported upstream. Working with the upstream
   maintainers to see where this code should go upstream. [Patches](#vibrator)
 - Work in progress patches to get the IOMMU for the display and GPU working. [Patches](#iommu)
@@ -279,6 +281,12 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   - [817bbbb7749d ("ARM: qcom_defconfig: add support for USB networking")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=817bbbb7749decb99262dc3bb1569a579eea5ba8)
 
   ![USB OTG](images/usb-otg.png?raw=1)
+
+- <a id="crypto"></a>The phone contains the Qualcomm Crypto Engine and the kernel driver
+  contained a bug where it would not properly wait for the availablity of randomness from the
+  hardware and would return zeros.
+
+  - *Pending*: [crypto: qcom-rng: ensure buffer for generate is completely filled](https://lore.kernel.org/lkml/20220310232459.749638-1-bmasney@redhat.com/)
 
 - <a id="vibrator"></a>Add support for clock-based vibrator devices where the speed can be
   controlled by changing the duty cycle. Use
