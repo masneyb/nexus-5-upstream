@@ -1,0 +1,38 @@
+From 65f6b2c6371cff45a5fbbb778fb7ceae1b3838d4 Mon Sep 17 00:00:00 2001
+From: Jonathan Marek <jonathan@marek.ca>
+Date: Sat, 5 Oct 2019 21:15:07 -0400
+Subject: [PATCH 3/5] HACK: delay rpm init
+
+Delay RPM init. This is a hack that somehow fixes some problems.
+
+Signed-off-by: Jonathan Marek <jonathan@marek.ca>
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ drivers/clk/qcom/clk-smd-rpm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/clk/qcom/clk-smd-rpm.c b/drivers/clk/qcom/clk-smd-rpm.c
+index 5776d85a1e5c..fcaa24e56e58 100644
+--- a/drivers/clk/qcom/clk-smd-rpm.c
++++ b/drivers/clk/qcom/clk-smd-rpm.c
+@@ -15,6 +15,7 @@
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ #include <linux/soc/qcom/smd-rpm.h>
++#include <linux/delay.h>
+ 
+ #include <dt-bindings/clock/qcom,rpmcc.h>
+ #include <dt-bindings/mfd/qcom-rpm.h>
+@@ -1199,6 +1200,9 @@ static int rpm_smd_clk_probe(struct platform_device *pdev)
+ 	rcc->clks = rpm_smd_clks;
+ 	rcc->num_clks = num_clks;
+ 
++	/* delay rpm init, somehow this fixes some problems */
++	usleep_range(100000, 110000);
++
+ 	for (i = 0; i < num_clks; i++) {
+ 		if (!rpm_smd_clks[i])
+ 			continue;
+-- 
+2.34.1
+

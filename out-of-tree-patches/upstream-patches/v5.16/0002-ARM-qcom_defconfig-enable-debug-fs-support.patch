@@ -1,0 +1,27 @@
+From 374edf3328885ab8c9c60ff75aa46fd7ba5a6776 Mon Sep 17 00:00:00 2001
+From: Brian Masney <bmasney@redhat.com>
+Date: Fri, 11 Mar 2022 10:18:37 -0500
+Subject: [PATCH 2/5] ARM: qcom_defconfig: enable debug fs support
+
+Enable CONFIG_DEBUG_FS since this is useful to have around.
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ arch/arm/configs/qcom_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index 2cee49229ee8..a304d083ad86 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -309,6 +309,7 @@ CONFIG_PRINTK_TIME=y
+ CONFIG_DYNAMIC_DEBUG=y
+ CONFIG_DEBUG_INFO=y
+ CONFIG_MAGIC_SYSRQ=y
++CONFIG_DEBUG_FS=y
+ # CONFIG_SCHED_DEBUG is not set
+ CONFIG_WATCHDOG=y
+ CONFIG_QCOM_WDT=y
+-- 
+2.34.1
+

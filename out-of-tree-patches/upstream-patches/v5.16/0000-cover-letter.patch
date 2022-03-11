@@ -1,0 +1,24 @@
+From a8410e49d6ba6343f3657eefd601cec2fe40a0c1 Mon Sep 17 00:00:00 2001
+From: Brian Masney <bmasney@redhat.com>
+Date: Fri, 11 Mar 2022 10:31:42 -0500
+Subject: [PATCH 0/5] qcom: Nexus 5 out-of-tree patches for v5.16
+
+Brian Masney (4):
+  ARM: qcom_defconfig: enable options for Qualcomm random number
+    generator
+  ARM: qcom_defconfig: enable debug fs support
+  ARM: dts: qcom: msm8974-hammerhead: add support for GPU
+  fix upstream build error
+
+Jonathan Marek (1):
+  HACK: delay rpm init
+
+ arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts | 4 ++++
+ arch/arm/configs/qcom_defconfig                          | 8 ++++++++
+ drivers/clk/qcom/clk-smd-rpm.c                           | 4 ++++
+ drivers/gpu/drm/panel/Kconfig                            | 1 +
+ 4 files changed, 17 insertions(+)
+
+-- 
+2.34.1
+

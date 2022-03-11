@@ -1,0 +1,38 @@
+From 34ef73809a4a5460ac2cf0c9f7aab24e443d3179 Mon Sep 17 00:00:00 2001
+From: Brian Masney <bmasney@redhat.com>
+Date: Fri, 11 Mar 2022 10:00:33 -0500
+Subject: [PATCH 1/5] ARM: qcom_defconfig: enable options for Qualcomm random
+ number generator
+
+Enable the driver for the Qualcomm random number generator and the
+userspace crypto API.
+
+This was a tested on a Nexus 5 phone (msm8974 SoC). The necessary DTS is
+already present.
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+ arch/arm/configs/qcom_defconfig | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/arm/configs/qcom_defconfig b/arch/arm/configs/qcom_defconfig
+index 0daa9c0d298e..2cee49229ee8 100644
+--- a/arch/arm/configs/qcom_defconfig
++++ b/arch/arm/configs/qcom_defconfig
+@@ -296,6 +296,13 @@ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ASCII=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_NLS_UTF8=y
++CONFIG_CRYPTO_USER=m
++CONFIG_CRYPTO_USER_API=m
++CONFIG_CRYPTO_USER_API_HASH=m
++CONFIG_CRYPTO_USER_API_SKCIPHER=m
++CONFIG_CRYPTO_USER_API_AEAD=m
++CONFIG_CRYPTO_USER_API_RNG=m
++CONFIG_CRYPTO_DEV_QCOM_RNG=m
+ CONFIG_DMA_CMA=y
+ CONFIG_CMA_SIZE_MBYTES=64
+ CONFIG_PRINTK_TIME=y
+-- 
+2.34.1
+
