@@ -31,7 +31,7 @@ isn't fully working yet with these patches.
 See the [TODO list](TODO.md) for information about other components and links to some out-of-tree
 patches.
 
-Note that the kernel command line arguments `msm.allow_vram_carveout msm.vram=192m` must be passed
+Note that the kernel command line arguments `msm.allow_vram_carveout msm.vram=48m` must be passed
 used in order for the display to work properly. These options are present in my
 [build-kernel](build-kernel) script.
 
