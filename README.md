@@ -286,7 +286,7 @@ marked *Queued* are in linux-next, and the others are labeled either *Pending* o
   contained a bug where it would not properly wait for the availablity of randomness from the
   hardware and would return zeros.
 
-  - *Pending*: [crypto: qcom-rng: ensure buffer for generate is completely filled](https://lore.kernel.org/lkml/20220310232459.749638-1-bmasney@redhat.com/)
+  - [a680b1832ced ("crypto: qcom-rng: ensure buffer for generate is completely filled")](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=a680b1832ced3b5fa7c93484248fd221ea0d614b)
   - *Pending*: [ARM: qcom_defconfig: enable options for Qualcomm random number generator](https://lore.kernel.org/lkml/20220311154919.1797920-2-bmasney@redhat.com/)
 
 - <a id="vibrator"></a>Add support for clock-based vibrator devices where the speed can be
