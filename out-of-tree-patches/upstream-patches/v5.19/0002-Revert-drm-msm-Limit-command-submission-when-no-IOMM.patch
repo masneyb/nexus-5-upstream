@@ -1,7 +1,7 @@
 From b579f654f23239a972fd39d9c650ea332cc0d0c2 Mon Sep 17 00:00:00 2001
 From: Luca Weiss <luca@z3ntu.xyz>
 Date: Mon, 6 Jun 2022 14:21:16 +0200
-Subject: [PATCH 2/6] Revert "drm/msm: Limit command submission when no IOMMU"
+Subject: [PATCH 2/7] Revert "drm/msm: Limit command submission when no IOMMU"
 Content-type: text/plain
 
 This reverts commit 4a257ca694015f8c10aeb27bc4b32282d136b7d0.

@@ -1,7 +1,7 @@
 From 3008904a1d582ec880d18ea7f6fa7a474b89b0b0 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 03:04:35 -0500
-Subject: [PATCH 4/6] dt-bindings: Input: introduce new clock vibrator bindings
+Subject: [PATCH 4/7] dt-bindings: Input: introduce new clock vibrator bindings
 Content-type: text/plain
 
 Add support for clock-based vibrator devices where the speed can be

@@ -1,7 +1,7 @@
 From 3582cf0fdeef92e0dc83cae81c0ac5e81013c3c7 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 03:14:33 -0500
-Subject: [PATCH 6/6] ARM: dts: qcom: msm8974-hammerhead: add support for
+Subject: [PATCH 6/7] ARM: dts: qcom: msm8974-hammerhead: add support for
  vibrator
 Content-type: text/plain
 

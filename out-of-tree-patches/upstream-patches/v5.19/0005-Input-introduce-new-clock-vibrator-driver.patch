@@ -1,7 +1,7 @@
 From fcd7e435f1399a51ea73a23838d192b2ab99a630 Mon Sep 17 00:00:00 2001
 From: Brian Masney <masneyb@onstation.org>
 Date: Wed, 4 Dec 2019 02:30:00 -0500
-Subject: [PATCH 5/6] Input: introduce new clock vibrator driver
+Subject: [PATCH 5/7] Input: introduce new clock vibrator driver
 Content-type: text/plain
 
 Add support for clock-based vibrator devices where the speed can be

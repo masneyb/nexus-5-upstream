@@ -1,7 +1,7 @@
 From eac2fcba7de0bd2b72b953af88a3067a6cfe7087 Mon Sep 17 00:00:00 2001
 From: Jonathan Marek <jonathan@marek.ca>
 Date: Sat, 5 Oct 2019 21:15:07 -0400
-Subject: [PATCH 1/6] HACK: delay rpmcc init
+Subject: [PATCH 1/7] HACK: delay rpmcc init
 Content-type: text/plain
 
 Delay RPMCC init. This is a hack that somehow fixes some problems.

@@ -1,7 +1,7 @@
-From 3582cf0fdeef92e0dc83cae81c0ac5e81013c3c7 Mon Sep 17 00:00:00 2001
+From 439ba2fb04b790cd3c33d5ed8e9067066ee3bfdd Mon Sep 17 00:00:00 2001
 From: Brian Masney <bmasney@redhat.com>
-Date: Fri, 12 Aug 2022 21:03:00 -0400
-Subject: [PATCH 0/6] ARM: dts: qcom: msm8974-hammerhead: add GPU and
+Date: Sat, 13 Aug 2022 06:51:48 -0400
+Subject: [PATCH 0/7] ARM: dts: qcom: msm8974-hammerhead: add GPU and
  vibrator support
 Content-type: text/plain
 
@@ -31,11 +31,12 @@ postmarketOS developers at:
 
 https://github.com/msm8974-mainline/linux/tree/qcom-msm8974-5.19.y
 
-Brian Masney (4):
+Brian Masney (5):
   ARM: dts: qcom: msm8974-hammerhead: add support for GPU
   dt-bindings: Input: introduce new clock vibrator bindings
   Input: introduce new clock vibrator driver
   ARM: dts: qcom: msm8974-hammerhead: add support for vibrator
+  ARM: qcom_defconfig: enable CONFIG_INPUT_CLK_VIBRATOR
 
 Jonathan Marek (1):
   HACK: delay rpmcc init
@@ -45,12 +46,13 @@ Luca Weiss (1):
 
  .../bindings/input/clk-vibrator.yaml          |  60 +++++
  .../qcom-msm8974-lge-nexus5-hammerhead.dts    |  34 +++
+ arch/arm/configs/qcom_defconfig               |   1 +
  drivers/clk/qcom/clk-smd-rpm.c                |   4 +
  drivers/gpu/drm/msm/msm_gem_submit.c          |   5 -
  drivers/input/misc/Kconfig                    |  10 +
  drivers/input/misc/Makefile                   |   1 +
  drivers/input/misc/clk-vibrator.c             | 245 ++++++++++++++++++
- 7 files changed, 354 insertions(+), 5 deletions(-)
+ 8 files changed, 355 insertions(+), 5 deletions(-)
  create mode 100644 Documentation/devicetree/bindings/input/clk-vibrator.yaml
  create mode 100644 drivers/input/misc/clk-vibrator.c
 
