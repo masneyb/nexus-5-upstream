@@ -1,0 +1,63 @@
+From 3582cf0fdeef92e0dc83cae81c0ac5e81013c3c7 Mon Sep 17 00:00:00 2001
+From: Brian Masney <masneyb@onstation.org>
+Date: Wed, 4 Dec 2019 03:14:33 -0500
+Subject: [PATCH 6/6] ARM: dts: qcom: msm8974-hammerhead: add support for
+ vibrator
+Content-type: text/plain
+
+Add support for the vibrator found on the Nexus 5 phone.
+
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ .../qcom-msm8974-lge-nexus5-hammerhead.dts    | 30 +++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+index 2e5cbecb4225..8f22cae9011f 100644
+--- a/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
++++ b/arch/arm/boot/dts/qcom-msm8974-lge-nexus5-hammerhead.dts
+@@ -52,6 +52,21 @@ vreg_wlan: wlan-regulator {
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&wlan_regulator_pin>;
+ 	};
++
++	vibrator {
++		compatible = "clk-vibrator";
++
++		vcc-supply = <&pm8941_l19>;
++
++		clocks = <&mmcc CAMSS_GP1_CLK>;
++		clock-names = "core";
++		clock-frequency = <24000>;
++
++		enable-gpios = <&tlmm 60 GPIO_ACTIVE_HIGH>;
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&vibrator_pin>;
++	};
+ };
+ 
+ &blsp1_i2c1 {
+@@ -624,4 +639,19 @@ shutdown {
+ 			function = "gpio";
+ 		};
+ 	};
++
++	vibrator_pin: vibrator {
++		core {
++			pins = "gpio27";
++			function = "gp1_clk";
++
++			drive-strength = <6>;
++			bias-disable;
++		};
++
++		enable {
++			pins = "gpio60";
++			function = "gpio";
++		};
++	};
+ };
+-- 
+2.37.1
+

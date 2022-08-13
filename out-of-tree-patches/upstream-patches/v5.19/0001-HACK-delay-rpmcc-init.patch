@@ -1,0 +1,43 @@
+From eac2fcba7de0bd2b72b953af88a3067a6cfe7087 Mon Sep 17 00:00:00 2001
+From: Jonathan Marek <jonathan@marek.ca>
+Date: Sat, 5 Oct 2019 21:15:07 -0400
+Subject: [PATCH 1/6] HACK: delay rpmcc init
+Content-type: text/plain
+
+Delay RPMCC init. This is a hack that somehow fixes some problems.
+Hopefully the need for this patches goes away once the IOMMU is
+working.
+
+On hammerhead 0.1 seconds is sometimes too little leading ocmem to fail.
+
+Signed-off-by: Jonathan Marek <jonathan@marek.ca>
+Signed-off-by: Brian Masney <masneyb@onstation.org>
+---
+ drivers/clk/qcom/clk-smd-rpm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/clk/qcom/clk-smd-rpm.c b/drivers/clk/qcom/clk-smd-rpm.c
+index 10b4e6d8d10f..833f2c0e69c7 100644
+--- a/drivers/clk/qcom/clk-smd-rpm.c
++++ b/drivers/clk/qcom/clk-smd-rpm.c
+@@ -15,6 +15,7 @@
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
+ #include <linux/soc/qcom/smd-rpm.h>
++#include <linux/delay.h>
+ 
+ #include <dt-bindings/clock/qcom,rpmcc.h>
+ 
+@@ -1199,6 +1200,9 @@ static int rpm_smd_clk_probe(struct platform_device *pdev)
+ 	rpm_smd_clks = desc->clks;
+ 	num_clks = desc->num_clks;
+ 
++	/* delay rpm init, somehow this fixes some problems */
++	usleep_range(200000, 210000);
++
+ 	for (i = 0; i < num_clks; i++) {
+ 		if (!rpm_smd_clks[i])
+ 			continue;
+-- 
+2.37.1
+

@@ -1,0 +1,33 @@
+From b579f654f23239a972fd39d9c650ea332cc0d0c2 Mon Sep 17 00:00:00 2001
+From: Luca Weiss <luca@z3ntu.xyz>
+Date: Mon, 6 Jun 2022 14:21:16 +0200
+Subject: [PATCH 2/6] Revert "drm/msm: Limit command submission when no IOMMU"
+Content-type: text/plain
+
+This reverts commit 4a257ca694015f8c10aeb27bc4b32282d136b7d0.
+
+While the reasons in the commit are totally valid, we don't have working
+IOMMU yet on msm8974 and this prohibits any "normal" usage of GPU.
+---
+ drivers/gpu/drm/msm/msm_gem_submit.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/drivers/gpu/drm/msm/msm_gem_submit.c b/drivers/gpu/drm/msm/msm_gem_submit.c
+index c9e4aeb14f4a..16e799d09562 100644
+--- a/drivers/gpu/drm/msm/msm_gem_submit.c
++++ b/drivers/gpu/drm/msm/msm_gem_submit.c
+@@ -740,11 +740,6 @@ int msm_ioctl_gem_submit(struct drm_device *dev, void *data,
+ 	if (args->pad)
+ 		return -EINVAL;
+ 
+-	if (unlikely(!ctx->aspace) && !capable(CAP_SYS_RAWIO)) {
+-		DRM_ERROR_RATELIMITED("IOMMU support or CAP_SYS_RAWIO required!\n");
+-		return -EPERM;
+-	}
+-
+ 	/* for now, we just have 3d pipe.. eventually this would need to
+ 	 * be more clever to dispatch to appropriate gpu module:
+ 	 */
+-- 
+2.37.1
+
